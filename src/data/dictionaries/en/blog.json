@@ -1,20 +1,19 @@
 {
     "postPreviews": [
         {
-            "title": "SEO Introduction",
-            "description": "What is SEO and how it affects your website?"
-        },
-        {
             "title": "Website Builders",
-            "description": "Are Website Builders the right choice for your business?"
+            "description": "Are Website Builders the right choice for your business?",
+            "image_src": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/bfc90ad7-5d5d-458e-c803-9966220d2a00/card600x400"
         },
         {
             "title": "Professional Email",
-            "description": "How to setup Professional Email for your Website?"
+            "description": "How to setup Professional Email for your Website?",
+            "image_src": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/1cfed863-aaa7-43cc-6179-5c21cf41b100/card600x400"
         },
         {
             "title": "Adding Business to Google Maps",
-            "description": "Guide to Business Presence on Google Maps"
+            "description": "Guide to Business Presence on Google Maps",
+            "image_src": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/bed2916d-ab57-465c-ca1b-4bd5ed0b2200/card600x400"
         }
     ]
 }
