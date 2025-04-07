@@ -1,0 +1,111 @@
+:root {
+  --font-family-default: "Poppins", sans-serif;
+  --font-size-r: clamp(0.9375rem, 0.9013rem + 0.1812vi, 1.0417rem);
+  --font-size-m: clamp(1.62rem, 1.5574rem + 0.313vi, 1.8rem);
+  --font-size-l: clamp(2.3328rem, 2.2426rem + 0.4508vi, 2.592rem);
+  --font-weight-r: 300;
+  --font-weight-bd: 700;
+  --lineheight-r: 1.6;
+
+  --color-accent: #439dd6;
+  --color-background-default: #212e45;
+  --color-base: #364461;
+  --color-border: var(--color-base);
+  --color-text-default: #d3d5da;
+  --color-text-alt: #fff;
+  --color-text-link: var(--color-accent);
+
+  --border-width-r: 1px;
+  --border-width-l: 3px;
+
+  --spacing-r: clamp(1.125rem, 1.0815rem + 0.2174vi, 1.25rem);
+  --spacing-l: clamp(2.25rem, 2.163rem + 0.4348vi, 2.5rem);
+}
+
+html {
+  background-color: var(--color-background-default);
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+body {
+  margin: 0 auto;
+  padding: 1.5rem;
+  max-inline-size: 72ch;
+  background-color: var(--color-background-default);
+  color: var(--color-text-default);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-r);
+  font-weight: var(--font-weight-r);
+  line-height: var(--lineheight-r);
+}
+
+@viewport {
+  width: device-width;
+}
+
+h1 {
+  font-size: var(--font-size-l);
+  font-weight: bold;
+}
+
+h2 {
+  font-size: var(--font-size-m);
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+h3 {
+  margin-block-start: var(--spacing-l);
+}
+
+mark {
+  background-color: var(--color-base);
+  color: var(--color-text-default);
+}
+
+a,
+a:visited {
+  color: var(--color-text-link);
+}
+
+table {
+  margin: 0 0 var(--spacing-r);
+  width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  font-family: inherit;
+}
+
+th,
+td {
+  padding: 0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+hr {
+  clear: both;
+  display: block;
+  height: 1px;
+  margin-block: var(--spacing-r);
+  margin-inline: 0;
+  padding: 0;
+  border: 0;
+  border-block-start: var(--border-width-l) solid var(--color-border);
+}
+
+.alt-dots {
+  min-block-size: 100px;
+  border-block-end: var(--border-width-l) dotted var(--color-border);
+}

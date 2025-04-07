@@ -1,0 +1,94 @@
+{
+    "contactForm": {
+      "name": "Name",
+      "email": "E-Mail",
+      "message": "Nachricht",
+      "send": "Nachricht senden",
+      "sending": "Nachricht wird gesendet..."
+    },
+    "exclusivePlan": {
+      "header": "Exklusiver Plan",
+      "description": "Zugriff auf die komplette Suite fortschrittlicher Funktionen",
+      "interval": "Monat",
+      "features": [
+        "Stärke deine Marke mit einer individuellen Website",
+        "Mobile- und Desktop-Version",
+        "Suchmaschinenoptimierung (SEO)",
+        "Hosting & Domain & Geschäftliche E-Mail"
+      ],
+      "cta": "Abonnieren"
+    },
+    "pricingPlan": [
+  {
+    "name": "🌱 Startup 🌱",
+    "price": "49",
+    "additionalPagePrice": "9",
+    "description": "Perfekt für neue Unternehmen oder Einzelunternehmer, die einfach eine solide Online-Präsenz benötigen",
+    "bgColor": "bg-gray-900",
+    "textPrimaryColor": "white",
+    "textSecondaryColor": "gray-400",
+    "features": [
+      {
+        "featureHighlight": "✅ Einfach, individuelle Website",
+        "featureDescription": ""
+      },
+      {
+        "featureHighlight": "📱 Mobilfreundliches Design",
+        "featureDescription": ""
+      },
+      {
+        "featureHighlight": "🔍 Grundlegende SEO-Einrichtung",
+        "featureDescription": ""
+      },
+      {
+        "featureHighlight": "⚡️ Schneller Start",
+        "featureDescription": ""
+      },
+      {
+        "featureHighlight": "🔒 Hosting, Domain & SSL inklusive",
+        "featureDescription": ""
+      },
+      {
+        "featureHighlight": "📄 Enthält 2 Seiten",
+        "featureDescription": ""
+      }
+    ]
+  },
+  {
+    "name": "✨ Standard ✨",
+    "price": "79",
+    "additionalPagePrice": "9",
+    "description": "Ideal für wachsende Unternehmen, die eine individuelle Website, bessere Sichtbarkeit und Sorgenfreiheit wollen",
+    "bgColor": "bg-gray-100",
+    "textPrimaryColor": "black",
+    "textSecondaryColor": "carrot-500",
+    "features": [
+      {
+        "featureHighlight": "✅ Individuelles Website-Design",
+        "featureDescription": ""
+      },
+      {
+        "featureHighlight": "📱 Responsiv & mobilfreundlich",
+        "featureDescription": ""
+      },
+      {
+        "featureHighlight": "🔍 SEO-Optimierung",
+        "featureDescription": ""
+      },
+      {
+        "featureHighlight": "🔁 Unbegrenzte Änderungen",
+        "featureDescription": ""
+      },
+      {
+        "featureHighlight": "🔒 Hosting, Domain & SSL inklusive",
+        "featureDescription": ""
+      },
+      {
+        "featureHighlight": "📄 Bis zu 4 individuelle Seiten",
+        "featureDescription": ""
+      }
+    ]
+  }
+  ]
+}
+  

@@ -1,0 +1,93 @@
+{
+    "hero": {
+        "headerBeforeEffect": "Bring dein",
+        "headerEffect": ["Idee", "Marke", "Projekt", "Portfolio", "Geschichte"],
+        "headerAfterEffect": "Online"
+    },
+    "comparison": {
+        "header": "Maßgeschneiderte Websites, die deine Marke auf das nächste Level heben",
+        "description": "Kein weiteres langsames 08/15-Template – sondern Websites so einzigartig wie du",
+        "dashcruiseDev": {
+            "title": "Unsere Websites",
+            "items": [
+                "Für die Google-Suchmaschine optimiert",
+                "Ultraschnelle Ladezeiten",
+                "Sicher",
+                "Einzigartig",
+                "Anpassbar an deine Bedürfnisse",
+                "Expertenunterstützung"
+            ]
+        },
+        "webBuilders": {
+            "title": "Website-Baukästen",
+            "items": [
+                "Schlechteres SEO",
+                "Langsam",
+                "Sicherheitsrisiken durch Plugins",
+                "Durch Themes eingeschränkt",
+                "Häufige Designs",
+                "Schlechter oder kein Support"
+            ]
+        }
+    },
+    "highlight": {
+        "header": ["Stärke dein Business mit", "Unvergleichlicher Geschwindigkeit und", "Sicherheit"],
+        "description": "Genieße Ruhe und Sicherheit mit 24/7-Schutz und unterbrechungsfreiem Service – so bleibt deine Website stets vertrauenswürdig und zuverlässig. Dank DoS-Schutz, SSL-Verschlüsselung und intelligentem Caching kannst du beruhigt schlafen, denn deine Website ist schnell und sicher. Stärke deine Webpräsenz mit uns – wo Geschwindigkeit auf Sicherheit trifft!"
+    },
+    "portfolio": {
+        "header": "Sieh dir unsere Arbeit in Aktion an",
+        "portfolioItems": [
+            {
+                "name": "VoyageBlur Reiseblog",
+                "imageUrl": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/236846ed-3356-4bb7-6094-a0eb79b59f00/card600x400"
+            },
+            {
+                "name": "Webee Dashboard-Panel",
+                "imageUrl": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/9f2c4b1b-f1f2-45c0-dcdb-d8f846703c00/card600x400"
+            },
+            {
+                "name": "Rana Solutions",
+                "imageUrl": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/8fde5afd-0c71-47e5-0383-209157ae8e00/card600x400"
+            }
+        ]
+    },
+    "contactUs": {
+        "header": ["Wir würden uns freuen,", "von dir zu hören!"],
+        "description": "Bitte fülle das Kontaktformular aus und wir melden uns so schnell wie möglich mit allen Informationen und Antworten auf deine Fragen bei dir."
+    },
+    "pricing": {
+        "header": "Wähle den perfekten Plan für dich",
+        "description": "Von Nebenerwerb bis wachsendes Unternehmen – finde die passenden Tools, um deine Online-Präsenz zu stärken"
+    },
+    "meeting": {
+        "header": "Kostenlose Website-Beratung",
+        "description": "Buche einen 15-minütigen Termin, um deine Anforderungen, Ziele und unsere gemeinsame Umsetzung deiner Vision zu besprechen.",
+        "cta": "Vereinbaren Sie ein Meeting mit uns, um die Details zu besprechen"
+    },
+    "qa": {
+        "sectionHighlight": "Hast du Fragen? Wir haben die Antworten!",
+        "header": "Häufig gestellte Fragen",
+        "qaData": [
+            {
+                "question": "Welche Sicherheitsmaßnahmen bietet ihr für meine Website?",
+                "answer": "Wir priorisieren Sicherheit mit DDoS-Schutz, SSL-Verschlüsselung und Echtzeitüberwachung, um deine Website vor Bedrohungen zu schützen. Unser Hosting beinhaltet automatische Backups und Firewall-Schutz, damit deine Seite rund um die Uhr sicher bleibt."
+            },
+            {
+                "question": "Was passiert, wenn ich das Abonnement kündige?",
+                "answer": "Wenn du das Abonnement kündigst, wird die Website nicht mehr aktiv sein."
+            },
+            {
+                "question": "Sind Domain und Hosting im Preis inbegriffen?",
+                "answer": "Hosting ist im Plan enthalten. Eine Domain wird ebenfalls bereitgestellt, außer wenn sie besonders wertvolle Keywords enthält. Einige Domains fallen unter reguläre Preise und sind möglicherweise nicht im Standardplan enthalten."
+            },
+            {
+                "question": "Was ist, wenn ich mit der Website nicht zufrieden bin?",
+                "answer": "Falls du mit unserer Arbeit nicht zufrieden bist, hast du ein 14-tägiges Rückgaberecht (wir freuen uns trotzdem über Feedback)."
+            },
+            {
+                "question": "Ich habe weitere Fragen",
+                "answer": "Falls du noch weitere Fragen hast, kannst du uns per E-Mail kontaktieren: contact@dashcruisedev.com"
+            }
+        ]
+    }
+}
