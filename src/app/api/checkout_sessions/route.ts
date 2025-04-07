@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { CheckoutApiResponse } from "@/types/api_types";
 
 export const runtime = "edge";
 
