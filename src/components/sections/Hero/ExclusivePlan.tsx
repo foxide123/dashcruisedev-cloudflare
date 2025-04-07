@@ -3,7 +3,7 @@ import CheckIcon from "@/components/icons/CheckIcon";
 import { useTranslations } from "next-intl";
 import { ExclusivePlanClient } from "./ExclusivePlanClient";
 
-export function ExclusivePlan({currency}: {currency:string}) {
+export function ExclusivePlan({currency, language}: {currency:string, language:string}) {
   const planData = useTranslations("exclusivePlan");
 
   const priceSymbol = currency === "eur" ? "€": "$"
@@ -31,7 +31,7 @@ export function ExclusivePlan({currency}: {currency:string}) {
             </li>
           ))}
         </ul>
-        <ExclusivePlanClient ctaText={planData("cta")} currency={currency}/>
+        <ExclusivePlanClient ctaText={planData("cta")} currency={currency} language={language}/>
       </div>
     </div>
   );

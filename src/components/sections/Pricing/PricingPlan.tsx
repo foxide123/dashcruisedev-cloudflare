@@ -31,6 +31,7 @@ export async function PricingPlan({
   const currency = cookieStore.get("currency")?.value || "usd";
 
   const priceSymbol = currency === "usd" ? "$" : "€";
+  const language = cookieStore.get("language")?.value || "en";
 
   const listItems = features.map((feature, index) => (
     <li key={index} className="flex text-lg mb-2 items-start">
@@ -110,6 +111,7 @@ export async function PricingPlan({
         customAmount={planPrice}
         text="Subscribe"
         currency={currency}
+        language={language}
       />
     </div>
   );

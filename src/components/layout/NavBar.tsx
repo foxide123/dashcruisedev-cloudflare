@@ -35,8 +35,14 @@ export default function NavBar({
       <ul className="flex flex-row items-center text-xl font-semibold cursor-pointer">
         {MenuItemsData.map((item) => {
           const fullPath = `/${locale}${item.pathname}`;
+          const currentPath = pathname!.endsWith("/")
+            ? pathname!.slice(0, -1)
+            : pathname;
+          const comparePath = fullPath.endsWith("/")
+            ? fullPath.slice(0, -1)
+            : fullPath;
           const isActive =
-            fullPath === pathname ? "text-carrot-500" : "text-white";
+            currentPath === comparePath ? "text-carrot-500" : "text-white";
           return (
             <li
               key={item.name}

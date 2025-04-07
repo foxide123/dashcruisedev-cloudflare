@@ -12,6 +12,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
 export const dynamicParams = false;
+export const dynamic = 'force-static'
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

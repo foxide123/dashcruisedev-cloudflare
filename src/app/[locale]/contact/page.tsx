@@ -4,6 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 export const dynamicParams = false;
+export const dynamic = 'force-static'
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

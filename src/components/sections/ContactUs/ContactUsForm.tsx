@@ -4,6 +4,7 @@ import { useState } from "react";
 import { handleFormSubmition } from "@/app/actions";
 import PopupModal from "@/components/modals/PopupModal";
 import { useTranslations } from "next-intl";
+import { AlertBox } from "@/components/common/AlertBox";
 
 export default function ContactUsForm({
   padding,
@@ -19,6 +20,11 @@ export default function ContactUsForm({
     email: "",
     message: "",
   });
+
+  const [alert, setAlert] = useState<{
+    type: "error" | "success";
+    message: string;
+  } | null>(null);
 
   const contactFormData = useTranslations("contactForm");
 
@@ -39,6 +45,11 @@ export default function ContactUsForm({
             setFormValues({ name: "", email: "", message: "" });
             setTimeout(() => setShowPopup(false), 3000);
           } else if (result?.error) {
+            setAlert({
+              type: "error",
+              message: "Submission error: " + result.error,
+            });
+            setTimeout(()=> setAlert(null), 5000);
             console.error("Validation or server error:", result.error);
             // You could also show a toast or inline error here
           }
@@ -85,6 +96,7 @@ export default function ContactUsForm({
         >
           {pending ? `${contactFormData("sending")}` : `${contactFormData("send")}`}
         </button>
+        {alert && <AlertBox message={alert.message} />}
         {showPopup && <PopupModal onClose={() => setShowPopup(false)} />}
       </form>
     </div>

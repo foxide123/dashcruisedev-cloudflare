@@ -14,6 +14,7 @@ import { CountryProvider } from "@/context/CountryContext";
 import {setRequestLocale} from "next-intl/server";
 
 export const dynamicParams = false;
+export const dynamic = 'force-static'
 
 config.autoAddCss = false;
 

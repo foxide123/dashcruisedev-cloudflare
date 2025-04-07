@@ -12,11 +12,13 @@ export default function
 SubscribeButton({
   customAmount,
   text,
-  currency
+  currency,
+  language
 }: {
   customAmount: string;
   text:string;
   currency: string;
+  language: string;
 }) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -32,7 +34,7 @@ SubscribeButton({
       const response = await fetch("/api/checkout_sessions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: customAmount, currency: currency }),
+        body: JSON.stringify({ amount: customAmount, currency: currency, language: language }),
       });
 
       const data = (await response.json()) as CheckoutApiResponse;

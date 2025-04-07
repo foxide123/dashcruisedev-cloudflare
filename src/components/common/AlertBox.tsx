@@ -11,7 +11,7 @@ export function AlertBox({message} : {message: string}){
             <AlertCircle className="w-4 h-4"/>
             <AlertTitle>Error</AlertTitle>
             <AlertDescription>
-                ${message}
+                {message}
             </AlertDescription>
         </Alert>
     )
