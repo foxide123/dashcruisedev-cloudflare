@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { CheckoutApiResponse } from "@/types/api_types";
 
 export const runtime = "edge";
 
@@ -21,13 +20,21 @@ export async function POST(req: Request) {
       body: JSON.stringify({ amount, currency, language }),
     });
 
+    //eslint-disable-next-line
+    const data = await res.json() as any;
+
     if (!res.ok) {
-      const error = await res.json();
-      return NextResponse.json({ error }, { status: res.status });
+      return NextResponse.json({ error:data }, { status: res.status });
     }
 
-    const { sessionId } = (await res.json()) as CheckoutApiResponse;
-    return NextResponse.json({ sessionId: sessionId });
+    if (!data.sessionId) {
+      return NextResponse.json(
+        { error: "Invalid response from Stripe session API" },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ sessionId: data.sessionId });
   } catch (error) {
     console.log(error);
     return NextResponse.json(
