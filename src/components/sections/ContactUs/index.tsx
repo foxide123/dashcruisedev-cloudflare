@@ -12,13 +12,13 @@ export default function ContactUsSection({
 }: ContactUsProps) {
   const contactUsData = useTranslations("contactUs");
   return (
-    <div className="bg-white caret-transparent w-screen flex justify-center">
+    <div className="bg-white w-screen flex justify-center">
       {/* Wrapper with defined width */}
       <div
         className={`lg:justify-between lg:flex-row lg:py-0 py-10  flex flex-col  ${lg_screen_width} ${default_screen_width}`}
       >
         {/* Description */}
-        <div className="lg:w-[530px] md:text-start text-center">
+        <div className="caret-transparent lg:w-[530px] md:text-start text-center">
           {/* <h2 className="text-carrot-500 text-sm leading-5 mb-2">Contact Us</h2> */}
           <h1 className="text-5xl tracking-tight">
             {contactUsData.raw("header").map((text: string, index: number) => (
