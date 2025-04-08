@@ -2,8 +2,8 @@
 
 import { useLocale } from "next-intl";
 import { MenuItemsData } from "@/data/MenuItemsData";
-import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
+import { Link, animateScroll as scroll} from "react-scroll";
 import CountrySelectionModal from '@/components/modals/CountrySelectionModal';
 
 export default function NavBar({
@@ -55,10 +55,14 @@ export default function NavBar({
         })}
         <li><CountrySelectionModal/></li>
       </ul>
-      <div className="w-[350px] flex justify-end items-center">
+      <div className="w-[350px] flex justify-end items-center scroll-smooth">
         <Link
-          href="#pricing_section"
-          className="bg-carrot-500  mr-12 rounded-4xl px-8 py-4 flex justify-center items-center"
+          to="pricing_section"
+          spy={true}
+          smooth={true}
+          duration={2000}
+          offset={30}
+          className="bg-carrot-500  mr-12 rounded-4xl px-8 py-4 flex justify-center items-center cursor-pointer"
         >
           See Pricing
         </Link>
