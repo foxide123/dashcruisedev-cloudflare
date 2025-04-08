@@ -1,3 +1,6 @@
+import type { Metadata } from "next";
+import "@/app/globals.css";
+
 import { routing } from "@/i18n/routing";
 import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
