@@ -16,7 +16,7 @@ export default async function SignIn({params}: {params: Promise<{locale: string}
   const awaitedParams = await params;
   const locale = awaitedParams.locale;
   //eslint-disable-next-line
-  if(!locale || routing.locales.includes(locale as any)){
+  if(!locale || !routing.locales.includes(locale as any)){
     notFound()
   }
   setRequestLocale(locale);
