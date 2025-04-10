@@ -1,4 +1,4 @@
-import { createServerClient } from '@supabase/ssr'
+/* import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
 export async function createClient() {
@@ -26,4 +26,30 @@ export async function createClient() {
       },
     }
   )
-}
+} */
+
+import { createClient } from "../supabase/edge";
+
+export default {
+  async fetch(request: Request, env: {SUPABASE_URL: string, SUPABASE_ANON_KEY: string}) {
+    if (request.method !== "POST") {
+      return new Response("Expected a POST request.", { status: 400 });
+    }
+
+    const authHeader = request.headers.get("Authorization");
+    const token = authHeader?.replace("Bearer ", "");
+
+    const supabase = createClient(env, token);
+
+    const { data: user, error } = await supabase.auth.getUser();
+
+    if (error) {
+      return new Response("Unauthorized", { status: 401 });
+    }
+
+    return new Response(JSON.stringify({ user }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  },
+};

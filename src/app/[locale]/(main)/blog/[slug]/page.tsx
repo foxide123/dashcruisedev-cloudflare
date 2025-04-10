@@ -1,24 +1,24 @@
 import { routing } from "@/i18n/routing";
-import { createClient } from "@/utils/supabase/client";
+/* import { createClient } from "@/utils/supabase/client"; */
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 export const dynamicParams = false;
 export const dynamic = "force-static";
 
-export async function generateStaticParams() {
-  const supabase = await createClient();
-  const { data: slugs, error } = await supabase.from("PostTranslation").select("slug");
+const blogData = [
+  {slug: "hello"},
+  {slug: "world"}
+]
 
-  if(error || !slugs){
-    console.error("Failed to fetch slugs:", error?.message);
-    return [];
-  }
-  {
-    /* Combine locale with slug e.g. {locale: 'en', slug: '...'} */
-  }
+export async function generateStaticParams() {
+ /*  const supabase = createClient();
+  const { data: slugs, error } = await supabase.from("PostTranslation").select("slug");
+ */
+    /* Combine locale with slug e.g. {locale: 'en', slug: '...'} 
+  }*/
   const params = routing.locales.flatMap((locale) =>
-    slugs?.map(({ slug }) => ({ locale, slug }))
+    blogData?.map(({ slug }) => ({ locale, slug }))
   );
   return params;
 }

@@ -1,8 +1,26 @@
 import { Card } from "@/components/ui/card";
 import { UserAuthForm } from "@/components/auth/user-auth-form";
 import Link from "next/link";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 
-export default function SignIn() {
+export const dynamicParams = false;
+export const dynamic='force-static'
+
+export async function generateStaticParams(){
+  return routing.locales.map((locale) => ({locale}))
+}
+
+export default async function SignIn({params}: {params: Promise<{locale: string}>}) {
+  const awaitedParams = await params;
+  const locale = awaitedParams.locale;
+  //eslint-disable-next-line
+  if(!locale || routing.locales.includes(locale as any)){
+    notFound()
+  }
+  setRequestLocale(locale);
+  
   return (
     <Card className="p-6">
       <div className="flex flex-col space-y-2 text-left">

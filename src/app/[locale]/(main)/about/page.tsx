@@ -1,8 +1,26 @@
+import { routing } from "@/i18n/routing";
+import { setRequestLocale } from "next-intl/server";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
-export default function AboutPage() {
+export const dynamicParams = false;
+export const dynamic = 'force-static'
+
+export async function generateStaticParams(){
+  return routing.locales.map((locale) => ({locale}))
+}
+
+export default async function AboutPage({params}: {params: Promise<{locale: string}>}) {
   const lg_screen_width = "lg:w-[75vw]";
   const default_screen_width = "w-[85vw]";
+  const awaitedParams = await params;
+  const locale = awaitedParams.locale;
+  //eslint-disable-next-line
+  if(!locale || routing.locales.includes(locale as any)){
+    notFound()
+  }
+  setRequestLocale(locale);
+
   return (
     <div className="w-screen">
       {/* Hero */}
