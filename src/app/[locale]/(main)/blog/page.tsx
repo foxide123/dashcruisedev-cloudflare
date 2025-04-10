@@ -79,7 +79,7 @@ export default async function Blog({
               /* Individual Post */
             }
             return (
-              <Link href="/">
+              <Link key={index} href="/">
                 <div
                   key={index}
                   className="flex cursor-pointer flex-col gap-2 hover:opacity-75"

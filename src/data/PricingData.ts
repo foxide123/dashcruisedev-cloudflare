@@ -58,7 +58,7 @@ const standardFeatures = [
     //featureDescription: "Secure & Reliable",
   },
   {
-    featureHighlight: "📄 Up to 4 Custom Pages",
+    featureHighlight: "📄 Up to 5 Custom Pages",
     featureDescription: ""
     // featureDescription: "e.g. Home, About, Services, Contact",
   },

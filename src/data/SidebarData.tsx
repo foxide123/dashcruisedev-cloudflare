@@ -10,14 +10,12 @@ import {
     IconLockAccess,
     IconMessages,
     IconNotification,
-    IconPackages,
     IconPalette,
     IconServerOff,
     IconSettings,
     IconTool,
     IconUserCog,
     IconUserOff,
-    IconUsers,
     IconArticle,
     IconBellRinging2
   } from '@tabler/icons-react'

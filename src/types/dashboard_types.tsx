@@ -26,6 +26,8 @@ type NavCollapsible = BaseNavItem & {
   url?: never
 }
 
+type NavSubLink = (BaseNavItem & { url: string });
+
 type NavItem = NavCollapsible | NavLink
 
 interface NavGroup {
@@ -39,4 +41,4 @@ interface SidebarData {
   navGroups: NavGroup[]
 }
 
-export type { SidebarData, NavGroup, NavItem, NavCollapsible, NavLink }
+export type { SidebarData, NavGroup, NavItem, NavCollapsible, NavLink, NavSubLink }

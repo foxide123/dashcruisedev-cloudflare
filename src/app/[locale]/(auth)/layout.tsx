@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import "@/app/globals.css";
 
 import { routing } from "@/i18n/routing";
@@ -24,8 +23,9 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
-
+  //eslint-disable-next-line
   const lg_screen_width = "lg:w-[75vw]";
+  //eslint-disable-next-line
   const default_screen_width = "w-[85vw]";
 
   return (

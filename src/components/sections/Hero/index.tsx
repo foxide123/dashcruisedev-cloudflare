@@ -22,9 +22,9 @@ export default function HeroSection({
   
   return (
     <div className="relative caret-transparent w-screen  flex justify-center lg:min-h-[75vh]">
-      <div className="absolute inset-0 bg-black z-[-1] lg:hidden" />
+      <div className="absolute inset-0 bg-black z-[-1] sm:hidden" />
       {/* Background Image: rendered only on Large Screens */}
-      <div className="fixed -z-10  inset-0 w-screen h-screen hidden lg:block">
+      <div className="fixed -z-10  inset-0 w-screen h-screen hidden sm:block">
         <Image
           src="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/22218a4e-1efb-43dd-ff1e-562588e15a00/hd1920x1080"
           alt="hero background"

@@ -9,6 +9,7 @@ import {
   import { NavUser } from '@/components/dashboard/layout/NavUser'
   import { TeamSwitcher } from '@/components/dashboard/layout/TeamSwitcher'
   import { sidebarData } from '@/data/SidebarData'
+import { NavGroup as NavGroupType } from '@/types/dashboard_types'
   
   export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     return (
@@ -17,7 +18,7 @@ import {
           <TeamSwitcher teams={sidebarData.teams} />
         </SidebarHeader>
         <SidebarContent>
-          {sidebarData.navGroups.map((props:any) => (
+          {sidebarData.navGroups.map((props:NavGroupType) => (
             <NavGroup key={props.title} {...props} />
           ))}
         </SidebarContent>

@@ -29,7 +29,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { NavCollapsible, NavItem, NavLink, type NavGroup } from '@/types/dashboard_types';
+import { NavCollapsible, NavItem, NavLink, NavSubLink, type NavGroup } from '@/types/dashboard_types';
 
 export function NavGroup({ title, items }: NavGroup) {
   const { state } = useSidebar()
@@ -106,7 +106,7 @@ const SidebarMenuCollapsible = ({
         </CollapsibleTrigger>
         <CollapsibleContent className='CollapsibleContent'>
           <SidebarMenuSub>
-            {item.items.map((subItem:any) => (
+            {item.items.map((subItem:NavSubLink) => (
               <SidebarMenuSubItem key={subItem.title}>
                 <SidebarMenuSubButton
                   asChild
@@ -153,7 +153,7 @@ const SidebarMenuCollapsedDropdown = ({
             {item.title} {item.badge ? `(${item.badge})` : ''}
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
-          {item.items.map((sub:any) => (
+          {item.items.map((sub:NavSubLink) => (
             <DropdownMenuItem key={`${sub.title}-${sub.url}`} asChild>
               <Link
                 href={sub.url}
@@ -177,7 +177,7 @@ function checkIsActive(href: string, item: NavItem, mainNav = false) {
   return (
     href === item.url || // /endpint?search=param
     href.split('?')[0] === item.url || // endpoint
-    !!item?.items?.filter((i:any) => i.url === href).length || // if child nav is active
+    !!item?.items?.filter((i:NavSubLink) => i.url === href).length || // if child nav is active
     (mainNav &&
       href.split('/')[1] !== '' &&
       href.split('/')[1] === item?.url?.split('/')[1])

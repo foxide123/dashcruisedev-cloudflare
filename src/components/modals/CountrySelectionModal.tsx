@@ -44,7 +44,7 @@ export default function CountrySelectionModal() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <button type="button" className="cursor-pointer flex">
+        <button type="button" className="text-xl cursor-pointer flex">
           {`${language.toUpperCase()} / ${currency.toUpperCase()}`}{" "}
           <span className="pl-2 pt-0.5">
             <ArrowDown className="w-5" />

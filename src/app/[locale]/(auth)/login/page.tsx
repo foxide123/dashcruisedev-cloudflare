@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { UserAuthForm } from "@/components/auth/user-auth-form";
+import Link from "next/link";
 
 export default function SignIn() {
   return (
@@ -14,19 +15,19 @@ export default function SignIn() {
       <UserAuthForm />
       <p className="mt-4 px-8 text-center text-sm text-muted-foreground">
         By clicking login, you agree to our{" "}
-        <a
+        <Link
           href="/terms"
           className="underline underline-offset-4 hover:text-primary"
         >
           Terms of Service
-        </a>{" "}
+        </Link>{" "}
         and{" "}
-        <a
+        <Link
           href="/privacy"
           className="underline underline-offset-4 hover:text-primary"
         >
           Privacy Policy
-        </a>
+        </Link>
         .
       </p>
     </Card>
