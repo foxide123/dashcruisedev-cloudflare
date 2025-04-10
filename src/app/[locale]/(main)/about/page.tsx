@@ -16,7 +16,7 @@ export default async function AboutPage({params}: {params: Promise<{locale: stri
   const awaitedParams = await params;
   const locale = awaitedParams.locale;
   //eslint-disable-next-line
-  if(!locale || routing.locales.includes(locale as any)){
+  if(!locale || !routing.locales.includes(locale as any)){
     notFound()
   }
   setRequestLocale(locale);
@@ -36,7 +36,7 @@ export default async function AboutPage({params}: {params: Promise<{locale: stri
           />
         </div>
         {/* Small Screen Bg Image */}
-         <div className="sm:hidden relative w-screen z-[-10] aspect-video border-2 border-green-500 self-start">
+         <div className="sm:hidden relative w-screen z-[-10] aspect-video self-start">
           <Image
             src="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/7528164d-c2ec-4d98-84a0-17a4a96e5500/mobile640x480"
             alt="contact background image"
@@ -45,7 +45,7 @@ export default async function AboutPage({params}: {params: Promise<{locale: stri
             className="z-[-10]"
           />
         </div>
-        <div className="absolute w-fit z-10 text-white text-center border-2 border-red-500">
+        <div className="absolute w-fit z-10 text-white text-center">
           <h1 className="sm:text-[4rem] font-bold leading-[6rem] text-5xl">About Us</h1>
           <h3 className="lg:w-[48rem] lg:p-0 sm:text-2xl text-x px-7 mt-5">
             We build unqiue, high-performing websites - without huge upfront

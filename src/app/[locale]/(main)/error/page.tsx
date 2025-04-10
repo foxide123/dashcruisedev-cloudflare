@@ -10,7 +10,7 @@ export default async function ErrorPage({params}: {params: Promise<{locale:strin
   const awaitedParams = await params;
   const locale = awaitedParams.locale;
   //eslint-disable-next-line
-  if(!locale || routing.locales.includes(locale as any))
+  if(!locale || !routing.locales.includes(locale as any))
   {
     notFound()
   }
