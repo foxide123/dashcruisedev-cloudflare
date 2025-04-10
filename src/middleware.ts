@@ -1,7 +1,20 @@
 import createMiddleware from 'next-intl/middleware';
 import {routing} from './i18n/routing';
+import { type NextRequest } from "next/server"
+import { updateSession } from "@/utils/supabase/middleware";
+
  
-export default createMiddleware(routing);
+const handleI18nRouting = createMiddleware(routing);
+ 
+export async function middleware(request: NextRequest) {
+  const i18nResponse = handleI18nRouting(request);
+ 
+  // A `response` can now be passed here
+  const finalResponse = await updateSession(request, i18nResponse);
+
+  return finalResponse;
+}
+ 
  
 export const config = {
   // Match all pathnames except for

@@ -23,15 +23,15 @@ export default function PopupModal({
     <div className="fixed z-50 top-0 left-0 w-full h-full flex justify-center items-center">
       <div
         id="modal-content"
-        className="bg-white p-5 rounded-lg shadow-lg w-4/5 max-w-md relative"
+        className="bg-green-300 p-5 rounded-lg shadow-lg w-4/5 max-w-md relative"
       >
         <button
           onClick={onClose}
-          className="absolute top-2 right-4 text-2xl font-bold text-gray-600 hover:text-black"
+          className="absolute top-2 right-4 text-2xl font-bold text-white hover:text-black"
         >
           &times;
         </button>
-        <p>{message}</p>
+        <p className="text-white text-xl font-bold">{message}</p>
       </div>
     </div>
   );

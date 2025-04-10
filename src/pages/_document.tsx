@@ -2,8 +2,10 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="en" className="scroll-smooth">
       <Head>
+        <link rel="alternate" href="/en" hrefLang="en" />
+        <link rel="alternate" href="/de" hrefLang="de" />
         {/* Preconnect to domains you'll fetch from */}
         <link rel="preconnect" href="https://imagedelivery.net" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

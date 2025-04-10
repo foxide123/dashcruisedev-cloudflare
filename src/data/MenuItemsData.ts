@@ -4,13 +4,17 @@ export const MenuItemsData = [
         pathname: "/"
     },
     {
-        name: "Blog",
-        pathname: "/blog"
+        name: "About",
+        pathname: "/about"
     },
     {
         name: "Contact",
         pathname: "/contact"
-    }
+    },
+    {
+        name: "Blog",
+        pathname: "/blog"
+    },
    /*  {
         name: "Pages",
         pathname: "/pages",
