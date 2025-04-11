@@ -1,4 +1,4 @@
-name: Deploy Production Worker
+name: Deploy Worker
 on:
   push:
     branches:
@@ -7,7 +7,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    name: Deploy Production
+    name: Deploy Preview
     steps:
       - uses: actions/checkout@v4
 
@@ -38,7 +38,7 @@ jobs:
           echo "Inside .open-next:"
           ls -la .open-next || echo ".open-next directory not found"
 
-      - name: Deploy to Production
+      - name: Deploy to Preview
         run: npm run deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
