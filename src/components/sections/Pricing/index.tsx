@@ -15,6 +15,9 @@ type PricingPlanType = {
   textPrimaryColor: string;
   textSecondaryColor: string;
   features: PricingFeatureProp[];
+  extraPagesHeader: string;
+  iteration: string;
+  extraPagesDescription: string;
 };
 
 export default function PricingSection({
@@ -40,6 +43,9 @@ export default function PricingSection({
         textPrimaryColor={plan.textPrimaryColor}
         textSecondaryColor={plan.textSecondaryColor}
         features={plan.features}
+        extraPagesHeader={plan.extraPagesHeader}
+        iteration={plan.iteration}
+        extraPagesDescription={plan.extraPagesDescription}
       />
     )
   );

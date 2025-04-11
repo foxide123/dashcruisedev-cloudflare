@@ -11,10 +11,10 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { CountryProvider } from "@/context/CountryContext";
-import {setRequestLocale} from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 export const dynamicParams = false;
-export const dynamic = 'force-static'
+export const dynamic = "force-static";
 
 config.autoAddCss = false;
 
@@ -57,7 +57,7 @@ export default async function LocaleLayout({
 }>) {
   const { locale } = await params;
   //eslint-disable-next-line
-  if(!locale || !routing.locales.includes(locale as any)){
+  if (!locale || !routing.locales.includes(locale as any)) {
     notFound();
   }
 
@@ -109,12 +109,13 @@ export default async function LocaleLayout({
             >
               {children}
             </NavWrapper>
+            <Footer
+              lg_screen_width={lg_screen_width}
+              default_screen_width={default_screen_width}
+            />
           </NextIntlClientProvider>
         </CountryProvider>
-        <Footer
-          lg_screen_width={lg_screen_width}
-          default_screen_width={default_screen_width}
-        />
+
         {/* Moving analytics script at the bottom */}
         <Script
           src="https://scripts.simpleanalyticscdn.com/latest.js"

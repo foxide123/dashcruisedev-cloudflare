@@ -16,6 +16,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
       ...(await import(`@/data/dictionaries/${locale}/footer.json`)).default,
       ...(await import(`@/data/dictionaries/${locale}/common.json`)).default,
       ...(await import(`@/data/dictionaries/${locale}/blog.json`)).default,
+      ...(await import(`@/data/dictionaries/${locale}/about.json`)).default,
     },
   };
 });

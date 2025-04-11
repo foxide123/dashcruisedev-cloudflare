@@ -17,6 +17,9 @@ export async function PricingPlan({
   bgColor,
   textPrimaryColor,
   textSecondaryColor,
+  extraPagesHeader,
+  iteration,
+  extraPagesDescription
 }: {
   planName: string;
   planPrice: string;
@@ -26,6 +29,9 @@ export async function PricingPlan({
   textPrimaryColor: string;
   textSecondaryColor: string;
   features: PricingFeatureProp[];
+  extraPagesHeader: string;
+  iteration: string;
+  extraPagesDescription: string;
 }) {
   const cookieStore = await cookies();
   const currency = cookieStore.get("currency")?.value || "usd";
@@ -98,20 +104,21 @@ export async function PricingPlan({
       <div
         className={` ${additionalPagePrice ? "block" : "hidden"} border-${textPrimaryColor} text-${textPrimaryColor} border-y py-5 mb-5 text-center`}
       >
-        <h2 className="font-semibold">Need More Pages?</h2>
+        <h2 className="font-semibold">{extraPagesHeader}</h2>
         <span className="font-medium text-xl align-top">
           {priceSymbol}&thinsp;
         </span>
         <span className="text-3xl font-bold">
-          {additionalPagePrice} / month{" "}
+          {additionalPagePrice} / {iteration}{" "}
         </span>
-        <p className="inline-block">per additional page</p>
+        <p className="inline-block">{extraPagesDescription}</p>
       </div>
       <SubscribeButton
         customAmount={planPrice}
         text="Subscribe"
         currency={currency}
         language={language}
+        planName={planName}
       />
     </div>
   );
