@@ -31,6 +31,13 @@ jobs:
       - name: Install Wrangler
         run: npm install -g wrangler@latest
 
+      - name: Debug build output
+        run: |
+          echo "Top level:"
+          ls -la
+          echo "Inside .open-next:"
+          ls -la .open-next || echo ".open-next directory not found"
+
       - name: Deploy to Preview
         run: wrangler deploy --env preview
         env:
