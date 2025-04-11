@@ -15,5 +15,20 @@
        "binding": "NEXT_INC_CACHE_KV",
        "id": "c520aa3de296448396cf68989718d4ce"
      }
-  ]
+  ],
+  "env": {
+    "preview": {
+      "name": "dashcruisedev-cloudflare-opennextjs-preview",
+      "kv_namespaces": [
+      {
+          "binding": "NEXT_IC_CACHE_KV",
+          "id": "7e45b402cbe34d91a8bb4eb40b8a3d9d"
+      }
+      ],
+      "assets": {
+        "directory": ".open-next/assets",
+        "binding": "ASSETS"
+      },
+    }
+  }
 }
