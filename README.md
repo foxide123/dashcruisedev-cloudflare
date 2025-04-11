@@ -1,3 +1,7 @@
+## MAJOR CHANGE
+
+We have migrated our codebase from next-on-pages to opennextjs
+
 ## Getting Started
 
 Run the following command when running locally:
@@ -8,8 +12,8 @@ open: localhost:3000 to see the result
 
 To test the production code before commiting changes:
 **npm run preview**
-open: localhost:8788 to see the result
-^ The above command will run the Cloudflare Pages & Workers build and start the server. 
+open: localhost:8788 or localhost:8787 to see the result
+^ The above command will run the Cloudflare Workers build and start the server. 
 It will output ESlint errors if there are any present. Fix them before commiting changes
 
 
