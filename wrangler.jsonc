@@ -19,6 +19,7 @@
   "env": {
     "preview": {
       "name": "dashcruisedev-cloudflare-opennextjs-preview",
+      "main": ".open-next/worker.js",
       "kv_namespaces": [
       {
           "binding": "NEXT_INC_CACHE_KV",
