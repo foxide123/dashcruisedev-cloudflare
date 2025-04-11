@@ -1,24 +1,29 @@
 import { NextResponse } from "next/server";
 
-export const runtime = "edge";
-
 type StripeLocale = "auto" | "en" | "de";
 
 type StripeParams = {
   amount: string;
   currency: string;
   language: StripeLocale;
+  planName: string;
 };
 
 export async function POST(req: Request) {
   try {
-    const { amount, currency, language } = (await req.json()) as StripeParams;
+    const { amount, currency, language, planName } = (await req.json()) as StripeParams;
 
     const res = await fetch("https://api.dashcruisedev.com", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount, currency, language }),
+      body: JSON.stringify({ amount, currency, language, planName }),
     });
+
+    const contentType = res.headers.get("content-type");
+    if (!res.ok || !contentType?.includes("application/json")) {
+      const text = await res.text();
+      return NextResponse.json({ error: text }, { status: res.status })
+    }
 
     //eslint-disable-next-line
     const data = await res.json() as any;

@@ -7,8 +7,6 @@ const schema = z.object({
   }),
 });
 
-export const runtime = "edge";
-
 export async function handleFormSubmition(formData: FormData) {
   const name = formData.get("name") as string;
   const message = formData.get("message") as string;

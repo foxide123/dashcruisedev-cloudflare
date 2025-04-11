@@ -26,6 +26,13 @@
 
   --color-vampire-400: #D6D6D6;
   --color-vampire-500: #545454; /* gray like */
+
+  --color-profile_background-orange: #edc676;
+  --color-profile_background-beige: #e4bdb6;
+  --color-profile_background-blue: #0172a3;
+  --color-profile_border: #E6E8EC;
+  --color-gray_highlight: #6A778B;
+  --color-gray_highlight_2: #808080;
 }
 
 @theme inline {

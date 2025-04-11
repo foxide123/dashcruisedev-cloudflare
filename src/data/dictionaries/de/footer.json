@@ -1,6 +1,5 @@
 {
-    "footerData": {
-      "copyright": "Copyright @ 2025 Dashcruisedev.com. Alle Rechte vorbehalten"
-    }
+  "footer": {
+    "copyright": "Urheberrecht<thinspace></thinspace>@ 2025 Dashcruisedev.com. Alle Rechte vorbehalten"
   }
-  
+}

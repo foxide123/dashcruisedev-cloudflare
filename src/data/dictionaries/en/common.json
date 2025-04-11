@@ -11,7 +11,7 @@
       "description": "Access to the full suite of advanced functionalities",
       "interval": "month",
       "features": ["Boost Your Brand with a Custom Site", "Mobile and Desktop Version", "Search Engine Optimization (SEO)", "Hosting & Domain & Business Email"],
-      "cta": "Subscribe"
+      "cta": "Learn More"
     },
     "pricingPlan": [
       {
@@ -47,7 +47,10 @@
             "featureHighlight": "📄 Includes 2 Pages",
             "featureDescription": ""
           }
-        ]
+        ],
+        "extraPagesHeader": "Need More Pages?",
+        "iteration": "month",
+        "extraPagesDescription": "per additional page"
       },
       {
         "name": "✨ Standard ✨",
@@ -82,7 +85,16 @@
             "featureHighlight": "📄 Up to 5 Custom Pages",
             "featureDescription": ""
           }
-        ]
+        ],
+        "extraPagesHeader": "Need More Pages?",
+        "iteration": "month",
+        "extraPagesDescription": "per additional page"
       }
-    ]
+    ],
+    "newsletter": {
+      "header": "Stay Up to Date on <br></br> Sales & News",
+      "placeholder": "Enter your email",
+      "invalidEmailError": "Invalid Email Address",
+      "cta": "Sign Up"
+    }
   }

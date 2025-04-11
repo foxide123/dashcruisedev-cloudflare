@@ -1,13 +1,26 @@
 "use client";
 
 import Image from "next/image";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 
-export default function SubscriptionSuccessComponent() {
+type StripeParams = {
+  email?: string;
+  subscriptionId?: string;
+  mode?: string;
+  plan?: string;
+};
 
-    const router = useRouter();
+export default function SubscriptionSuccessComponent({
+  email,
+  subscriptionId,
+  mode,
+  plan
+}: StripeParams) {
+  const router = useRouter();
 
-    return (
+  console.log(email, subscriptionId, mode, plan);
+
+  return (
     <div className="w-screen h-screen bg-white flex flex-col justify-center items-center text-center">
       <div>
         <Image
@@ -27,15 +40,18 @@ export default function SubscriptionSuccessComponent() {
           Your payment was successful, and your subscription is now active.
         </h2>
         <p className="font-normal text-xl tracking-tight mt-[40px] w-[815px] px-10">
-          You&apos;ll receive an email from us with all the details and next steps to
-          get started. If you don&apos;t see the email within a few minutes,
-          check spam or contact us at{" "}
+          You&apos;ll receive an email from us with all the details and next
+          steps to get started. If you don&apos;t see the email within a few
+          minutes, check spam or contact us at{" "}
           <span className="font-semibold text-carrot-500">
             contact@dashcruisedev.com
           </span>
         </p>
-        <button onClick={() => router.push('/')} className="bg-carrot-500 px-[48px] py-[16px] rounded-xl mt-[56px] cursor-pointer text-white">
-            Go to Dashboard
+        <button
+          onClick={() => router.push("/")}
+          className="bg-carrot-500 px-[48px] py-[16px] rounded-xl mt-[56px] cursor-pointer text-white"
+        >
+          Go to Dashboard
         </button>
       </div>
     </div>
