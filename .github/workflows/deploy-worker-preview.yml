@@ -2,16 +2,17 @@ name: Deploy Worker
 on:
   push:
     branches:
-      - main
+      - deployment
 jobs:
   deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    name: Deploy
+    name: Deploy Preview
     steps:
       - uses: actions/checkout@v4
-      - name: Build & Deploy Worker
+      - name: Deploy to Preview
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: publish --env preview
