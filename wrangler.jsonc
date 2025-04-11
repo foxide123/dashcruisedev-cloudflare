@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
-  "name": "landing-page-dev-nextjs",
+  "name": "dashcruisedev-cloudflare-opennextjs",
   "compatibility_date": "2025-04-10",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
