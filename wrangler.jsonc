@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "main": ".open-next/worker.js",
+  "main": ".open-next/server-functions/default/handler.mjs",
   "name": "dashcruisedev-cloudflare-opennextjs",
   "compatibility_date": "2025-04-10",
   "compatibility_flags": ["nodejs_compat"],
@@ -19,7 +19,7 @@
   "env": {
     "preview": {
       "name": "dashcruisedev-cloudflare-opennextjs-preview",
-      "main": ".open-next/worker.js",
+      "main": ".open-next/server-functions/default/handler.mjs",
       "kv_namespaces": [
       {
           "binding": "NEXT_INC_CACHE_KV",
