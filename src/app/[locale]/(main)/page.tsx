@@ -10,8 +10,8 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
-export const dynamicParams = false;
-export const dynamic = "force-static";
+/* export const dynamicParams = false; */
+export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

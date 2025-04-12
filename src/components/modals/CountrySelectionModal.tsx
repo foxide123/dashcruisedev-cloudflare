@@ -18,9 +18,11 @@ import { ArrowDown } from "lucide-react";
 import { useCountry } from "@/context/CountryContext";
 import { setCookie } from "cookies-next";
 import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function CountrySelectionModal() {
   const { language, currency, setLanguage, setCurrency } = useCountry();
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -37,12 +39,14 @@ export default function CountrySelectionModal() {
     setCookie("currency", currency, { path: "/" });
     setCookie("locale", newLocale, { path: "/" });
 
+    setOpen(false);
+
     // Navigate to new locale route
     router.push(`/${newLocale}${currentPathWithoutLocale}`);
   };
 
   return (
-    <Popover>
+    <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <button type="button" className="text-xl cursor-pointer flex">
           {`${language.toUpperCase()} / ${currency.toUpperCase()}`}{" "}
