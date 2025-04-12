@@ -3,7 +3,7 @@ import ComparisonSection from "@/components/sections/Comparison";
 import HighlightSection from "@/components/sections/Highlight";
 import PortfolioSection from "@/components/sections/Portfolio";
 import ContactUsSection from "@/components/sections/ContactUs";
-/* import PricingSection from "@/components/sections/Pricing"; */
+import PricingSection from "@/components/sections/Pricing";
 import MeetingScheduleSection from "@/components/sections/MeetingSchedule";
 import QASection from "@/components/sections/QA";
 import { getMessages, setRequestLocale } from "next-intl/server";
