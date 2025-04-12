@@ -5,9 +5,6 @@ import { loadStripe } from "@stripe/stripe-js/pure";
 import { CheckoutApiResponse } from "@/types/api_types";
 import { useRouter } from "next/navigation";
 
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
-);
 export default function SubscribeButton({
   customAmount,
   text,
@@ -51,6 +48,10 @@ export default function SubscribeButton({
         console.error("Error creating session:", data);
         return;
       }
+
+      const stripePromise = loadStripe(
+        process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
+      );
 
       const stripe = await stripePromise;
       await stripe?.redirectToCheckout({ sessionId: data.sessionId });
