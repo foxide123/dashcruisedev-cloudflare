@@ -1,14 +1,16 @@
+"use server"
 import CheckIcon from "@/components/icons/CheckIcon";
-import SubscribeButton from "@/components/subscribe/SubscribeButton";
+import SubscribeButtonWrapper from "@/components/subscribe/SubscribeButtonWrapper"
+
 import Image from "next/image";
-import { cookies } from "next/headers";
+import {cookies} from "next/headers"
 
 type PricingFeatureProp = {
   featureHighlight: string;
   featureDescription: string;
 };
 
-export async function PricingPlan({
+export default async function PricingPlan({
   planName,
   planPrice,
   planDescription,
@@ -113,7 +115,7 @@ export async function PricingPlan({
         </span>
         <p className="inline-block">{extraPagesDescription}</p>
       </div>
-      <SubscribeButton
+      <SubscribeButtonWrapper
         customAmount={planPrice}
         text="Subscribe"
         currency={currency}

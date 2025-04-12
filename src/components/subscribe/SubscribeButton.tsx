@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { loadStripe } from "@stripe/stripe-js";
+import { loadStripe } from "@stripe/stripe-js/pure";
 import { CheckoutApiResponse } from "@/types/api_types";
 import { useRouter } from "next/navigation";
 

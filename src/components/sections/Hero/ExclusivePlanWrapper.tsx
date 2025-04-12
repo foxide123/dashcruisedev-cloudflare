@@ -1,10 +1,12 @@
-import { cookies } from "next/headers";
+"use server";
+
 import { ExclusivePlan } from "./ExclusivePlan";
+import { cookies } from "next/headers";
 
-export default async function ExclusivePlanWrapper(){
-    const cookieStore = await cookies();
-    const currency = cookieStore.get("currency")?.value || "usd";
-/*     const language = cookieStore.get("language")?.value || "en"; */
+export default async function ExclusivePlanWrapper() {
 
-    return <ExclusivePlan currency={currency} />;
+  const cookieStore = await cookies();
+  const currency = cookieStore.get("currency")?.value || "usd";
+
+  return <ExclusivePlan currency={currency} />;
 }

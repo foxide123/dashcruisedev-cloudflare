@@ -1,16 +1,24 @@
-import Image from "next/image";
-import {useTranslations} from "next-intl";
+"use server";
 
-export default function HighlightSection({
+import { getMessages } from "next-intl/server";
+import Image from "next/image";
+
+type HighlightDataType = {
+  header: string;
+  description: string;
+};
+
+export default async function HighlightSection({
   lg_screen_width,
   default_screen_width,
 }: {
   lg_screen_width: string;
   default_screen_width: string;
 }) {
+  const messages = await getMessages();
+  const highlightData = messages.highlight as HighlightDataType;
 
-  const highlightData = useTranslations("highlight");
-
+  const headerLines = highlightData.header.split("\n")
   return (
     <div className="caret-transparent xl:text-start lg:text-center text-center flex flex-row justify-center bg-magenta-500  w-screen">
       <div
@@ -20,32 +28,31 @@ export default function HighlightSection({
         <div className="lg:px-10 lg:w-1/2 flex flex-col px-10">
           <div>
             <h1 className=" lg:text-start font-medium text-5xl leading-15 tracking-tight text-center">
-              {
-              highlightData.raw("header").map((text:string, index:string) => (
-               <div key={index}>{text}</div>
+             {headerLines.map((line, index) => (
+                <div key={index}>{line}<br/></div>
               ))}
               {/* Boost Your Business with <br />
               Unmatched Speed and <br />
               Security */}
             </h1>
             <p className="lg:pr-10 font-normal text-base leading-6 my-6 pr-0">
-              {highlightData("description")}
+              {highlightData.description}
             </p>
           </div>
-            <Image
-              src="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/aac4f90f-a064-4352-4cc8-9aee41df7100/thumbnail300x300"
-              sizes="300px"
-              width={130}
-              height={43}
-              alt="Cloudflare Logo"
-              className="lg:mx-0 lg:mb-0 mx-auto"
-            />
+          <Image
+            src="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/aac4f90f-a064-4352-4cc8-9aee41df7100/thumbnail300x300"
+            sizes="300px"
+            width={130}
+            height={43}
+            alt="Cloudflare Logo"
+            className="lg:mx-0 lg:mb-0 mx-auto"
+          />
         </div>
         {/* Highlight Images */}
         <div className="xl:flex xl:flex-row lg:w-1/2 lg:h-full lg:py-22 hidden">
           <div className="mr-8 self-end">
             <div className="highlight-image-custom overflow-hidden relative">
-            <Image
+              <Image
                 src="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/b6d68cab-6b97-4c5e-e5d0-0bfdc5b9cb00/thumbnail300x300"
                 objectFit="cover"
                 layout="fill"

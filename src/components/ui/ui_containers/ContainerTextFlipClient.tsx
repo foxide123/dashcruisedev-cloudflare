@@ -6,20 +6,27 @@ import { ContainerTextFlip } from "@/components/ui/ui_containers/container-text-
 
 //eslint-disable-next-line
 export default function ContainerTextFlipClient(props: any) {
-  const [isHydrated, setIsHydrated] = useState(false);
-  const [startAnimation, setStartAnimation]= useState(false);
+  const [showAnimation, setShowAnimation] = useState(false);
 
   useEffect(() => {
-    setIsHydrated(true);
-    setStartAnimation(true);
+    if ("requestIdleCallback" in window) {
+      //eslint-disable-next-line
+      (window as any).requestIdleCallback(() => {
+        setShowAnimation(true);
+      });
+    } else {
+      setTimeout(() => setShowAnimation(true), 1000); // fallback for Safari
+    }
   }, []);
 
-  if(!isHydrated || !startAnimation) {
+  if (!showAnimation) {
     return (
       <span className="text-carrot-500">
-         {props.words && props.words[props.words.length - 1] ? props.words[props.words.length - 1] : "Brand"}
+        {props.words && props.words[props.words.length - 1]
+          ? props.words[props.words.length - 1]
+          : "Brand"}
       </span>
-    )
+    );
   }
   return <ContainerTextFlip {...props} />;
 }

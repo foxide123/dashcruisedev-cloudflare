@@ -1,5 +1,9 @@
-import { PricingPlan } from "@/components/sections/Pricing/PricingPlan";
-import { useTranslations } from "next-intl";
+"use server"
+import { getMessages } from "next-intl/server";
+import dynamic from "next/dynamic";
+
+const PricingPlan = dynamic(() => import("@/components/sections/Pricing/PricingPlan"))
+
 
 type PricingFeatureProp = {
   featureHighlight: string;
@@ -20,7 +24,12 @@ type PricingPlanType = {
   extraPagesDescription: string;
 };
 
-export default function PricingSection({
+type PricingDataType = {
+  header: string;
+  description: string;
+}
+
+export default async function PricingSection({
   lg_screen_width,
   default_screen_width,
   pricingPlans,
@@ -29,7 +38,8 @@ export default function PricingSection({
   default_screen_width: string;
   pricingPlans: PricingPlanType[];
 }) {
-  const pricingData = useTranslations("pricing");
+  const messages = await getMessages();
+  const pricingData = messages.pricing as PricingDataType;
 
   const pricingComponents = pricingPlans.map(
     (plan: PricingPlanType, index: number) => (
@@ -72,10 +82,10 @@ export default function PricingSection({
       <div className={`${lg_screen_width} ${default_screen_width}`}>
         <div className="lg:px-10 max-w-[964px] w-full px-0 mx-auto text-center">
           <h1 className=" lg:text-5xl text-4xl font-semibold">
-            {pricingData("header")}
+            {pricingData.header}
           </h1>
           <p className="mt-5 text-xl text-gray-500 font-medium">
-            {pricingData("description")}
+            {pricingData.description}
           </p>
           <div className="mt-8 w-fit mx-auto flex flex-row items-center justify-between">
             {/*<p className="font-medium text-2xl pr-5 text-carrot-500">Monthly</p>

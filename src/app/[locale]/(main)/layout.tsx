@@ -103,12 +103,12 @@ export default async function LocaleLayout({
       <body className={` antialiased`}>
         <CountryProvider>
           <NextIntlClientProvider>
-            <NavWrapper
+           <NavWrapper
               lg_screen_width={lg_screen_width}
               default_screen_width={default_screen_width}
-            >
+            > 
               {children}
-            </NavWrapper>
+           </NavWrapper>
             <Footer
               lg_screen_width={lg_screen_width}
               default_screen_width={default_screen_width}
