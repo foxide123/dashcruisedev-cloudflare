@@ -45,7 +45,7 @@ export default async function HeroSection({
               </h1>
               <div></div>
             </div>
-            <p className="lg:text-start text-base leading-6 text-center break-words mb-2">
+            <p className="sm:hidden lg:text-start text-base leading-6 text-center break-words mb-2">
               We craft custom websites designed to bring your ideas to life and
               help you grow your business.
               <br />
