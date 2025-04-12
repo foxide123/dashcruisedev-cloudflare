@@ -8,5 +8,7 @@ export default async function ExclusivePlanWrapper() {
   const cookieStore = await cookies();
   const currency = cookieStore.get("currency")?.value || "usd";
 
+  console.log("Currency from cookies:", currency);
+
   return <ExclusivePlan currency={currency} />;
 }

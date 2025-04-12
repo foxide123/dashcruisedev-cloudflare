@@ -38,7 +38,7 @@ export default function NavBar({
             height={240}
           />
         </div>
-        {/* DEFAULT - XL Navbar (Hamburger, Icon and Locale)*/}
+        {/* DEFAULT to XL Navbar (Hamburger, Icon and Locale)*/}
         <div className="xl:hidden w-screen self-center p-2 flex justify-around items-center">
           {/* Hamburger */}
           <button
