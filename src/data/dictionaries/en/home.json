@@ -17,7 +17,7 @@
         }
     },
     "highlight": {
-        "header": ["Boost Your Business with", "Unmatched Speed and", "Security"],
+        "header": "Boost Your Business with\nUnmatched Speed and\nSecurity",
         "description": "Enjoy peace of mind with 24/7 security and uninterrupted service, ensuring your website is always trusted and reliable. With the DoS protection, SSL encryption, intelligent caching you can sleep safe knowing your website will be fast and secure. Upgrade your web presence with us - where speed meets security!"
     },
     "portfolio": {
@@ -35,7 +35,7 @@
         ]
     },
     "contactUs": {
-        "header": ["We'd love to", "connect with you!"],
+        "header": "We'd love to\nconnect with you!",
         "description": "Please fill out the contact form and we will contact you as soon as possible with all of the informations and answers to your questions."
     },
     "pricing": {

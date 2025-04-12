@@ -1,7 +1,19 @@
-import { useTranslations } from "next-intl";
+"use server"
+import { getMessages } from "next-intl/server";
 import QAComponent from "./QAComponent";
 
-export default function QASection({
+type QaItemType = {
+  question: string;
+  answer: string;
+}
+
+type QaDataType = {
+  sectionHighlight: string;
+  header: string;
+  qaData: QaItemType;
+}
+
+export default async function QASection({
   lg_screen_width,
   default_screen_width,
 }: {
@@ -9,7 +21,8 @@ export default function QASection({
   default_screen_width: string;
 }) {
 
-  const qaData = useTranslations("qa");
+  const messages = await getMessages();
+  const qaData = messages.qa as QaDataType;
   
   return (
     <div className="bg-white caret-transparent flex justify-center w-screen">
@@ -18,10 +31,10 @@ export default function QASection({
       >
         <div className="text-center">
           <h3 className="text-xl font-medium text-carrot-500">
-            {qaData("sectionHighlight")}
+            {qaData.sectionHighlight}
           </h3>
           <h1 className=" font-medium text-5xl leading-15 tracking-tight">
-            {qaData("header")}
+            {qaData.header}
           </h1>
         </div>
 

@@ -1,15 +1,31 @@
+"use server"
 import CheckIcon from "@/components/icons/CheckIcon";
 import XIcon from "@/components/icons/XIcon";
-import { useTranslations } from "next-intl";
+import { getMessages } from "next-intl/server";
 
-export default function ComparisonSection({
+type ComparisonElementType = {
+  title: string;
+  items: string[];
+}
+
+type ComparisonDataType = {
+  header: string;
+  description: string;
+  dashcruiseDev: ComparisonElementType;
+  webBuilders: ComparisonElementType;
+
+}
+
+export default async function ComparisonSection({
   lg_screen_width,
   default_screen_width,
 }: {
   lg_screen_width: string;
   default_screen_width: string;
 }) {
-  const comparisonData = useTranslations("comparison");
+
+  const messages = await getMessages();
+  const comparisonData = messages.comparison as ComparisonDataType;
   return (
     <div className="caret-transparent lg:text-start text-center flex justify-center w-screen bg-white">
       <div
@@ -17,12 +33,12 @@ export default function ComparisonSection({
       >
         {/* Build Faster Section */}
         <div className="">
-          <h1 className="header-custom">{comparisonData("header")}</h1>
+          <h1 className="header-custom">{comparisonData.header}</h1>
           <h1 className="header-custom"></h1>
         </div>
 
         <p className="font-normal text-base leading-6 mt-5">
-          {comparisonData("description")}
+          {comparisonData.description}
         </p>
         <hr className="mt-8" />
         {/* LandingPageDev and WordPress container */}
@@ -31,13 +47,13 @@ export default function ComparisonSection({
           <div className="comparison-container-custom border-magenta-300">
             <div>
               <h2 className="font-medium text-2xl leading-8 my-6">
-                {comparisonData.raw("dashcruiseDev")["title"]}
+                {comparisonData.dashcruiseDev.title}
               </h2>
             </div>
             <ul className="text-start">
               {comparisonData
-                .raw("dashcruiseDev")
-                ["items"].map((item: string, index:number) => (
+                .dashcruiseDev
+                .items.map((item: string, index:number) => (
                   <li key={index} className="list-item-custom">
                     <div>
                       <CheckIcon />
@@ -51,13 +67,13 @@ export default function ComparisonSection({
           <div className="lg:mt-0 comparison-container-custom border-vampire-400 mt-5">
             <div>
               <h2 className="font-medium text-2xl leading-8 my-6">
-                {comparisonData.raw("webBuilders")["title"]}
+                {comparisonData.webBuilders.title}
               </h2>
             </div>
             <ul>
               {comparisonData
-                .raw("webBuilders")
-                ["items"].map((item: string, index: number) => (
+                .webBuilders
+                .items.map((item: string, index: number) => (
                   <li key={index} className="list-item-custom">
                     <div>
                       <XIcon />

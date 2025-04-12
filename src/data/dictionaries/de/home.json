@@ -31,7 +31,7 @@
         }
     },
     "highlight": {
-        "header": ["Stärke dein Business mit", "Unvergleichlicher Geschwindigkeit und", "Sicherheit"],
+        "header": "Stärke dein Business mit\nUnvergleichlicher Geschwindigkeit und\nSicherheit",
         "description": "Genieße Ruhe und Sicherheit mit 24/7-Schutz und unterbrechungsfreiem Service – so bleibt deine Website stets vertrauenswürdig und zuverlässig. Dank DoS-Schutz, SSL-Verschlüsselung und intelligentem Caching kannst du beruhigt schlafen, denn deine Website ist schnell und sicher. Stärke deine Webpräsenz mit uns – wo Geschwindigkeit auf Sicherheit trifft!"
     },
     "portfolio": {
@@ -52,7 +52,7 @@
         ]
     },
     "contactUs": {
-        "header": ["Wir würden uns freuen,", "von dir zu hören!"],
+        "header": "Wir würden uns freuen,\nvon dir zu hören!",
         "description": "Bitte fülle das Kontaktformular aus und wir melden uns so schnell wie möglich mit allen Informationen und Antworten auf deine Fragen bei dir."
     },
     "pricing": {

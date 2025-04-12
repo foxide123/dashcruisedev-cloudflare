@@ -1,7 +1,14 @@
-import { useTranslations } from "next-intl";
+"use server"
+import { getMessages } from "next-intl/server";
 import MeetingSchedule from "./MeetingSchedule";
 
-export default function MeetingScheduleSection({
+type MeetingDataType = {
+  header: string;
+  description: string;
+  cta: string;
+}
+
+export default async function MeetingScheduleSection({
   lg_screen_width,
   default_screen_width,
 }: {
@@ -9,7 +16,8 @@ export default function MeetingScheduleSection({
   default_screen_width: string;
 }) {
 
-  const meetingData = useTranslations("meeting");
+  const messages = await getMessages();
+  const meetingData = messages.meeting as MeetingDataType;
 
   return (
     <div className="bg-white w-screen flex items-center justify-center">
@@ -19,16 +27,16 @@ export default function MeetingScheduleSection({
         {/* Header with description */}
         <div className="flex flex-col items-center justify-centertext-center text-center">
           <h1 className="text-5xl font-medium tracking-tight">
-            {meetingData("header")}
+            {meetingData.header}
           </h1>
           <h3 className="lg:w-[610px] mt-4 leading-7 text-base font-normal text-gray-500">
-            {meetingData("description")}
+            {meetingData.description}
           </h3>
         </div>
         {/* Schedule a meeting with us div above the calendar */}
         <div className="flex flex-row justify-between items-center mt-13 w-full py-8 px-12 bg-carrot-500 mb-8 rounded-lg">
           <p className="text-white text-2xl font-bold">
-            {meetingData("cta")}
+            {meetingData.cta}
           </p>
           {/* Icons */}
           <div className="flex flex-row ">
