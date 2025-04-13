@@ -1,6 +1,7 @@
 "use server"
 import { getMessages } from "next-intl/server";
 import MeetingSchedule from "./MeetingSchedule";
+import FadeInSection from "@/components/common/FadeInSection";
 
 type MeetingDataType = {
   header: string;
@@ -20,7 +21,8 @@ export default async function MeetingScheduleSection({
   const meetingData = messages.meeting as MeetingDataType;
 
   return (
-    <div className="bg-white w-screen flex items-center justify-center">
+    <section className="bg-white w-screen flex items-center justify-center">
+      <FadeInSection>
       <div
         className={`lg:px-20 lg:py0 py-10 flex flex-col items-center justify-center ${lg_screen_width} ${default_screen_width}`}
       >
@@ -62,6 +64,7 @@ export default async function MeetingScheduleSection({
         </div>
         <MeetingSchedule />
       </div>
-    </div>
+      </FadeInSection>
+    </section>
   );
 }

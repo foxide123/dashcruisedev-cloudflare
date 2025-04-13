@@ -7,7 +7,7 @@ const schema = z.object({
   }),
 });
 
-export async function handleFormSubmition(formData: FormData) {
+export async function handleMailSubmition(formData: FormData) {
   const name = formData.get("name") as string;
   const message = formData.get("message") as string;
   const email = formData.get("email") as string;

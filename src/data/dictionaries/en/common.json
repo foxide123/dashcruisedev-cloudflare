@@ -95,6 +95,8 @@
       "header": "Stay Up to Date on <br></br> Sales & News",
       "placeholder": "Enter your email",
       "invalidEmailError": "Invalid Email Address",
-      "cta": "Sign Up"
+      "cta": "Sign Up",
+      "emailExistsError": "This email is already subscribed",
+      "unknownError": "Unknown Error"
     }
   }

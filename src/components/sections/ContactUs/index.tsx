@@ -1,6 +1,7 @@
 "use server"
 import { getMessages } from "next-intl/server";
 import ContactUsForm from "./ContactUsForm";
+import FadeInSection from "@/components/common/FadeInSection";
 
 type ContactUsProps = {
   lg_screen_width: string;
@@ -20,7 +21,8 @@ export default async function ContactUsSection({
   const contactUsData = messages.contactUs as ContactUsDataType;
   const headerLines = contactUsData.header.split("\n")
   return (
-    <div className="bg-white w-screen flex justify-center">
+    <section className="bg-white w-screen flex justify-center">
+      <FadeInSection>
       {/* Wrapper with defined width */}
       <div
         className={`lg:justify-between lg:flex-row lg:py-0 py-10  flex flex-col  ${lg_screen_width} ${default_screen_width}`}
@@ -39,6 +41,7 @@ export default async function ContactUsSection({
         </div>
         <ContactUsForm padding="lg:p-10 p-0" marginTop="lg:mt-0 mt-10" />
       </div>
-    </div>
+      </FadeInSection>
+    </section>
   );
 }

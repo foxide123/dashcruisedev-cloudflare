@@ -1,4 +1,5 @@
 "use server"
+import FadeInSection from "@/components/common/FadeInSection";
 import { getMessages } from "next-intl/server";
 import dynamic from "next/dynamic";
 
@@ -75,10 +76,11 @@ export default async function PricingSection({
   ));
  */
   return (
-    <div
+    <section
       id="pricing_section"
       className=" bg-white caret-transparent lg:max-w-screen lg:px-30 w-full flex flex-col items-center mx-auto lg:py-[150px] py-10 px-8"
     >
+      <FadeInSection>
       <div className={`${lg_screen_width} ${default_screen_width}`}>
         <div className="lg:px-10 max-w-[964px] w-full px-0 mx-auto text-center">
           <h1 className=" lg:text-5xl text-4xl font-semibold">
@@ -102,6 +104,7 @@ export default async function PricingSection({
           {pricingComponents}
         </div>
       </div>
-    </div>
+      </FadeInSection>
+    </section>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { handleFormSubmition } from "@/app/actions";
+import { handleMailSubmition } from "@/app/actions/mailActions";
 import PopupModal from "@/components/modals/PopupModal";
 import { useTranslations } from "next-intl";
 import { AlertBox } from "@/components/common/AlertBox";
@@ -37,7 +37,7 @@ export default function ContactUsForm({
 
           const formData = new FormData(e.currentTarget);
 
-          const result = await handleFormSubmition(formData);
+          const result = await handleMailSubmition(formData);
           setPending(false);
           if (result?.success) {
             setShowPopup(true);
