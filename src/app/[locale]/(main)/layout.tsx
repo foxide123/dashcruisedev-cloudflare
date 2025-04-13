@@ -13,6 +13,14 @@ import { routing } from "@/i18n/routing";
 import { CountryProvider } from "@/context/CountryContext";
 import { setRequestLocale } from "next-intl/server";
 
+import {Plus_Jakarta_Sans} from "next/font/google"
+
+
+const jakartaPlus = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap'
+})
 export const dynamicParams = false;
 export const dynamic = "force-static";
 
@@ -100,7 +108,7 @@ export default async function LocaleLayout({
         />
         <link rel="manifest" href="/site.webmanifest"></link>
       </head>
-      <body className={` antialiased`}>
+      <body className={`${jakartaPlus.className} antialiased`}>
         <CountryProvider>
           <NextIntlClientProvider>
            <NavWrapper
