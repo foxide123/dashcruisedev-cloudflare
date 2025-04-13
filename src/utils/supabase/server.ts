@@ -1,4 +1,4 @@
-/* import { createServerClient } from '@supabase/ssr'
+import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
 export async function createClient() {
@@ -26,9 +26,9 @@ export async function createClient() {
       },
     }
   )
-} */
+} 
 
-import { createClient } from "../supabase/edge";
+/* import { createClient } from "../supabase/edge";
 
 export default {
   async fetch(request: Request, env: {SUPABASE_URL: string, SUPABASE_ANON_KEY: string}) {
@@ -53,3 +53,4 @@ export default {
     });
   },
 };
+ */

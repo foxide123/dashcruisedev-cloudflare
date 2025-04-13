@@ -97,10 +97,12 @@
       "extraPagesDescription": "pro zusätzlicher Seite"
     }
   ],
- "newsletter": {
-  "header": "Bleiben Sie auf dem Laufenden bei <br></br> Angeboten & Neuigkeiten",
-  "placeholder": "Geben Sie Ihre E-Mail-Adresse ein",
-  "invalidEmailError": "Ungültige E-Mail-Adresse",
-  "cta": "Anmelden"
-}
+  "newsletter": {
+    "header": "Bleiben Sie auf dem Laufenden bei <br></br> Angeboten & Neuigkeiten",
+    "placeholder": "Geben Sie Ihre E-Mail-Adresse ein",
+    "invalidEmailError": "Ungültige E-Mail-Adresse",
+    "cta": "Anmelden",
+    "emailExistsError": "Diese E-Mail-Adresse ist bereits angemeldet",
+    "unknownError": "Unbekannter Fehler"
+  }
 }
