@@ -18,7 +18,7 @@ export interface ContainerTextFlipProps {
   animationDuration?: number;
 }
 
-export function ContainerTextFlip({
+export default function ContainerTextFlip({
   words = ["Business", "Brand", "Portfolio", "Idea", "Passion"],
   interval = 3000,
   className,
