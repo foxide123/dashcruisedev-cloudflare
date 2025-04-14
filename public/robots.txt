@@ -1,0 +1,34 @@
+# Block crawlers for /admin directory
+User-agent: *
+Disallow: /en/admin/
+Disallow: /de/admin/
+Disallow: /pl/admin/
+Disallow: /ro/admin/
+
+# Block crawlers for /dev directory
+User-agent: *
+Disallow: /en/dev/
+Disallow: /de/dev/
+Disallow: /pl/dev/
+Disallow: /ro/dev/
+
+#Block crawlers for /user directory
+User-agent: *
+Disallow: /en/user/
+Disallow: /de/user/
+Disallow: /pl/user/
+Disallow: /ro/user/
+
+#Block crawlers for /login directory
+User-agent: *
+Disallow: /en/login/
+Disallow: /de/login/
+Disallow: /pl/login/
+Disallow: /ro/login/
+
+#Block crawlers for /signup directory
+User-agent: *
+Disallow: /en/signup/
+Disallow: /de/signup/
+Disallow: /pl/signup/
+Disallow: /ro/signup/
