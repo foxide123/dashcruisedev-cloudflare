@@ -9,40 +9,40 @@
   },
   "teamMembers": [
     {
-        "name": "Jakub",
-        "imageUrl": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/6bcb119a-134e-4148-94c2-4c494a485900/square800x800",
-        "role": "CEO & Developer",
-        "description": "Hello, a warm welcome from all of us! 😊\nI'm Jakub and I make sure your website runs smoothly.\nMy role is to ensure your needs are met and that you're happy with our website services.",
-        "bgColor": "bg-profile_background-blue",
-        "fb_url": "https://www.facebook.com/jakub.kolando/",
-        "ig_url": "https://www.instagram.com/perspective_135/",
-        "linkedin_url": "https://www.linkedin.com/in/jakub-cezary-kolando-137491269/",
-        "twitter_url": "",
-        "upwork_url": ""
+      "name": "Jakub",
+      "imageUrl": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/6bcb119a-134e-4148-94c2-4c494a485900/square800x800",
+      "role": "CEO & Developer",
+      "description": "Hello, a warm welcome from all of us! 😊\nI'm Jakub and I make sure your website runs smoothly.\nMy role is to ensure your needs are met and that you're happy with our website services.",
+      "bgColor": "bg-profile_background-blue",
+      "fb_url": "https://www.facebook.com/jakub.kolando/",
+      "ig_url": "https://www.instagram.com/perspective_135/",
+      "linkedin_url": "https://www.linkedin.com/in/jakub-cezary-kolando-137491269/",
+      "twitter_url": "",
+      "upwork_url": ""
     },
     {
-        "name": "Victoria",
-        "imageUrl": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/ed1b853b-75ba-44b4-0705-bd3c38dff300/square800x800",
-        "role": "Web Designer",
-        "description": "Hello, I'm Victoria and I am a certified freelance web designer from the Republic of Moldova with 1.5 years of experience.\nI specialize in crafting intuitive, user-friendly interfaces and have developed landing pages and e-commerce websites across industries such as beauty, travel, accounting, SAAS, interior design etc. With a deep passion for creativity, I thrive on transforming complex ideas into elegant, high-performing digital experiences that blend aesthetics with functionality.",
-        "bgColor": "bg-profile_background-beige",
-        "fb_url": "",
-        "ig_url": "",
-        "linkedin_url": "",
-        "twitter_url": "",
-        "upwork_url": "https://www.upwork.com/freelancers/~0117d4736750d29304"
+      "name": "Victoria",
+      "imageUrl": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/ed1b853b-75ba-44b4-0705-bd3c38dff300/square800x800",
+      "role": "Web Designer",
+      "description": "Hello, I'm Victoria and I am a certified freelance web designer from the Republic of Moldova with 1.5 years of experience.\nI specialize in crafting intuitive, user-friendly interfaces and have developed landing pages and e-commerce websites across industries such as beauty, travel, accounting, SAAS, interior design etc. With a deep passion for creativity, I thrive on transforming complex ideas into elegant, high-performing digital experiences that blend aesthetics with functionality.",
+      "bgColor": "bg-profile_background-beige",
+      "fb_url": "",
+      "ig_url": "",
+      "linkedin_url": "",
+      "twitter_url": "",
+      "upwork_url": "https://www.upwork.com/freelancers/~0117d4736750d29304"
     },
     {
-        "name": "Alexandru",
-        "imageUrl": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/275af801-ebbc-4d0e-4fc1-0fb77633a200/square800x800",
-        "role": "Developer",
-        "description": "Hello, I'm Alexandru and I am a developer.\nI work together with Jakub on your website's code and logic.",
-        "bgColor": "bg-profile_background-orange",
-        "fb_url": "",
-        "ig_url": "",
-        "linkedin_url": "https://www.linkedin.com/in/alexandru-cotruta-74519318b/",
-        "twitter_url": "",
-        "upwork_url": "https://www.upwork.com/freelancers/~0130e6e4cb1e6c6896"
+      "name": "Alexandru",
+      "imageUrl": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/275af801-ebbc-4d0e-4fc1-0fb77633a200/square800x800",
+      "role": "Developer",
+      "description": "Hello, I'm Alexandru and I am a developer.\nI work together with Jakub on your website's code and logic.",
+      "bgColor": "bg-profile_background-orange",
+      "fb_url": "",
+      "ig_url": "",
+      "linkedin_url": "https://www.linkedin.com/in/alexandru-cotruta-74519318b/",
+      "twitter_url": "",
+      "upwork_url": "https://www.upwork.com/freelancers/~0130e6e4cb1e6c6896"
     },
     {
       "name": "Nouman Farooq",
@@ -55,6 +55,18 @@
       "linkedin_url": "https://www.linkedin.com/in/danish-farooq-28b330185/",
       "twitter_url": "",
       "upwork_url": "https://www.upwork.com/freelancers/~01949007621f8e5f81"
-  }
+    },
+    {
+      "name": "Peter Gaspar",
+      "imageUrl": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/316f3c3f-db53-41ed-6733-f67b768e5b00/square800x800",
+      "role": "UI/UX & Web Designer",
+      "description": "Hi, I’m Peter. My journey into design started with a passion for creativity and a degree in Graphic Design. I have collaborated with startups, marketing teams, and freelance clients, helping them bring their exciting ideas to life. I consider myself as a designer who is not afraid of challenges and enjoys creating fresh ideas that align with modern design trends and user needs.",
+      "bgColor": "",
+      "fb_url": "",
+      "ig_url": "",
+      "linkedin_url": "https://www.linkedin.com/in/p%C3%A9ter-g%C3%A1sp%C3%A1r-75b604208/",
+      "twitter_url": "",
+      "upwork_url": "https://www.upwork.com/freelancers/~0190f560d0fa400075"
+    }
   ]
 }

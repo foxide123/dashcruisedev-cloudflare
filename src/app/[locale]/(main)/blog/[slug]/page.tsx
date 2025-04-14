@@ -6,19 +6,28 @@ import { notFound } from "next/navigation";
 export const dynamicParams = false;
 export const dynamic = "force-static";
 
-const blogData = [
-  {slug: "hello"},
-  {slug: "world"}
-]
-
 export async function generateStaticParams() {
- /*  const supabase = createClient();
+  /*  const supabase = createClient();
   const { data: slugs, error } = await supabase.from("PostTranslation").select("slug");
  */
-    /* Combine locale with slug e.g. {locale: 'en', slug: '...'} 
+  /* Combine locale with slug e.g. {locale: 'en', slug: '...'} 
   }*/
+
+  /* const messages = await getMessages();
+  const blogSlugs = messages.posts.map((post: PostParams) => ({
+    slug: post.slug as string,
+  })); */
+
+  const blogSlugs = [
+    {slug: "seo-introduction"},
+    {slug: "website-builders"},
+    {slug: "professional-email"},
+    {slug: "add-business-on-google-maps"}
+  ]
+
+
   const params = routing.locales.flatMap((locale) =>
-    blogData?.map(({ slug }) => ({ locale, slug }))
+    blogSlugs?.map(({ slug }: { slug: string }) => ({ locale, slug }))
   );
   return params;
 }
@@ -26,19 +35,16 @@ export async function generateStaticParams() {
 export default async function BlogPost({
   params,
 }: {
-  params: Promise<{locale: string; slug: string}>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const awaitedParams = await params;
-  console.log("awaited params:",awaitedParams);
-  const locale = awaitedParams?.locale;
-  console.log("locale", locale);
-  const slug = awaitedParams?.slug;
-  console.log("slug:", slug);
+
+  const {locale, slug} = await params;
+  
   //eslint-disable-next-line
   if (!locale || !slug || !routing.locales.includes(locale as any)) {
     notFound();
   }
 
   setRequestLocale(locale);
-  return <div></div>;
+  return <div>This is the blog page for post {slug}</div>;
 }
