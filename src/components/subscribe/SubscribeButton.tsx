@@ -31,7 +31,7 @@ export default function SubscribeButton({
     setLoading(true);
 
     try {
-      const response = await fetch("/api/checkout_sessions", {
+      const response = await fetch("/api/checkout-sessions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

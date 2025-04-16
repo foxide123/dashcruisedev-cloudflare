@@ -28,8 +28,19 @@ export const CountryProvider = ({
     // Fallback to URL-based locale
     const localeFromPath = pathname?.split("/")[1];
 
-    if (localeFromPath === 'de') setLanguage("🇩🇪 de");
-    else setLanguage("🇺🇸 en");
+    switch(localeFromPath){
+      case "de":
+        setLanguage("🇩🇪 de");
+        return;
+      case "ro":
+        setLanguage("🇷🇴 ro");
+        return;
+      case "pl":
+        setLanguage("🇵🇱 pl");
+        return;
+      default:
+        setLanguage("🇺🇸 en");
+    }
 
     if (savedCurrency) {
       setCurrency(savedCurrency as string);
