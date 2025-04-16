@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       alternates: {
         languages: {
+          en: "https://dashcruisedev.com/en",
           de: "https://dashcruisedev.com/de",
           ro: "https://dashcruisedev.com/ro",
           pl: "https://dashcruisedev.com/pl",
@@ -19,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(),
         alternates: {
           languages: {
+            en: "https://dashcruisedev.com/en/contact",
             de: "https://dashcruisedev.com/de/contact",
             ro: "https://dashcruisedev.com/ro/contact",
             pl: "https://dashcruisedev.com/pl/contact",
@@ -31,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       alternates: {
         languages: {
+          en: "https://dashcruisedev.com/en/about",
           de: "https://dashcruisedev.com/de/about",
           ro: "https://dashcruisedev.com/ro/about",
           pl: "https://dashcruisedev.com/pl/about",
@@ -43,6 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       alternates: {
         languages: {
+          en: "https://dashcruisedev.com/en/blog",
           de: "https://dashcruisedev.com/de/blog",
           ro: "https://dashcruisedev.com/ro/blog",
           pl: "https://dashcruisedev.com/pl/blog",
@@ -55,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(),
         alternates: {
           languages: {
+            en: "https://dashcruisedev.com/en/terms",
             de: "https://dashcruisedev.com/de/terms",
             ro: "https://dashcruisedev.com/ro/terms",
             pl: "https://dashcruisedev.com/pl/terms",
