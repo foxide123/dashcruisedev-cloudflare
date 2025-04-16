@@ -6,6 +6,7 @@ import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
     //eslint-disable-next-line
   apiVersion: "2025-02-24.acacia; custom_checkout_beta=v1" as any,
+  httpClient: Stripe.createFetchHttpClient(),
 });
 
 type SessionParams = {

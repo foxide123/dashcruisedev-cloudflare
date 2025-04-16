@@ -5,6 +5,31 @@ import { notFound } from "next/navigation";
 
 export const dynamicParams = false;
 export const dynamic = "force-static";
+//revalidate every 10 minutes
+export const revalidate = 600;
+
+const blogSlugs = [
+  { slug: "seo-introduction" },
+  { slug: "website-builders" },
+  { slug: "professional-email" },
+  { slug: "add-business-on-google-maps" },
+];
+
+export async function generateMetadata() {
+  return {
+    title: "DashcruiseDev - Blog",
+    description: "Modern Tech in Business: Insights & Strategies",
+    alternates: {
+      canonical: "https://dashcruisedev.com/en/blog",
+      languages: {
+        en: "https://dashcruisedev.com/en/blog",
+        de: "https://dashcruisedev.com/de/blog",
+        pl: "https://dashcruisedev.com/pl/blog",
+        ro: "https://dashcruisedev.com/ro/blog",
+      },
+    },
+  };
+}
 
 export async function generateStaticParams() {
   /*  const supabase = createClient();
@@ -18,14 +43,6 @@ export async function generateStaticParams() {
     slug: post.slug as string,
   })); */
 
-  const blogSlugs = [
-    {slug: "seo-introduction"},
-    {slug: "website-builders"},
-    {slug: "professional-email"},
-    {slug: "add-business-on-google-maps"}
-  ]
-
-
   const params = routing.locales.flatMap((locale) =>
     blogSlugs?.map(({ slug }: { slug: string }) => ({ locale, slug }))
   );
@@ -37,14 +54,19 @@ export default async function BlogPost({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }) {
+  const { locale, slug } = await params;
 
-  const {locale, slug} = await params;
-  
   //eslint-disable-next-line
   if (!locale || !slug || !routing.locales.includes(locale as any)) {
     notFound();
   }
 
   setRequestLocale(locale);
+/*   const res = await fetch("/api/fetch-post-by-slug", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ slug }),
+  });
+  console.log(res); */
   return <div>This is the blog page for post {slug}</div>;
 }

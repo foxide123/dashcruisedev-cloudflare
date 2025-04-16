@@ -33,7 +33,8 @@ export default function CountrySelectionModal() {
 
   const handleSave = () => {
     const newLocale = language.split(" ")[1]; // from "🇩🇪 de" → "de"
-    const currentPathWithoutLocale = pathname!.replace(/^\/(en|de)/, ""); // remove existing locale from path
+    // ### IMPORTANT ### Add / Remove new language to currentPathWithoutLocale below
+    const currentPathWithoutLocale = pathname!.replace(/^\/(en|de|ro|pl)/, ""); // remove existing locale from path
 
     // Save cookie
     setCookie("currency", currency, { path: "/" });
@@ -64,8 +65,10 @@ export default function CountrySelectionModal() {
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="🇺🇸 en">🇺🇸 English</SelectItem>
-              <SelectItem value="🇩🇪 de">🇩🇪 German</SelectItem>
+              <SelectItem value="🇺🇸 en">🇺🇸 EN</SelectItem>
+              <SelectItem value="🇩🇪 de">🇩🇪 DE</SelectItem>
+              <SelectItem value="🇷🇴 ro">🇷🇴 RO</SelectItem>
+              <SelectItem value="🇵🇱 pl">🇵🇱 PL</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -80,6 +83,8 @@ export default function CountrySelectionModal() {
             <SelectContent>
               <SelectItem value="usd">USD</SelectItem>
               <SelectItem value="eur">EUR</SelectItem>
+              <SelectItem value="pln">PLN</SelectItem>
+              <SelectItem value="ron">RON</SelectItem>
             </SelectContent>
           </Select>
         </div>

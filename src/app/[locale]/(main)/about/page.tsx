@@ -4,9 +4,45 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
 import { SocialIcons2 } from "@/components/common/SocialIcons2";
+import { Metadata } from "next";
 /* import { BgImageWrapper } from "@/components/common/BgImageWrapper"; */
 export const dynamicParams = false;
 export const dynamic = "force-static";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://dashcruisedev.com"),
+  title: "DashcruiseDev - About Us",
+  description: "Meet Our Talented Team at DashcruiseDev",
+  keywords: "dashcruise, dashcruisedev, web development",
+  authors: [{ name: 'Alexandru' }, { name: 'Jakub', url: '/about' }],
+  creator: 'Jakub Cezary Kolando',
+  publisher: 'Alexandru Cotruta',
+  alternates: {
+    canonical: "/en/about",
+    languages: {
+      en: "/en/about",
+      de: "/de/about",
+      pl: "/pl/about",
+      ro: "/ro/about",
+    },
+  },
+};
+
+/* export async function generateMetadata(){
+  return {
+    title: "DashcruiseDev - About Us",
+    description: "Meet Our Talented Team at DashcruiseDev",
+    alternates: {
+      canonical: "https://dashcruisedev.com/en/about",
+      languages: {
+        en: "https://dashcruisedev.com/en/about",
+        de: "https://dashcruisedev.com/de/about",
+        pl: "https://dashcruisedev.com/pl/about",
+        ro: "https://dashcruisedev.com/ro/about"
+      }
+    }
+  }
+} */
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -62,7 +98,7 @@ export default async function AboutPage({
 
         {/*            <div className={`fixed relative -z-10  inset-0 w-screen h-full`}>
                   <Image
-                    src="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/7528164d-c2ec-4d98-84a0-17a4a96e5500/hd1920x1080"
+                    src="7528164d-c2ec-4d98-84a0-17a4a96e5500/hd1920x1080"
                     alt="About Bg Image"
                     layout="fill"
                     objectFit="cover"
@@ -76,7 +112,7 @@ export default async function AboutPage({
         <BgImageWrapper
           width="w-screen"
           height="h-full"
-          imgSrc="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/7528164d-c2ec-4d98-84a0-17a4a96e5500/hd1920x1080"
+          imgSrc="7528164d-c2ec-4d98-84a0-17a4a96e5500/hd1920x1080"
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/CABEIAAUACgMBEQACEQEDEQH/xAAqAAEBAAAAAAAAAAAAAAAAAAAHCgEAAwEAAAAAAAAAAAAAAAAAAQIDBP/aAAwDAQACEAMQAAAAhRepoM//xAAfEAACAgEEAwAAAAAAAAAAAAADBAECBQAGEyISFDH/2gAIAQEAAT8AAjjDbTym4GEos2szjseoBb11U6RIzQczFIVKc97UqHh4mVvAtTGal3lpQFjdp6V+zr//xAAcEQACAwADAQAAAAAAAAAAAAABAgMREgAhYpH/2gAIAQIBAT8AWUI6RCNCpSR2ZtNISF0tNYAGibtWsUq471ryvzn/xAAbEQEBAQADAQEAAAAAAAAAAAACAQMEEhMAUf/aAAgBAwEBPwDwm3D5HKTc0GvFyyI6DKFNTWswdnUIYLHn1crfrLBOk/b9/9k="
           imgAlt="About Bg Image"
           mobileHeight="aspect-video"
@@ -84,11 +120,10 @@ export default async function AboutPage({
 
         <div className="hidden sm:flex fixed inset-0">
           <Image
-            src="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/7528164d-c2ec-4d98-84a0-17a4a96e5500/hd1920x1080"
+            src="7528164d-c2ec-4d98-84a0-17a4a96e5500/hd1920x1080"
             alt="About Bg Image"
             style={{ objectFit: "cover" }}
             decoding="async"
-            priority
             placeholder="blur"
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/CABEIAAUACgMBEQACEQEDEQH/xAAqAAEBAAAAAAAAAAAAAAAAAAAHCgEAAwEAAAAAAAAAAAAAAAAAAQIDBP/aAAwDAQACEAMQAAAAhRepoM//xAAfEAACAgEEAwAAAAAAAAAAAAADBAECBQAGEyISFDH/2gAIAQEAAT8AAjjDbTym4GEos2szjseoBb11U6RIzQczFIVKc97UqHh4mVvAtTGal3lpQFjdp6V+zr//xAAcEQACAwADAQAAAAAAAAAAAAABAgMREgAhYpH/2gAIAQIBAT8AWUI6RCNCpSR2ZtNISF0tNYAGibtWsUq471ryvzn/xAAbEQEBAQADAQEAAAAAAAAAAAACAQMEEhMAUf/aAAgBAwEBPwDwm3D5HKTc0GvFyyI6DKFNTWswdnUIYLHn1crfrLBOk/b9/9k="
             fill
@@ -97,7 +132,7 @@ export default async function AboutPage({
         </div>
         <div className="sm:hidden relative w-screen z-[-10] aspect-video self-start">
           <Image
-            src="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/7528164d-c2ec-4d98-84a0-17a4a96e5500/mobile640x480"
+            src="7528164d-c2ec-4d98-84a0-17a4a96e5500/mobile640x480"
             alt="contact background image"
             style={{ objectFit: "cover" }}
             decoding="async"

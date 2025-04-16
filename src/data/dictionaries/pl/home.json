@@ -1,0 +1,90 @@
+{
+    "hero": {
+      "headerBeforeEffect": "Wprowadź Swój",
+      "headerEffect": ["Biznes", "Pomysł", "Startup"],
+      "headerAfterEffect": "Do Internetu"
+    },
+    "comparison": {
+      "header": "Strony Szyte na Miarę, Aby Wzmocnić Twoją Markę",
+      "description": "Nie Kolejny Powolny Szablon Jak U Wszystkich – Strony Tak Unikalne Jak Ty",
+      "dashcruiseDev": {
+        "title": "Nasze Strony",
+        "items": [
+          "Zoptymalizowane pod Wyszukiwarkę Google",
+          "Błyskawiczne Ładowanie",
+          "Bezpieczne",
+          "Unikalne",
+          "Dostosowane do Twoich Potrzeb",
+          "Pomoc Ekspertów"
+        ]
+      },
+      "webBuilders": {
+        "title": "Kreatory Stron",
+        "items": [
+          "Gorsze SEO",
+          "Powolne",
+          "Zagrożenia Bezpieczeństwa z Wtyczek",
+          "Ograniczenia Szablonów",
+          "Schematyczny Wygląd",
+          "Słabe / Brak Wsparcia"
+        ]
+      }
+    },
+    "highlight": {
+      "header": "Zwiększ Potencjał Firmy dzięki Niezrównanej Prędkości i\nBezpieczeństwu",
+      "description": "Ciesz się spokojem dzięki ochronie 24/7 i nieprzerwanemu działaniu Twojej strony. Dzięki ochronie przed atakami DoS, szyfrowaniu SSL i inteligentnemu cache'owaniu możesz spać spokojnie, wiedząc, że Twoja strona jest szybka i bezpieczna. Zmodernizuj swoją obecność w sieci z nami – gdzie prędkość spotyka się z bezpieczeństwem!"
+    },
+    "portfolio": {
+      "header": "Zobacz Nasze Realizacje",
+      "portfolioItems": [
+        {
+          "name": "VoyageBlur Blog Podróżniczy",
+          "imageUrl": "236846ed-3356-4bb7-6094-a0eb79b59f00/card600x400"
+        },
+        {
+          "name": "Webee Panel Administracyjny",
+          "imageUrl": "9f2c4b1b-f1f2-45c0-dcdb-d8f846703c00/card600x400"
+        },
+        {
+          "name": "Rana Solutions",
+          "imageUrl": "8fde5afd-0c71-47e5-0383-209157ae8e00/card600x400"
+        }
+      ]
+    },
+    "pricing": {
+      "header": "Wybierz Plan Idealny Dla Siebie",
+      "description": "Od osób chcących zaistnieć w sieci po rozwijające się firmy — nasze plany, pomogą rozwinąć Twoją obecność w sieci"
+    },
+    "meeting": {
+      "header": "Darmowa Konsultacja Strony Internetowej",
+      "description": "Umów się na 15-minutowe spotkanie, aby omówić swoje potrzeby, cele i jak możemy ożywić Twoją wizję.",
+      "cta": "Umów Spotkanie i Porozmawiajmy o Szczegółach"
+    },
+    "qa": {
+      "sectionHighlight": "Masz Pytania? Mamy Odpowiedzi!",
+      "header": "Najczęściej Zadawane Pytania",
+      "qaData": [
+        {
+          "question": "Jakie środki bezpieczeństwa oferujecie dla mojej strony?",
+          "answer": "Priorytetowo traktujemy bezpieczeństwo, oferując ochronę przed atakami DDoS, szyfrowanie SSL i monitorowanie w czasie rzeczywistym. Nasz hosting zawiera automatyczne kopie zapasowe i ochronę zaporą, dzięki czemu Twoja strona jest bezpieczna przez całą dobę."
+        },
+        {
+          "question": "Co się stanie, jeśli anuluję subskrypcję?",
+          "answer": "Po anulowaniu subskrypcji strona internetowa przestanie być aktywna."
+        },
+        {
+          "question": "Czy domena i hosting są wliczone w cenę?",
+          "answer": "Hosting jest wliczony w plan. Domena również jest dostarczana, z wyjątkiem przypadków, gdy zawiera wartościowe słowa kluczowe. Niektóre domeny mogą podlegać regularnym opłatom i nie być objęte standardowym planem."
+        },
+        {
+          "question": "Co jeśli nie będę zadowolony ze strony?",
+          "answer": "W przypadku niezadowolenia z naszej pracy, przysługuje Ci 14-dniowy zwrot pieniędzy (choć chętnie przyjmiemy również Twoją opinię)."
+        },
+        {
+          "question": "Mam więcej pytań",
+          "answer": "Jeśli masz dodatkowe pytania, skontaktuj się z nami przez email: contact@dashcruisedev.com"
+        }
+      ]
+    }
+  }
+  

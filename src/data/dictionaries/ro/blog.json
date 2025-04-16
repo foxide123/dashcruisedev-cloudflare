@@ -1,0 +1,32 @@
+{
+    "posts": [
+        {
+            "title": "Introducere SEO",
+            "description": "Ce este SEO și cum afectează site-ul tău?",
+            "date": "APRILIE 2025",
+            "image_src": "e097d49d-c0e4-4644-f379-8a731753de00",
+            "slug": "seo-introducere"
+        },
+        {
+            "title": "Developerii de site-uri",
+            "description": "Sunt developerii de site-uri alegerea potrivită pentru afacerea ta?",
+            "image_src": "bfc90ad7-5d5d-458e-c803-9966220d2a00",
+            "date": "APRILIE 2025",
+            "slug": "developer-de-site-uri"
+        },
+        {
+            "title": "Email Profesional",
+            "description": "Cum să configurezi un email profesional pentru site-ul tău?",
+            "image_src": "1cfed863-aaa7-43cc-6179-5c21cf41b100",
+            "date": "APRILIE 2025",
+            "slug": "email-profesional"
+        },
+        {
+            "title": "Adăugarea afacerii pe Google Maps",
+            "description": "Ghid pentru prezența afacerii pe Google Maps",
+            "image_src": "bed2916d-ab57-465c-ca1b-4bd5ed0b2200",
+            "date": "APRILIE 2025",
+            "slug": "adaugă-afacerea-pe-google-maps"
+        }
+    ]
+}

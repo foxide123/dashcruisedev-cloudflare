@@ -21,7 +21,7 @@ export default function FadeInSection({ children }: { children: React.ReactNode 
       ref={ref}
       className={clsx(
         "transition-all xl:duration-1600 xl:delay-400 duration-700 delay-200 ease-in-out",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-0"
       )}
     >
       {children}
