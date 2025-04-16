@@ -13,6 +13,22 @@ import { routing } from "@/i18n/routing";
 /* export const dynamicParams = false; */
 /*export const dynamic = "force-dynamic";*/
 
+export async function generateMetadata(){
+  return {
+    title: "DashcruiseDev - Web Design & Development",
+    description: "Modern websites crafted with performance and user experience in mind",
+    alternates: {
+      canonical: "https://dashcruisedev.com/en",
+      languages: {
+        en: "https://dashcruisedev.com/en",
+        de: "https://dashcruisedev.com/de",
+        pl: "https://dashcruisedev.com/pl",
+        ro: "https://dashcruisedev.com/ro"
+      }
+    }
+  }
+}
+
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }

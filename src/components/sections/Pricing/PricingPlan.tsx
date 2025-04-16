@@ -65,7 +65,7 @@ export default async function PricingPlan({
         <div className="flex flex-row items-center justify-center">
           <div className="md:block overflow-hidden absolute w-20 h-20 left-6 top-6 hidden">
             <Image
-              src="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/8ecc571e-8203-479c-f4e9-807c9571a100/thumbnail300x300"
+              src="8ecc571e-8203-479c-f4e9-807c9571a100/thumbnail300x300"
               objectFit="contain"
               layout="fill"
               sizes="280px"

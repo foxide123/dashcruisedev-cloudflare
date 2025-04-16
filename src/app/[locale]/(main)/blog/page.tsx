@@ -8,9 +8,31 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { PostParams } from "@/types/main_types";
+import { Metadata } from "next";
 
 export const dynamicParams = false;
 export const dynamic = "force-static";
+export const revalidate = 3600;
+
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://dashcruisedev.com"),
+  title: "DashcruiseDev - Blog",
+  description: "Modern Tech in Business: Insights & Strategies",
+  keywords: "technology, business, web development",
+  authors: [{ name: 'Alexandru' }, { name: 'Jakub', url: '/blog' }],
+  creator: 'Jakub Cezary Kolando',
+  publisher: 'Alexandru Cotruta',
+  alternates: {
+    canonical: "/en/blog",
+    languages: {
+      en: "/en/blog",
+      de: "/de/blog",
+      pl: "/pl/blog",
+      ro: "/ro/blog",
+    },
+  },
+};
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -36,7 +58,7 @@ export default async function Blog({
   const default_screen_width = "w-[85vw]";
 
   const mainPost = posts[0];
-  const otherPosts = posts.slice(1,);
+  const otherPosts = posts.slice(1);
 
   return (
     <div className="caret-transparent w-screen lg:py-10 min-h-[100vh]">
@@ -87,7 +109,11 @@ export default async function Blog({
                   className="flex cursor-pointer flex-col gap-2 hover:opacity-75"
                 >
                   <div className="relative aspect-video rounded-md bg-muted">
-                    <Image src={`${post.image_src}/card600x400`} alt="post image" fill />
+                    <Image
+                      src={`${post.image_src}/card600x400`}
+                      alt="post image"
+                      fill
+                    />
                   </div>
                   <h1 className="lg:text-xl text-sm font-bold tracking-tight">
                     {post.title}

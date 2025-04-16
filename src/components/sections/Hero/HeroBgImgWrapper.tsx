@@ -1,4 +1,4 @@
-"use client"
+/* "use client"
 
 import { useIsMobile } from "@/hooks/use-mobile";
 import Image from "next/image"
@@ -10,7 +10,7 @@ export function HeroBgImageWrapper()
     return isMobile ? null : (
         <div className={`fixed -z-10  inset-0 w-screen h-screen sm:block hidden`}>
         <Image
-          src="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/22218a4e-1efb-43dd-ff1e-562588e15a00/hd1920x1080"
+          src="22218a4e-1efb-43dd-ff1e-562588e15a00/hd1920x1080"
           alt="hero background"
           layout="fill"
           style={{ objectFit: "cover" }}
@@ -21,4 +21,4 @@ export function HeroBgImageWrapper()
         />
       </div>
     )
-}
+} */
