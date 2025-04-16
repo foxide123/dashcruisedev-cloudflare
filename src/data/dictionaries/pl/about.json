@@ -1,0 +1,73 @@
+{
+    "about": {
+      "header": "O nas",
+      "description": "Tworzymy unikalne, wydajne strony internetowe - bez wysokich kosztów",
+      "sectionHeader": "Nasz cel",
+      "sectionDescription": "W DashcruiseDev wierzymy, że każdy zasługuje na dopasowaną stronę internetową, która przynosi rezultaty. Dlatego przekształciliśmy tradycyjny model projektowania stron.\nZamiast pobierać tysiące złotych z góry, oferujemy strony internetowe na zamówienie w miesięcznej subskrypcji. Otrzymujesz wszystko, czego potrzebujesz – projekt, stronę, hosting, wsparcie i aktualizacje – wszystko w jednym pakiecie subskrypcyjnym.",
+      "teamHeader": "Poznaj członków naszego zespołu",
+      "teamDescription": "Poznaj członków naszego zespołu – grupę kreatywnych, zmotywowanych i utalentowanych osób, które wspólnie zrealizują Twoje pomysły"
+    },
+    "teamMembers": [
+      {
+        "name": "Jakub",
+        "imageUrl": "6bcb119a-134e-4148-94c2-4c494a485900/square800x800",
+        "role": "CEO & Programista",
+        "description": "Cześć, serdecznie witamy! 😊\nJestem Jakub i dbam o to, aby Twoja strona działała prawidłowo.\nMoim zadaniem jest zapewnienie tego, żeby wszyskie Twoje wymagania były spełnione i żebyś był zadowolony z naszych usług.",
+        "bgColor": "bg-profile_background-blue",
+        "fb_url": "https://www.facebook.com/jakub.kolando/",
+        "ig_url": "https://www.instagram.com/perspective_135/",
+        "linkedin_url": "https://www.linkedin.com/in/jakub-cezary-kolando-137491269/",
+        "twitter_url": "",
+        "upwork_url": ""
+      },
+      {
+        "name": "Victoria",
+        "imageUrl": "ed1b853b-75ba-44b4-0705-bd3c38dff300/square800x800",
+        "role": "Projektantka stron internetowych",
+        "description": "Cześć, jestem Victoria i jestem certyfikowaną, niezależną projektantką stron internetowych z 1,5-letnim doświadczeniem.\nSpecjalizuję się w tworzeniu intuicyjnych, przyjaznych dla użytkownika interfejsów i projektowałam strony docelowe oraz sklepy internetowe w branżach takich jak uroda, podróże, księgowość, SAAS, projektowanie wnętrz itd. Mam ogromną pasję do kreatywności i uwielbiam przekształcać złożone pomysły w eleganckie, wydajne strony internetowe łączące estetykę z funkcjonalnością.",
+        "bgColor": "bg-profile_background-beige",
+        "fb_url": "",
+        "ig_url": "",
+        "linkedin_url": "",
+        "twitter_url": "",
+        "upwork_url": "https://www.upwork.com/freelancers/~0117d4736750d29304"
+      },
+      {
+        "name": "Alexandru",
+        "imageUrl": "275af801-ebbc-4d0e-4fc1-0fb77633a200/square800x800",
+        "role": "Programista",
+        "description": "Cześć, jestem Alexander!\nWspólnie z Jakubem dbam o to, by Twoja strona działała szybko, sprawnie i zgodnie z najnowszymi standardami.\nKod i logika to nasza specjalność!",
+        "bgColor": "bg-profile_background-orange",
+        "fb_url": "",
+        "ig_url": "",
+        "linkedin_url": "https://www.linkedin.com/in/alexandru-cotruta-74519318b/",
+        "twitter_url": "",
+        "upwork_url": "https://www.upwork.com/freelancers/~0130e6e4cb1e6c6896"
+      },
+      {
+        "name": "Nouman Farooq",
+        "imageUrl": "d098f163-b480-4aec-018a-d30173a55000/square800x800",
+        "role": "Starszy UI/UX i Projektant stron internetowych",
+        "description": "Kreatywny i skrupulatny Starszy Projektant UI/UX z ponad 4-letnim doświadczeniem w projektowaniu intuicyjnych, zorientowanych na użytkownika stron internetowych, aplikacji mobilnych, platform SaaS i interfejsów e-commerce – skoncentrowany na użyteczności, estetyce i wydajności.",
+        "bgColor": "",
+        "fb_url": "",
+        "ig_url": "",
+        "linkedin_url": "https://www.linkedin.com/in/danish-farooq-28b330185/",
+        "twitter_url": "",
+        "upwork_url": "https://www.upwork.com/freelancers/~01949007621f8e5f81"
+      },
+      {
+        "name": "Peter Gaspar",
+        "imageUrl": "316f3c3f-db53-41ed-6733-f67b768e5b00/square800x800",
+        "role": "UI/UX i Projektant stron internetowych",
+        "description": "Cześć, jestem Peter. Moja przygoda z projektowaniem zaczęła się od pasji do kreatywności i dyplomu z grafiki. Współpracowałem ze startupami, zespołami marketingowymi i klientami jako freelancer, pomagając im ożywiać ekscytujące pomysły. Uważam się za projektanta, który nie boi się wyzwań i czerpie radość z tworzenia unikatowych pomysłów zgodnych z nowoczesnymi trendami projektowymi i potrzebami użytkowników.",
+        "bgColor": "",
+        "fb_url": "",
+        "ig_url": "",
+        "linkedin_url": "https://www.linkedin.com/in/p%C3%A9ter-g%C3%A1sp%C3%A1r-75b604208/",
+        "twitter_url": "",
+        "upwork_url": "https://www.upwork.com/freelancers/~0190f560d0fa400075"
+      }
+    ]
+  }
+  

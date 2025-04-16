@@ -25,18 +25,14 @@
         "portfolioItems": [
             {
                 "name": "VoyageBlur Travel Blog",
-                "imageUrl": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/236846ed-3356-4bb7-6094-a0eb79b59f00/card600x400"},
+                "imageUrl": "236846ed-3356-4bb7-6094-a0eb79b59f00/card600x400"},
             {
                 "name": "Webee Dashboard Panel",
-                "imageUrl": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/9f2c4b1b-f1f2-45c0-dcdb-d8f846703c00/card600x400"},
+                "imageUrl": "9f2c4b1b-f1f2-45c0-dcdb-d8f846703c00/card600x400"},
             {
                 "name": "Rana Solutions",
-                "imageUrl": "https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/8fde5afd-0c71-47e5-0383-209157ae8e00/card600x400"}
+                "imageUrl": "8fde5afd-0c71-47e5-0383-209157ae8e00/card600x400"}
         ]
-    },
-    "contactUs": {
-        "header": "We'd love to\nconnect with you!",
-        "description": "Please fill out the contact form and we will contact you as soon as possible with all of the informations and answers to your questions."
     },
     "pricing": {
         "header": "Choose the Plan that's Perfect for You",

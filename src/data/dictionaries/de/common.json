@@ -6,6 +6,10 @@
     "send": "Nachricht senden",
     "sending": "Nachricht wird gesendet..."
   },
+  "contactUs": {
+    "header": "Wir würden uns freuen,\nvon dir zu hören!",
+    "description": "Bitte fülle das Kontaktformular aus und wir melden uns so schnell wie möglich mit allen Informationen und Antworten auf deine Fragen bei dir."
+},
   "exclusivePlan": {
     "header": "Exklusiver Plan",
     "description": "Zugriff auf die komplette Suite fortschrittlicher Funktionen",

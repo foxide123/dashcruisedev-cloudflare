@@ -1,0 +1,107 @@
+{
+    "contactForm": {
+      "name": "Imię",
+      "email": "Email",
+      "message": "Wiadomość",
+      "send": "Wyślij Wiadomość",
+      "sending": "Wysyłanie wiadomości..."
+    },
+    "contactUs": {
+      "header": "Chętnie się z Tobą\nSkontaktujemy!",
+      "description": "Wypełnij formularz kontaktowy, a odezwiemy się do Ciebie jak najszybciej z wszystkimi informacjami i odpowiedziami na Twoje pytania."
+    },
+    "exclusivePlan": {
+      "header": "Ekskluzywny Plan",
+      "description": "Dostęp do pełnego zestawu zaawansowanych funkcji",
+      "interval": "miesiąc",
+      "features": ["2 Strony w Zestawie", "Wzmocnij Markę Dzięki Spersonalizowanej Stronie", "Wersja Mobilna i Desktopowa", "Optymalizacja SEO", "Hosting, Domeny i E-mail Firmowy"],
+      "cta": "Dowiedz się więcej"
+    },
+    "pricingPlan": [
+      {
+        "name": "🌱 Start 🌱",
+        "price": "49",
+        "additionalPagePrice": "9",
+        "description": "Idealny dla nowych firm lub freelancerów, którzy potrzebują solidnej strony internetowej",
+        "bgColor": "bg-gray-900",
+        "textPrimaryColor": "white",
+        "textSecondaryColor": "gray-400",
+        "features": [
+          {
+            "featureHighlight": "✅ Prosta, Spersonalizowana Strona",
+            "featureDescription": ""
+          },
+          {
+            "featureHighlight": "📱 Projekt Przyjazny dla Urządzeń Mobilnych",
+            "featureDescription": ""
+          },
+          {
+            "featureHighlight": "🔍 Podstawowa Konfiguracja SEO",
+            "featureDescription": ""
+          },
+          {
+            "featureHighlight": "⚡️ Szybkie Uruchomienie",
+            "featureDescription": ""
+          },
+          {
+            "featureHighlight": "🔒 Hosting, Domeny i SSL w Zestawie",
+            "featureDescription": ""
+          },
+          {
+            "featureHighlight": "📄 Zawiera 2 Strony",
+            "featureDescription": ""
+          }
+        ],
+        "extraPagesHeader": "Potrzebujesz Więcej Stron?",
+        "iteration": "miesiąc",
+        "extraPagesDescription": "za dodatkową stronę"
+      },
+      {
+        "name": "✨ Standard ✨",
+        "price": "79",
+        "additionalPagePrice": "9",
+        "description": "Idealny dla rozwijających się firm, które chcą spersonalizowanej strony, lepszej widoczności i spokoju ducha",
+        "bgColor": "bg-gray-100",
+        "textPrimaryColor": "black",
+        "textSecondaryColor": "carrot-500",
+        "features": [
+          {
+            "featureHighlight": "✅ Indywidualny Projekt Strony",
+            "featureDescription": ""
+          },
+          {
+            "featureHighlight": "📱 Responsywny i Mobilny Design",
+            "featureDescription": ""
+          },
+          {
+            "featureHighlight": "🔍 Optymalizacja SEO",
+            "featureDescription": ""
+          },
+          {
+            "featureHighlight": "🔁 Nielimitowane Edycje",
+            "featureDescription": ""
+          },
+          {
+            "featureHighlight": "🔒 Hosting, Domeny i SSL w Zestawie",
+            "featureDescription": ""
+          },
+          {
+            "featureHighlight": "📄 Do 5 Stron",
+            "featureDescription": ""
+          }
+        ],
+        "extraPagesHeader": "Potrzebujesz Więcej Stron?",
+        "iteration": "miesiąc",
+        "extraPagesDescription": "za dodatkową stronę"
+      }
+    ],
+    "newsletter": {
+      "header": "Bądź na Bieżąco z <br></br> Promocjami i Nowościami",
+      "placeholder": "Wprowadź swój email",
+      "invalidEmailError": "Nieprawidłowy adres email",
+      "cta": "Zapisz się",
+      "emailExistsError": "Ten email jest już zapisany",
+      "unknownError": "Nieznany błąd"
+    }
+  }
+  

@@ -1,0 +1,72 @@
+{
+    "hero": {
+        "headerBeforeEffect": "Adu-ți",
+        "headerEffect": ["Ideea", "Brandul", "Proiectul", "Portofoliul", "Povestea"],
+        "headerAfterEffect": "Online"
+    },
+    "comparison": {
+        "header": "Site-uri Personalizate Construite pentru a Ridica Brandul Tău",
+        "description": "Nu doar un alt șablon lent pe care toată lumea îl folosește - Site-uri la fel de Unice ca și Tine",
+        "dashcruiseDev": {
+           "title": "Site-urile Noastre",
+           "items": ["Optimizate pentru Google Search", "Timpuri de Încărcare Ultrafaste", "Securitate", "Unic", "Adaptabil la nevoile tale", "Asistență Expert"]
+        },
+        "webBuilders": {
+            "title": "Constructori de Site-uri",
+            "items": ["SEO Mai Slab", "Lent", "Riscuri de Securitate din Pluginuri", "Limitați de Tematici", "Designuri Comune", "Suport Sărac / Inexistent"]
+        }
+    },
+    "highlight": {
+        "header": "Crește-ți Afacerea cu\nViteză și\nSecuritate Incomparabile",
+        "description": "Bucură-te de liniște sufletească cu protecție 24/7 și servicii neîntrerupte, asigurându-te că site-ul tău este mereu de încredere și fiabil. Cu protecția DoS, criptare SSL și cache inteligent, poți dormi liniștit știind că site-ul tău va fi rapid și sigur. Îmbunătățește-ți prezența online cu noi - unde viteza întâlnește securitatea!"
+    },
+    "portfolio": {
+        "header": "Vezi Lucrările Noastre în Acțiune",
+        "portfolioItems": [
+            {
+                "name": "Blogul de Călătorii VoyageBlur",
+                "imageUrl": "236846ed-3356-4bb7-6094-a0eb79b59f00/card600x400"},
+            {
+                "name": "Panoul Webee Dashboard",
+                "imageUrl": "9f2c4b1b-f1f2-45c0-dcdb-d8f846703c00/card600x400"},
+            {
+                "name": "Rana Solutions",
+                "imageUrl": "8fde5afd-0c71-47e5-0383-209157ae8e00/card600x400"}
+        ]
+    },
+    "pricing": {
+         "header": "Alege Planul Care Se Potrivește Cel Mai Bine Nevoilor Tale",
+        "description": "De la micile afaceri la cele în expansiune — găsește instrumentele potrivite pentru a-ți crește prezența online"
+    },
+    "meeting": {
+        "header": "Consultanță Gratuită pentru Website",
+        "description": "Programează o întâlnire de 15 minute pentru a discuta despre cerințele tale, obiectivele și cum putem aduce viziunea ta la viață.",
+        "cta": "Programează o Întâlnire cu Noi pentru a Discuta Detaliile"
+    },
+    "qa": {
+        "sectionHighlight": "Ai întrebări? Avem răspunsuri!",
+        "header": "Întrebări Frecvente",
+        "qaData": [
+            {
+                "question": "Ce măsuri de securitate oferiți pentru site-ul meu?",
+                "answer": "Punem accent pe securitate cu protecție DDoS, criptare SSL și monitorizare în timp real pentru a păstra site-ul tău în siguranță de amenințări. Găzduirea noastră include copii de siguranță automate și protecție firewall, asigurându-ne că site-ul tău rămâne securizat 24/7."
+            },
+            {
+                "question": "Ce se întâmplă când anulez abonamentul?",
+                "answer": "Dacă anulezi abonamentul, site-ul nu va mai fi activ."
+            },
+            {
+                "question": "Este domeniul și hosting-ul incluse în preț?",
+                "answer": "Hosting-ul este inclusă în plan. Domeniul este, de asemenea, oferit, cu excepția cazurilor în care conține cuvinte cheie de mare valoare. Unele domenii pot fi incluse în prețul standard, dar în acest caz, nu sunt acoperite de planul standard."
+            },
+            {
+                "question": "Ce se întâmplă dacă nu sunt mulțumit de site?",
+                "answer": "Dacă nu ești mulțumit de munca noastră, ai dreptul la rambursare în termen de 14 zile (deși apreciem feedback-ul)."
+            },
+            {
+                "question": "Am alte întrebări",
+                "answer": "Dacă mai ai întrebări, ne poți contacta prin email: contact@dashcruisedev.com"
+            }
+        ]
+    }
+}

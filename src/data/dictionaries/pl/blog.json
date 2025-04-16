@@ -1,0 +1,33 @@
+{
+    "posts": [
+      {
+        "title": "Wprowadzenie do SEO",
+        "description": "Czym jest SEO i jak wpływa na Twoją stronę internetową?",
+        "date": "KWIECIEŃ 2025",
+        "image_src": "e097d49d-c0e4-4644-f379-8a731753de00",
+        "slug": "seo-introduction"
+      },
+      {
+        "title": "Kreatory Stron Internetowych",
+        "description": "Czy kreatory stron internetowych to dobry wybór dla Twojego biznesu?",
+        "image_src": "bfc90ad7-5d5d-458e-c803-9966220d2a00",
+        "date": "KWIECIEŃ 2025",
+        "slug": "website-builders"
+      },
+      {
+        "title": "Profesjonalny E-mail",
+        "description": "Jak skonfigurować profesjonalny e-mail dla swojej strony internetowej?",
+        "image_src": "1cfed863-aaa7-43cc-6179-5c21cf41b100",
+        "date": "KWIECIEŃ 2025",
+        "slug": "professional-email"
+      },
+      {
+        "title": "Dodanie Firmy do Map Google",
+        "description": "Przewodnik po obecności firmy w Mapach Google",
+        "image_src": "bed2916d-ab57-465c-ca1b-4bd5ed0b2200",
+        "date": "KWIECIEŃ 2025",
+        "slug": "add-business-on-google-maps"
+      }
+    ]
+  }
+  
