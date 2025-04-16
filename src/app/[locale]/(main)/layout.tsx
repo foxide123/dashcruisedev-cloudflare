@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "DashcruiseDev",
     images: [
       {
-        url: "/og-image.png",
+        url: "/oopengraph-image.png",
         width: 1200,
         height: 630,
         alt: "DashcruiseDev Preview Image",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   other: {
-    "og:image": "https://dashcruisedev.com/og-image.png",
+    "og:image": "https://dashcruisedev.com/opengraph-image.png",
   },
 };
 
@@ -86,7 +86,7 @@ export default async function LocaleLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:image"
-          content="https://dashcruisedev.com/og-image.png"
+          content="https://dashcruisedev.com/opengraph-image.png"
         />
         <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
         <link
