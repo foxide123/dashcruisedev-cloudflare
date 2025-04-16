@@ -13,14 +13,13 @@ import { routing } from "@/i18n/routing";
 import { CountryProvider } from "@/context/CountryContext";
 import { setRequestLocale } from "next-intl/server";
 
-import {Plus_Jakarta_Sans} from "next/font/google"
-
+import { Plus_Jakarta_Sans } from "next/font/google";
 
 const jakartaPlus = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  display: 'swap'
-})
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 export const dynamicParams = false;
 export const dynamic = "force-static";
 
@@ -43,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "DashcruiseDev",
     images: [
       {
-        url: "/oopengraph-image.png",
+        url: "https://dashcruisedev.com/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "DashcruiseDev Preview Image",
@@ -85,6 +84,16 @@ export default async function LocaleLayout({
         <link rel="alternate" href="/de" hrefLang="de" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
+          property="og:title"
+          content="DashcruiseDev - Web Design & Development"
+        />
+        <meta
+          property="og:description"
+          content="Modern websites crafted with performance and user experience in mind"
+        />
+        <meta property="og:url" content="https://dashcruisedev.com/en" />
+        <meta property="og:type" content="website" />
+        <meta
           property="og:image"
           content="https://dashcruisedev.com/opengraph-image.png"
         />
@@ -111,12 +120,12 @@ export default async function LocaleLayout({
       <body className={`${jakartaPlus.className} antialiased`}>
         <CountryProvider>
           <NextIntlClientProvider>
-           <NavWrapper
+            <NavWrapper
               lg_screen_width={lg_screen_width}
               default_screen_width={default_screen_width}
-            > 
+            >
               {children}
-           </NavWrapper>
+            </NavWrapper>
             <Footer
               lg_screen_width={lg_screen_width}
               default_screen_width={default_screen_width}
