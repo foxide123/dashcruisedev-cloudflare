@@ -1,9 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/utils/supabase/server";
 
-export async function GET(req: Request) {
+export async function GET(request: NextRequest) {
   try {
-    const { slug } = await req.json();
+    const searchParams = request.nextUrl.searchParams;
+    const slug = searchParams.get("slug");
 
     if (!slug) {
       return NextResponse.json({ error: "Missing slug" }, { status: 400 });
@@ -23,7 +24,13 @@ export async function GET(req: Request) {
     }
 
     return Response.json({ data: data }, { status: 200 });
-  } catch (err) {
-    return NextResponse.json({error:err});
+    //eslint-disable-next-line
+  } catch (error:any) {
+    return NextResponse.json(
+      { error: "Internal Server Error While Retrieving Post",
+        details: error instanceof Error ? error.message : String(Error)
+       },
+      { status: 500 }
+    );
   }
 }
