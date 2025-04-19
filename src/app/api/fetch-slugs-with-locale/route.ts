@@ -6,18 +6,13 @@ export const revalidate = 60;
 export async function GET() {
   try {
     const supabase = await createClient();
-    const { data, error } = await supabase
-    .from('PostTranslation')
-    .select(`
-      locale,
-      slug,
-      Locale (
-        locale
+    const { data, error } = await supabase.from("PostTranslation").select(`PostTranslation.locale, PostTranslation.slug, Locale.locale,
+      Locale!PostTranslation_lokale_fkey(
+      locale
       )
     `);
 
     if (error) {
-      console.error("Fetch error in route:", error);
       return NextResponse.json({
         error: `Fetch slugs with locale error: ${error}`,
       });
@@ -25,7 +20,6 @@ export async function GET() {
 
     return NextResponse.json({ success: data });
   } catch (error) {
-    console.error("Fetch error in route:", error);
     return NextResponse.json({
       error: `Caught error in fetch slugs with locale: ${error}`,
     });
