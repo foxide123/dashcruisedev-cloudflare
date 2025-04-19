@@ -1,17 +1,23 @@
 import { createClient } from "@/utils/supabase/server";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export const revalidate = 60;
 
-export async function GET() {
+export async function GET(request:NextRequest) {
   try {
+    const searchParams = request.nextUrl.searchParams;
+    const postId = searchParams.get("postId");
+    
     const supabase = await createClient();
-    const { data, error } = await supabase.from("PostTranslation").select(`PostTranslation.locale, PostTranslation.slug, Locale.locale,
-      Locale!PostTranslation_lokale_fkey(
-      locale
+    const { data, error } = await supabase
+    .from("PostTranslation")
+    .select(`
+      slug,
+      locale:Locale (
+        locale
       )
-    `);
-
+    `).eq("post_id", postId);
+  
     if (error) {
       console.error("Fetch error:", error);
       return NextResponse.json(
