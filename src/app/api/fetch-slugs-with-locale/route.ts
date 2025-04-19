@@ -13,12 +13,14 @@ export async function GET() {
     `);
 
     if (error) {
-      return NextResponse.json({
-        error: `Fetch slugs with locale error: ${error}`,
-      });
+      console.error("Fetch error:", error);
+      return NextResponse.json(
+        { error: error.message || error },
+        { status: 500 }
+      );
     }
 
-    return NextResponse.json({ success: data });
+    return NextResponse.json({ data: JSON.parse(JSON.stringify(data)) });
   } catch (error) {
     return NextResponse.json({
       error: `Caught error in fetch slugs with locale: ${error}`,
