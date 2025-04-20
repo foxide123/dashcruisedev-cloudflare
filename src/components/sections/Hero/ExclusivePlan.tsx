@@ -1,23 +1,63 @@
-"use server"
+"use client";
 import { IconSizeEnum } from "@/types/icon_types";
 import CheckIcon from "@/components/icons/CheckIcon";
 import Link from "next/link";
-import { getMessages } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 type ExclusivePlanDataType = {
   header: string;
   description: string;
   interval: string;
   features: string[];
-  cta:string;
+  cta: string;
+};
+
+type SupportedCurrency = "eur" | "pln" | "ron" | "usd";
+
+const getCurrencySymbol = (currency:string) => {
+  switch(currency){
+    case "eur":
+      return "€";
+    case "pln":
+      return "zł";
+    case "ron":
+      return "RON";
+    default:
+      return "$";
+  }
 }
+ 
+const usdCurrencyConverter = (
+  basePrice: number,
+  targetCurrency: SupportedCurrency
+) => {
+  switch(targetCurrency){
+    case "eur":
+      return 45;
+    case "pln":
+      return 190;
+    case "ron":
+      return 215;
+    default:
+      return basePrice;
+  }
+};
 
-export async function ExclusivePlan({ currency }: { currency: string }) {
+export function ExclusivePlan({ currency }: { currency: string }) {
+  const messages = useTranslations();
+  const planData = messages.raw("exclusivePlan") as ExclusivePlanDataType;
 
-  const messages = await getMessages();
-  const planData = messages.exclusivePlan as ExclusivePlanDataType;
+  const basePrice = 49;
 
-  const priceSymbol = currency === "eur" ? "€" : "$";
+  const isSupportedCurrency = (value: string): value is SupportedCurrency =>
+    ["eur", "pln", "ron", "usd"].includes(value);
+  
+  const price = isSupportedCurrency(currency)
+    ? usdCurrencyConverter(basePrice, currency)
+    : basePrice;
+  
+  const priceSymbol = isSupportedCurrency(currency) ? getCurrencySymbol(currency) : "$";
+  
 
   return (
     <div className="z-20 lg:w-[640px] lg:h-[480px] lg:my-0 w-full my-5 bg-blur-500/90 backdrop-blur-md p-6 rounded-[1.25rem] flex items-center justify-center text-white border-[1px] border-carrot-600">
@@ -29,7 +69,7 @@ export async function ExclusivePlan({ currency }: { currency: string }) {
           {planData.description}
         </h2>
         <h2 className="text-5xl font-medium leading-15 space-y-12 tracking-tight my-6">
-          {priceSymbol}&thinsp;49{" "}
+          {priceSymbol}&thinsp; {price}{" "}
           <span className="text-2xl space-y-4 font-normal">
             /&thinsp;{planData.interval}
           </span>

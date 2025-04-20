@@ -93,7 +93,7 @@ export default async function AboutPage({
   return (
     <div className="caret-transparent w-screen">
       {/* Hero */}
-      <div className="lg:h-[530px] relative sm:items-center relative w-full z-[-10] flex justify-center items-start">
+      <div className="lg:h-[530px] relative sm:items-center w-full z-[-10] flex justify-center items-start">
         {/* Big Screens Bg Image */}
 
         {/*            <div className={`fixed relative -z-10  inset-0 w-screen h-full`}>
@@ -219,6 +219,7 @@ export default async function AboutPage({
                         tw_url={member.tw_url}
                         ig_url={member.ig_url}
                         upwork_url={member.upwork_url}
+                        direction="flex-row"
                       />
                     </div>
                   </div>

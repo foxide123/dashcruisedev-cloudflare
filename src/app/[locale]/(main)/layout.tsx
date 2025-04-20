@@ -40,6 +40,7 @@ export const metadata: Metadata = {
     description:
       "Modern websites crafted with performance and user experience in mind",
     siteName: "DashcruiseDev",
+    url: "https://dashcruisedev.com/en",
     images: [
       {
         url: "https://dashcruisedev.com/opengraph-image.png",
@@ -83,20 +84,6 @@ export default async function LocaleLayout({
         <link rel="alternate" href="/en" hrefLang="en" />
         <link rel="alternate" href="/de" hrefLang="de" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          property="og:title"
-          content="DashcruiseDev - Web Design & Development"
-        />
-        <meta
-          property="og:description"
-          content="Modern websites crafted with performance and user experience in mind"
-        />
-        <meta property="og:url" content="https://dashcruisedev.com/en" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://dashcruisedev.com/opengraph-image.png"
-        />
         <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
         <link
           rel="apple-touch-icon"
