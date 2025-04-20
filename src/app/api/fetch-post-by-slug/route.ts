@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    return Response.json({ data: data }, { status: 200 });
+    return Response.json({ data: JSON.parse(JSON.stringify(data)) }, { status: 200 });
     //eslint-disable-next-line
   } catch (error:any) {
     return NextResponse.json(

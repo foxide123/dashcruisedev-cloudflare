@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@config "../../tailwind.config.js";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -32,6 +33,14 @@
   --color-profile_border: #E6E8EC;
   --color-gray_highlight: #6A778B;
   --color-gray_highlight_2: #808080;
+
+  --leading-medium-header: 1.43;
+  --leading-medium-section: 1.5;
+  --leading-medium-body: 1.58;
+
+  --text-medium-header: 42px;
+  --text-medium-section: 32px;
+  --text-medium-body: 21px;
 }
 
 @theme inline {
@@ -77,12 +86,17 @@
 html, body{
   margin: 0;
   padding: 0;
-  overflow-x:hidden;
+/*   overflow-x:hidden; */
   font-size: 16px;
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+.hovered-outline{
+  padding: 10px;
+  border: 10px solid orange;
 }
 
 .header-custom {
@@ -93,6 +107,18 @@ body {
   margin-bottom: 30px;
   letter-spacing: -2%;
 }
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
 
 .highlight-image-custom {
   width: 300px;
