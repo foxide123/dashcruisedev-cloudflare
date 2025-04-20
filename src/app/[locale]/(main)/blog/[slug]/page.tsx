@@ -116,10 +116,9 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  /* const slugsWithLocale = await fetchSlugsWithLocale();
+  const slugsWithLocale = await fetchSlugsWithLocale();
   if(slugsWithLocale === null) notFound();
-  return slugsWithLocale; */
-  return [{locale: 'en', slug: 'seo-introduction'}]
+  return slugsWithLocale;
 }
 
 export default async function BlogPost({
