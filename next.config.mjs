@@ -8,6 +8,7 @@ const withBundleAnalyzer = (await import('@next/bundle-analyzer')).default({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  productionBrowserSourceMaps: true,
   experimental: {
     serverExternalPackages: [
       "@supabase/supabase-js",
