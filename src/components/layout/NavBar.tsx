@@ -36,6 +36,7 @@ export default function NavBar({
             alt="logo"
             width={240}
             height={240}
+            loading="eager"
           />
         </div>
         {/* DEFAULT to XL Navbar (Hamburger, Icon and Locale)*/}
@@ -56,11 +57,10 @@ export default function NavBar({
           </button>
           {/* Logo */}
           <img
-            //src="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/c0d6674f-31fc-4fc3-cdcd-7cd049c48700/logo240x240"
             src="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/8b797d3f-6998-43c5-8c6e-ab7d5165b700/logo240x240"
-            // src="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/3b3a9848-dc1d-4575-d217-a6e3b5825700/logo240x240"
             alt="logo"
             className="ml-10 md:w-[200px] md:h-[200px] w-[120px] h-[120px]"
+            loading="eager"
           />
           <div className="ml-5">
             <CountrySelectionModal />

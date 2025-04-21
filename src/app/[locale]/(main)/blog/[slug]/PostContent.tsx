@@ -6,6 +6,7 @@ import DOMPurify from "isomorphic-dompurify";
 const source_serif_4 = Source_Serif_4({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
+  display: "swap"
 });
 
 export function PostContent({postData}: {postData: PostData}) {

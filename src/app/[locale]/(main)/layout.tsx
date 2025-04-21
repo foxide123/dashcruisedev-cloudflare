@@ -16,6 +16,7 @@ import { setRequestLocale } from "next-intl/server";
 import { Plus_Jakarta_Sans } from "next/font/google";
 
 const jakartaPlus = Plus_Jakarta_Sans({
+  preload: true,
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
@@ -123,7 +124,7 @@ export default async function LocaleLayout({
         {/* Moving analytics script at the bottom */}
         <Script
           src="https://scripts.simpleanalyticscdn.com/latest.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>

@@ -7,6 +7,7 @@ import clsx from "clsx";
 const anton = Anton({
   subsets: ['latin'],
   weight: '400',
+  display: "swap"
 });
 
 export default function CustomCursor({isVisible, label}: {isVisible:boolean, label:string}) {

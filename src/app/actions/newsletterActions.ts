@@ -1,12 +1,4 @@
 "use server";
-import { z } from "zod";
-import { createClient } from "@/utils/supabase/server";
-
-const schema = z.object({
-  email: z.string({
-    invalid_type_error: "Invalid Email",
-  }),
-});
 
 export async function newsletterSignup({
   formData,
@@ -19,6 +11,15 @@ export async function newsletterSignup({
   emailExistsErrorText: string;
   unknownErrorText: string
 }) {
+  const {z} = await import("zod");
+
+  const schema = z.object({
+    email: z.string({
+      invalid_type_error: "Invalid Email",
+    }),
+  });
+
+
   const email = formData.get("email") as string;
 
   const validated = schema.safeParse({ email });
@@ -26,6 +27,7 @@ export async function newsletterSignup({
     return { success: false, error: `${invalidEmailErrorText}`};
   }
   try {
+    const { createClient } = await import("@/utils/supabase/server");
     const supabase = await createClient();
     const { error } = await supabase.from("Newsletter").insert({ email });
 

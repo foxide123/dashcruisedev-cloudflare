@@ -1,7 +1,7 @@
-"use server"
 import { getMessages } from "next-intl/server";
-import MeetingSchedule from "./MeetingSchedule";
+const MeetingSchedule = dynamic(import("./MeetingSchedule"));
 import FadeInSection from "@/components/common/FadeInSection";
+import dynamic from "next/dynamic";
 
 type MeetingDataType = {
   header: string;
@@ -49,6 +49,7 @@ export default async function MeetingScheduleSection({
                 height={100}
                 alt="meeting icon"
                 className="object-cove"
+                loading="lazy"
               />
             </div>
             <div className="w-[50px] h-[50px] relative">
@@ -58,6 +59,7 @@ export default async function MeetingScheduleSection({
                 height={100}
                 alt="meeting icon"
                 className="object-cover"
+                loading="lazy"
               />
             </div>
           </div>

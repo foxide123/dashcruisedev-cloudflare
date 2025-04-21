@@ -16,7 +16,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { PasswordInput } from "@/components/auth/password-input";
-import { createClient } from "@/utils/supabase/client";
 
 type SignUpFormProps = HTMLAttributes<HTMLDivElement>;
 
@@ -55,6 +54,7 @@ export function RegisterForm({ className, ...props }: SignUpFormProps) {
 
   async function onSubmit(submitData: z.infer<typeof formSchema>) {
     setIsLoading(true);
+    const { createClient } = await import("@/utils/supabase/client");
     // eslint-disable-next-line no-console
     const supabase = await createClient();
     const { data, error } = await supabase.auth.signUp({

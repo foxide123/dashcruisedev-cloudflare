@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { loadStripe } from "@stripe/stripe-js/pure";
 import { CheckoutApiResponse } from "@/types/api_types";
 import { useRouter } from "next/navigation";
 
@@ -49,6 +48,7 @@ export default function SubscribeButton({
         return;
       }
 
+      const { loadStripe } = await import("@stripe/stripe-js/pure");
       const stripePromise = loadStripe(
         process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
       );
