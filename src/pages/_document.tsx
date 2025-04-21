@@ -29,7 +29,7 @@ export default function Document() {
         {/* Preload critical assets */}
         <link
           rel="preload"
-          href="/favicon.ico?v=2"
+          href="/favicon.ico"
           as="image"
           type="image/x-icon"
         />
@@ -38,6 +38,18 @@ export default function Document() {
           as="image"
           href="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/22218a4e-1efb-43dd-ff1e-562588e15a00/hd1920x1080"
         />
+        <link
+          rel="preload"
+          as="image"
+          href="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/c0d6674f-31fc-4fc3-cdcd-7cd049c48700/logo240x240"
+        />
+
+        <link
+          rel="preload"
+          as="image"
+          href="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/8b797d3f-6998-43c5-8c6e-ab7d5165b700/logo240x240"
+        />
+
       </Head>
       <body>
         <Main />

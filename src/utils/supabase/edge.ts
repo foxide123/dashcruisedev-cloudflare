@@ -1,4 +1,4 @@
-// supabase/edge.ts
+/* // supabase/edge.ts
 
 import { createClient as createSupabaseClient } from '@supabase/supabase-js'
 
@@ -16,3 +16,4 @@ export function createClient(
     },
   });
 }
+ */

@@ -1,4 +1,3 @@
-"use server";
 import FadeInSection from "@/components/common/FadeInSection";
 import CheckIcon from "@/components/icons/CheckIcon";
 import XIcon from "@/components/icons/XIcon";

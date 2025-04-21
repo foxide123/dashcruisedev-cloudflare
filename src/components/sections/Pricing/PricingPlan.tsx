@@ -1,4 +1,3 @@
-"use server"
 import CheckIcon from "@/components/icons/CheckIcon";
 import SubscribeButtonWrapper from "@/components/subscribe/SubscribeButtonWrapper"
 

@@ -2,15 +2,14 @@ import HeroSection from "@/components/sections/Hero";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import dynamic from "next/dynamic";
 
-const ComparisonSection = dynamic(() => import("@/components/sections/Comparison"))
-const HighlightSection = dynamic(() => import("@/components/sections/Highlight"))
-const PortfolioSection = dynamic(() => import("@/components/sections/Portfolio"))
-const ContactUsSection = dynamic(()=> import("@/components/sections/ContactUs"))
-const PricingSection = dynamic(() => import("@/components/sections/Pricing"))
-const MeetingScheduleSection = dynamic (() => import("@/components/sections/MeetingSchedule"))
-const QASection = dynamic(() => import("@/components/sections/QA"))
+import ComparisonSection from "@/components/sections/Comparison"
+import HighlightSection from "@/components/sections/Highlight"
+import PortfolioSection from "@/components/sections/Portfolio"
+import ContactUsSection from "@/components/sections/ContactUs"
+import PricingSection  from "@/components/sections/Pricing"
+import MeetingScheduleSection from "@/components/sections/MeetingSchedule"
+import QASection  from "@/components/sections/QA"
 /* export const dynamicParams = false; */
 /*export const dynamic = "force-dynamic";*/
 

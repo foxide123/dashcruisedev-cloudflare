@@ -1,4 +1,3 @@
-"use server"
 import { getMessages } from "next-intl/server";
 import ContactUsForm from "./ContactUsForm";
 import FadeInSection from "@/components/common/FadeInSection";

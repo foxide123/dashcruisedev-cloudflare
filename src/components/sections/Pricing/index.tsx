@@ -1,4 +1,3 @@
-"use server"
 import FadeInSection from "@/components/common/FadeInSection";
 import { getMessages } from "next-intl/server";
 import dynamic from "next/dynamic";
