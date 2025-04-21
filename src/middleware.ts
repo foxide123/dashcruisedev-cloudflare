@@ -12,6 +12,7 @@ export async function middleware(request: NextRequest) {
   // A `response` can now be passed here
   const finalResponse = await updateSession(request, i18nResponse);
 
+  finalResponse.headers.set('Cache-Control', 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=2592000');
   finalResponse.headers.set('X-Content-Type-Options', 'nosniff');
   finalResponse.headers.set('X-Frame-Options', 'DENY');
   finalResponse.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
