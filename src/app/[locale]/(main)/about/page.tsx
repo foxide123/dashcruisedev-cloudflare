@@ -1,10 +1,16 @@
 import { routing } from "@/i18n/routing";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
 import { SocialIcons2 } from "@/components/common/SocialIcons2";
 import { Metadata } from "next";
+
+import en from "@/data/dictionaries/en/about.json";
+import de from "@/data/dictionaries/de/about.json";
+import pl from "@/data/dictionaries/pl/about.json";
+import ro from "@/data/dictionaries/ro/about.json";
+
 /* import { BgImageWrapper } from "@/components/common/BgImageWrapper"; */
 export const dynamicParams = false;
 export const dynamic = "force-static";
@@ -28,25 +34,18 @@ export const metadata: Metadata = {
   },
 };
 
-/* export async function generateMetadata(){
-  return {
-    title: "DashcruiseDev - About Us",
-    description: "Meet Our Talented Team at DashcruiseDev",
-    alternates: {
-      canonical: "https://dashcruisedev.com/en/about",
-      languages: {
-        en: "https://dashcruisedev.com/en/about",
-        de: "https://dashcruisedev.com/de/about",
-        pl: "https://dashcruisedev.com/pl/about",
-        ro: "https://dashcruisedev.com/ro/about"
-      }
-    }
-  }
-} */
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
+
+const allMessages: Record<string, any> = {
+  en,
+  de,
+  pl,
+  ro,
+};
+
 
 type AboutType = {
   header: string;
@@ -85,7 +84,11 @@ export default async function AboutPage({
   }
   setRequestLocale(locale);
 
-  const messages = await getMessages();
+  const messages = allMessages[locale];
+  if(!messages){
+    notFound();
+  }
+  
   const teamMembers: TeamMemberType[] = messages.teamMembers;
   const aboutData: AboutType = messages.about;
   const sectionDescriptionLines = aboutData.sectionDescription.split("\n");
