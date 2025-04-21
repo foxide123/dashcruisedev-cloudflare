@@ -39,6 +39,7 @@ export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+//eslint-disable-next-line
 const allMessages: Record<string, any> = {
   en,
   de,
@@ -88,7 +89,7 @@ export default async function AboutPage({
   if(!messages){
     notFound();
   }
-  
+
   const teamMembers: TeamMemberType[] = messages.teamMembers;
   const aboutData: AboutType = messages.about;
   const sectionDescriptionLines = aboutData.sectionDescription.split("\n");
