@@ -25,20 +25,20 @@ export default async function HighlightSection({
           className={`lg:justify-between ${lg_screen_width} lg:py-0 lg:flex-row ${default_screen_width} flex flex-col py-10 text-white items-center justify-center`}
         >
           {/* Boost Your Business */}
-          <div className="lg:px-10 lg:w-1/2 flex flex-col px-10">
+          <div className="lg:px-10 lg:w-1/2 flex flex-col w-full">
             <div>
-              <h1 className=" lg:text-start font-medium text-5xl leading-15 tracking-tight text-center">
+              <h1 className=" lg:text-start font-medium text-5xl leading-15 tracking-tight text-center break-words">
                 {headerLines.map((line, index) => (
-                  <div key={index}>
+                  <p key={index} className="break-words">
                     {line}
                     <br />
-                  </div>
+                  </p>
                 ))}
                 {/* Boost Your Business with <br />
               Unmatched Speed and <br />
               Security */}
               </h1>
-              <p className="lg:pr-10 font-normal text-base leading-6 my-6 pr-0">
+              <p className="lg:pr-10 font-normal text-base leading-6 my-6 pr-0 break-words">
                 {highlightData.description}
               </p>
             </div>

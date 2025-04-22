@@ -1,12 +1,12 @@
 {
     "hero": {
         "headerBeforeEffect": "Bring dein",
-        "headerEffect": ["Idee", "Marke", "Projekt", "Portfolio", "Geschichte"],
+        "headerEffect": ["Idee", "Marke", "Projekt", "Portfolio"],
         "headerAfterEffect": "Online"
     },
     "comparison": {
         "header": "Maßgeschneiderte Websites, die deine Marke auf das nächste Level heben",
-        "description": "Kein weiteres langsames 08/15-Template – sondern Websites so einzigartig wie du",
+        "description": "Kein weiteres langsames Template - sondern Websites so einzigartig wie du",
         "dashcruiseDev": {
             "title": "Unsere Websites",
             "items": [

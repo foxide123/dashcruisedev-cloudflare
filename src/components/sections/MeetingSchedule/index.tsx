@@ -36,13 +36,13 @@ export default async function MeetingScheduleSection({
           </h3>
         </div>
         {/* Schedule a meeting with us div above the calendar */}
-        <div className="flex flex-row justify-between items-center mt-13 w-full py-8 px-12 bg-carrot-500 mb-8 rounded-lg">
+        <div className="flex justify-between items-center mt-13 w-full py-8 px-12 bg-carrot-500 mb-8 rounded-lg">
           <p className="text-white text-2xl font-bold">
             {meetingData.cta}
           </p>
           {/* Icons */}
-          <div className="flex flex-row ">
-            <div className="mr-9 w-[50px] h-[50px] relative">
+          <div className="lg:flex-row lg:justify-baseline flex flex-col justify-between items-center h-full">
+            <div className="lg:mr-9 w-[50px] h-[50px] relative">
               <img
                 src="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/912efd56-89df-4499-5d75-b11629a69f00/icon100x100"
                 width={100}
@@ -52,7 +52,7 @@ export default async function MeetingScheduleSection({
                 loading="lazy"
               />
             </div>
-            <div className="w-[50px] h-[50px] relative">
+            <div className="lg:mt-0 w-[50px] h-[50px] relative mt-7">
               <img
                 src="https://imagedelivery.net/Ap_RIQMnvK_LYOq1vIFisQ/9aeff982-f71c-4efe-c4ae-66667a161200/icon100x100"
                 width={100}
