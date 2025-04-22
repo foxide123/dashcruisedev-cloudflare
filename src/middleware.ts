@@ -7,17 +7,21 @@ import { updateSession } from "@/utils/supabase/middleware";
 const handleI18nRouting = createMiddleware(routing);
  
 export async function middleware(request: NextRequest) {
-  const i18nResponse = handleI18nRouting(request);
- 
-  // A `response` can now be passed here
-  const finalResponse = await updateSession(request, i18nResponse);
+  let response = handleI18nRouting(request);
 
-  finalResponse.headers.set('Cache-Control', 'public, max-age=3600, s-maxage=300, stale-while-revalidate=2592000');
-  finalResponse.headers.set('X-Content-Type-Options', 'nosniff');
-  finalResponse.headers.set('X-Frame-Options', 'DENY');
-  finalResponse.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  if (request.nextUrl.pathname.startsWith('/en/dashboard') ||
+      request.nextUrl.pathname.startsWith('/de/dashboard') ||
+      request.nextUrl.pathname.startsWith('/ro/dashboard') ||
+      request.nextUrl.pathname.startsWith('/pl/dashboard')) {
+    response = await updateSession(request, response);
+  }
 
-  return finalResponse;
+  response.headers.set('Cache-Control', 'public, max-age=3600, s-maxage=300, stale-while-revalidate=2592000');
+  response.headers.set('X-Content-Type-Options', 'nosniff');
+  response.headers.set('X-Frame-Options', 'DENY');
+  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+
+  return response;
 }
  
  
