@@ -11,7 +11,7 @@
   "r2_buckets": [
     {
       "bucket_name": "dashcruisedev-bucket",
-      "binding": "dashcruisedev_bucket"
+      "binding": "NEXT_INC_CACHE_R2_BUCKET"
     }
   ],
   "services": [
