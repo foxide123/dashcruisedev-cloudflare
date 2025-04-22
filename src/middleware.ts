@@ -1,16 +1,18 @@
-import createMiddleware from 'next-intl/middleware';
-import {routing} from './i18n/routing';
-import { type NextRequest } from "next/server"
+/* import createMiddleware from 'next-intl/middleware';
+import {routing} from './i18n/routing'; */
+import { NextResponse, type NextRequest } from "next/server"
 import { updateSession } from "@/utils/supabase/middleware";
 
  
-const handleI18nRouting = createMiddleware(routing);
+/* const handleI18nRouting = createMiddleware(routing); */
  
 export async function middleware(request: NextRequest) {
-  let response = handleI18nRouting(request);
+ /*  let response = handleI18nRouting(request);
 
   response.headers.delete('set-cookie');
+ */
 
+  let response = NextResponse.next();
 
   if (request.nextUrl.pathname.startsWith('/en/dashboard') ||
       request.nextUrl.pathname.startsWith('/de/dashboard') ||
