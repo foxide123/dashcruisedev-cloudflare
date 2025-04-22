@@ -8,6 +8,18 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  "r2_buckets": [
+    {
+      "bucket_name": "dashcruisedev-bucket",
+      "binding": "dashcruisedev_bucket"
+    }
+  ],
+  "services": [
+  {
+    "binding": "WORKER_SELF_REFERENCE",
+    "service": "dashcruisedev-cloudflare-opennextjs"
+  }
+  ],
   "kv_namespaces": [
     // Create a KV binding with the binding name "NEXT_INC_CACHE_KV"
     // to enable the KV based caching:
