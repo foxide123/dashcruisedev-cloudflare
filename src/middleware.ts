@@ -1,25 +1,16 @@
 import createMiddleware from 'next-intl/middleware';
 import {routing} from './i18n/routing';
-import { NextResponse, type NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 import { updateSession } from "@/utils/supabase/middleware";
 
  
 const handleI18nRouting = createMiddleware(routing);
  
 export async function middleware(request: NextRequest) {
-
-  const {pathname} = request.nextUrl;
-
-  if (pathname === "/") {
-    const header = request.headers.get("accept-language") || "";
-    const preferred = header.split(",")[0].split("-")[0];  
-    const locale = routing.locales.includes('en')
-      ? preferred
-      : routing.defaultLocale;
-    return NextResponse.redirect(new URL(`/${locale}`, request.url), 307);
-  }
-
   let response = handleI18nRouting(request);
+
+  response.headers.delete('set-cookie');
+
 
   if (request.nextUrl.pathname.startsWith('/en/dashboard') ||
       request.nextUrl.pathname.startsWith('/de/dashboard') ||
@@ -38,8 +29,5 @@ export async function middleware(request: NextRequest) {
  
  
 export const config = {
-  // Match all pathnames except for
-  // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
-  // - … the ones containing a dot (e.g. `favicon.ico`)
-  matcher: ["/", "/((?!api|_next|_vercel|.*\\..*).*)"],
+  matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)'
 };
