@@ -36,7 +36,7 @@ export default async function HeroSection({
         />
       </div>
       <div
-        className={`pb-[48px] ${lg_screen_width} flex ${default_screen_width}`}
+        className={`pb-[48px] ${lg_screen_width} flex ${default_screen_width} overflow-hidden`}
       >
         {/* Main Hero Section */}
         <div className="z-10 lg:justify-between lg:flex-row flex flex-col justify-center items-center w-full">

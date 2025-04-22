@@ -32,7 +32,7 @@ export default async function ComparisonSection({
         >
           {/* Build Faster Section */}
           <div className="">
-            <h1 className="header-custom">{comparisonData.header}</h1>
+            <h1 className="header-custom break-words">{comparisonData.header}</h1>
             <h1 className="header-custom"></h1>
           </div>
 
