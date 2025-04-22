@@ -4,6 +4,12 @@
   "name": "dashcruisedev-cloudflare-opennextjs",
   "compatibility_date": "2025-04-10",
   "compatibility_flags": ["nodejs_compat"],
+  "routes": [
+    {
+      "pattern": "dashcruisedev.com/*",
+      "zone_name": "dashcruisedev.com"
+    }
+  ],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
