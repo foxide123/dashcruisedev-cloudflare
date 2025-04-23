@@ -9,6 +9,10 @@ const handleI18nRouting = createMiddleware(routing);
 export async function middleware(request: NextRequest) {
  let response = handleI18nRouting(request);
 
+ if (response.cookies.get('NEXT_LOCALE')) {
+  response.cookies.delete('NEXT_LOCALE');
+}
+
   if (request.nextUrl.pathname.startsWith('/en/dashboard') ||
       request.nextUrl.pathname.startsWith('/de/dashboard') ||
       request.nextUrl.pathname.startsWith('/ro/dashboard') ||
