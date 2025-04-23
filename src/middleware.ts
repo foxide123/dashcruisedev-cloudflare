@@ -11,20 +11,6 @@ export async function middleware(request: NextRequest) {
 
   response.headers.delete('set-cookie');
  */
-  const { pathname } = request.nextUrl;
-
-  if(pathname==='/'){
-    const res = NextResponse.redirect(
-      new URL(`/en`, request.url),
-      307
-    );
-    // cache the redirect at the edge for 2 h
-    res.headers.set(
-      'Cache-Control',
-      'public, s-maxage=7200, stale-while-revalidate=2592000'
-    );
-    return res;
-  }
 
   let response = NextResponse.next();
 
