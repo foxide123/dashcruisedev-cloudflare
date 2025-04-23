@@ -9,9 +9,6 @@ const handleI18nRouting = createMiddleware(routing);
 export async function middleware(request: NextRequest) {
  let response = handleI18nRouting(request);
 
-  response.headers.delete('set-cookie');
-
-
   if (request.nextUrl.pathname.startsWith('/en/dashboard') ||
       request.nextUrl.pathname.startsWith('/de/dashboard') ||
       request.nextUrl.pathname.startsWith('/ro/dashboard') ||
