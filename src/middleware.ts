@@ -54,10 +54,10 @@ export const config = {
 };
  */
 
-import { NextRequest, NextResponse, NextFetchEvent } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 
-export function middleware(request: NextRequest, event: NextFetchEvent) {
+export function middleware(request: NextRequest) {
   console.log("middleware");
   if (request.nextUrl.pathname === "/") {
     return NextResponse.redirect(new URL("/en", request.url));
