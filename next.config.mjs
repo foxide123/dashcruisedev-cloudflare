@@ -1,7 +1,4 @@
 import createNextIntlPlugin from 'next-intl/plugin';
-import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
-
-initOpenNextCloudflareForDev();
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -12,6 +9,7 @@ const withBundleAnalyzer = (await import('@next/bundle-analyzer')).default({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   productionBrowserSourceMaps: true,
+  trailingSlash: false,
 /*   functions: {
     mode: "advanced", // enables worker to generate smaller workers
   }, */
