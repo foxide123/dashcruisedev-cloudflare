@@ -17,6 +17,7 @@ const nextConfig = {
       "next-intl",
       "lucide-react",
     ],
+    appDir: true,
   },
 /*   functions: {
     mode: "advanced", // enables worker to generate smaller workers
