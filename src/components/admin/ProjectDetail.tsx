@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { supabase } from '@/lib/supabaseClient';
+import { motion, AnimatePresence } from 'framer-motion';
+import { supabase } from '@/lib/supabaseClient';  // :contentReference[oaicite:6]{index=6}&#8203;:contentReference[oaicite:7]{index=7}
 
 type Props = { project: { id: number; name: string } };
 type Issue = { id: number; text: string };
@@ -26,7 +27,7 @@ export default function ProjectDetail({ project }: Props) {
     }, [project.id]);
 
     const addIssue = async () => {
-        if (!newIssue) return;
+        if (!newIssue.trim()) return;
         const { data } = await supabase
             .from('issues')
             .insert({ project_id: project.id, text: newIssue })
@@ -36,38 +37,68 @@ export default function ProjectDetail({ project }: Props) {
     };
 
     return (
-        <div>
-            <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="bg-white p-6 rounded-xl shadow-xl space-y-6"
+        >
+            <h3 className="text-2xl font-semibold">{project.name}</h3>
+
             {info && (
-                <div className="mb-4 space-y-1">
-                    <a href={info.invoice_url} className="text-blue-600 hover:underline">
+                <div className="flex flex-col sm:flex-row gap-4">
+                    <a
+                        href={info.invoice_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 p-4 bg-green-50 rounded-xl shadow hover:scale-105 transition"
+                    >
                         View Invoice
                     </a>
-                    <a href={info.github_url} className="text-blue-600 hover:underline">
+                    <a
+                        href={info.github_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 p-4 bg-gray-50 rounded-xl shadow hover:scale-105 transition"
+                    >
                         GitHub Repo
                     </a>
                 </div>
             )}
 
-            <div className="mb-4">
-                <h4 className="font-medium">Issues / Todos</h4>
-                <ul className="list-disc ml-6 space-y-1">
-                    {issues.map((i) => (
-                        <li key={i.id}>{i.text}</li>
-                    ))}
+            <div>
+                <h4 className="font-medium mb-2">Issues / Todos</h4>
+                <ul className="space-y-2">
+                    <AnimatePresence>
+                        {issues.map((i) => (
+                            <motion.li
+                                key={i.id}
+                                initial={{ x: -20, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="bg-gray-100 p-2 rounded-lg"
+                            >
+                                {i.text}
+                            </motion.li>
+                        ))}
+                    </AnimatePresence>
                 </ul>
-                <div className="mt-2 flex space-x-2">
+                <div className="mt-4 flex space-x-2">
                     <input
                         value={newIssue}
                         onChange={(e) => setNewIssue(e.target.value)}
-                        className="border px-2 rounded flex-grow"
+                        className="flex-grow border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-400"
                         placeholder="New issue"
                     />
-                    <button onClick={addIssue} className="px-3 bg-green-600 text-white rounded">
+                    <motion.button
+                        onClick={addIssue}
+                        whileTap={{ scale: 0.9 }}
+                        className="px-4 bg-green-600 text-white rounded-lg shadow"
+                    >
                         Add
-                    </button>
+                    </motion.button>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }
