@@ -4,26 +4,33 @@ import { type NextRequest } from "next/server"
 import { updateSession } from "@/utils/supabase/middleware";
 
  
-const handleI18nRouting = createMiddleware(routing);
+const handleI18nRouting = createMiddleware(routing); 
  
 export async function middleware(request: NextRequest) {
-  const i18nResponse = handleI18nRouting(request);
- 
-  // A `response` can now be passed here
-  const finalResponse = await updateSession(request, i18nResponse);
+ let response = handleI18nRouting(request);
 
-  finalResponse.headers.set('Cache-Control', 'public, max-age=3600, s-maxage=300, stale-while-revalidate=2592000');
-  finalResponse.headers.set('X-Content-Type-Options', 'nosniff');
-  finalResponse.headers.set('X-Frame-Options', 'DENY');
-  finalResponse.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+ if (response.cookies.get('NEXT_LOCALE')) {
+  response.cookies.delete('NEXT_LOCALE');
+}
 
-  return finalResponse;
+  if (request.nextUrl.pathname.startsWith('/en/dashboard') ||
+      request.nextUrl.pathname.startsWith('/de/dashboard') ||
+      request.nextUrl.pathname.startsWith('/ro/dashboard') ||
+      request.nextUrl.pathname.startsWith('/pl/dashboard')) {
+    response = await updateSession(request, response);
+  }
+
+  response.headers.set('Cache-Control', 'public, max-age=3600, s-maxage=300, stale-while-revalidate=2592000');
+  response.headers.set('X-Content-Type-Options', 'nosniff');
+  response.headers.set('X-Frame-Options', 'DENY');
+  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+
+  return response;
 }
  
  
 export const config = {
-  // Match all pathnames except for
-  // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
-  // - … the ones containing a dot (e.g. `favicon.ico`)
-  matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)'
+  /* matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)' */
+  //exclude /en/ from middleware
+  matcher: "/((?!api|_next|static|public|en/).*)"
 };

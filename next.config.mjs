@@ -19,6 +19,7 @@ const nextConfig = {
     ],
     appDir: true,
   },
+  trailingSlash: false,
 /*   functions: {
     mode: "advanced", // enables worker to generate smaller workers
   }, */
