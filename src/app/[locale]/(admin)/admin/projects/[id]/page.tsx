@@ -3,10 +3,9 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '@/lib/supabaseClient';  // :contentReference[oaicite:6]{index=6}&#8203;:contentReference[oaicite:7]{index=7}
 
-type Props = { project: { id: number; name: string } };
 type Issue = { id: number; text: string };
 
-export default function ProjectDetail({ project }: Props) {
+export default function ProjectDetail({ id }: { id: string}) {
     const [issues, setIssues] = useState<Issue[]>([]);
     const [newIssue, setNewIssue] = useState('');
     const [info, setInfo] = useState<{ invoice_url: string; github_url: string } | null>(null);
@@ -15,22 +14,22 @@ export default function ProjectDetail({ project }: Props) {
         supabase
             .from('project_info')
             .select('*')
-            .eq('project_id', project.id)
+            .eq('project_id', id)
             .single()
             .then(({ data }) => data && setInfo(data));
 
         supabase
             .from<Issue>('issues')
             .select('*')
-            .eq('project_id', project.id)
+            .eq('project_id', id)
             .then(({ data }) => data && setIssues(data));
-    }, [project.id]);
+    }, [id]);
 
     const addIssue = async () => {
         if (!newIssue.trim()) return;
         const { data } = await supabase
             .from('issues')
-            .insert({ project_id: project.id, text: newIssue })
+            .insert({ project_id: id, text: newIssue })
             .select();
         if (data) setIssues((prev) => [...prev, data[0]]);
         setNewIssue('');

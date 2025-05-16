@@ -1,3 +1,5 @@
+/* @import 'path-to/_variables.scss';
+@import 'path-to/_keyframes-animations.scss'; */
 @import "tailwindcss";
 @tailwind base;
 @tailwind components;
@@ -242,6 +244,34 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+
+  h1 { 
+    @apply text-2xl font-bold;
+  }
+
+  h2 {
+    @apply text-xl font-bold;
+  }
+
+  h3 {
+    @apply text-lg font-bold;
+  }
+
+  .tippy-box[data-placement^="top"] > .tippy-arrow {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 20px;
+  }
+  
+  .tippy-box[data-placement^="top"] > .tippy-arrow::before {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: black transparent transparent transparent;
+  }
+  
 
   :root {
     --sidebar-background: 0 0% 98%;

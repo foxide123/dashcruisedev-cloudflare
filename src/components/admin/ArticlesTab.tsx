@@ -15,7 +15,7 @@ type Post = {
     created_at: string;
 };
 
-export default function PostsTab() {
+export default function ArticlesTab() {
     const editorRef = useRef<HTMLDivElement>(null);
     const quillRef  = useRef<any>(null);
     const [title, setTitle] = useState('');

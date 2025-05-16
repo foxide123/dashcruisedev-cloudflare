@@ -99,7 +99,7 @@ export async function generateMetadata({
   const post: PostData | null = await fetchPostBySlug(slug);
   if (!post || post === null) notFound();
 
-  const slugsWithLocale = await fetchSlugsWithLocale(post!.post_id);
+  const slugsWithLocale = await fetchSlugsWithLocale(post!.article_id);
   if (!slugsWithLocale) notFound();
 
   const { languages } = generateHreflangs(slugsWithLocale);

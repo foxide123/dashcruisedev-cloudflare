@@ -54,34 +54,43 @@ import {
         items: [
           {
             title: 'Dashboard',
-            url: '/dashboard',
+            url: '/admin',
             icon: IconLayoutDashboard,
           },
           {
-            title: 'Articles',
-            url: '/dashboard/articles',
-            icon: IconArticle,
+            title: "Projects",
+            url: "/admin/projects",
+            icon: IconClipboardCheck
+          },
+          {
+            title: "Chat",
+            url: "/admin/chat",
+            icon: IconMessages
+          },
+          {
+            title: "Products",
+            url: "/admin/products",
+            icon: IconBuildingStore
+          },
+          {
+            title: "Articles",
+            url: "/admin/articles",
+            icon: IconArticle
           },
           {
             title: 'Tasks',
-            url: '/dashboard/tasks',
+            url: '/admin/tasks',
             icon: IconChecklist,
           },
           {
-            title: 'Chats',
-            url: '/dashboard/chats',
-            badge: '3',
-            icon: IconMessages,
-          },
-          {
             title: "Notifications",
-            url: "/dashboard/notifications",
+            url: "/admin/notifications",
             badge: '2',
             icon: IconBellRinging2
           }
         ],
       },
-      {
+/*       {
         title: 'Your Pages',
         items: [
           {
@@ -121,7 +130,7 @@ import {
             ],
           },
         ],
-      },
+      }, */
       {
         title: 'Other',
         items: [

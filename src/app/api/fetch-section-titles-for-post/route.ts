@@ -12,12 +12,12 @@ export async function GET(request: NextRequest) {
 
     const supabase = await createClient();
     const { data, error } = await supabase
-      .from("PostSections")
+      .from("TranslationSections")
       .select(`
         section_slug,
         section_title,
         order,
-        PostTranslation(
+        ArticleTranslation(
             id,
             Post
             (
@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
             )
         )
         `)
-      .eq("PostTranslation.Post.id", id);
+      .eq("ArticleTranslation.Post.id", id);
 
     if (error) {
       return NextResponse.json(

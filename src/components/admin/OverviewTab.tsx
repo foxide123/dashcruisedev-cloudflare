@@ -1,4 +1,5 @@
 // src/components/admin/OverviewTab.tsx
+"use client"
 import { useEffect, useState } from 'react';
 import CountUp from 'react-countup';
 import { motion } from 'framer-motion';  //:contentReference[oaicite:0]{index=0}&#8203;:contentReference[oaicite:1]{index=1}
@@ -39,7 +40,7 @@ export default function OverviewTab() {
                     <motion.div
                         key={i}
                         whileHover={{ scale: 1.02 }}
-                        className="p-4 bg-white rounded-xl border border-gray-200 shadow"
+                        className="cursor-pointer p-4 bg-white rounded-xl border border-gray-200 shadow"
                     >
                         <h3 className="font-semibold">Order #{1000 + i}</h3>
                         <p className="text-gray-500">Client: Acme Corp</p>

@@ -1,6 +1,6 @@
 export type PostData = {
     id: "string";
-    post_id: "string";
+    article_id: "string";
     locale: number;
     title: "string";
     slug: "string";
