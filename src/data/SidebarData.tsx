@@ -17,10 +17,7 @@ import {
     IconUserCog,
     IconUserOff,
     IconArticle,
-    IconBellRinging2,
-    IconClipboardCheck,
-    IconBrandHipchat,
-    IconBuildingStore
+    IconBellRinging2
   } from '@tabler/icons-react'
   import { AudioWaveform, Command, GalleryVerticalEnd } from 'lucide-react'
   import { type SidebarData } from '@/types/dashboard_types'

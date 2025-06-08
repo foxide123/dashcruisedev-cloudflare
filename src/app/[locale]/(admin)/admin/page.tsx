@@ -1,41 +1,38 @@
 /* import { useState } from 'react'; */
-import OverviewTab from '@/components/admin/OverviewTab';
+"use client";
+import OverviewTab from "@/components/admin/OverviewTab";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabaseClient";
 
-const TABS = ['Overview', 'Projects', 'Chat', 'Products', 'Posts'] as const;
-type Tab = typeof TABS[number];
+/* const TABS = ["Overview", "Projects", "Chat", "Products", "Posts"] as const;
+type Tab = (typeof TABS)[number]; */
 
 export default function AdminPage() {
-    return (
-    <div>
-        <OverviewTab/>
-    </div>
-)
-    /*  const [active, setActive] = useState<Tab>('Overview'); 
+  //eslint-disable-next-line
+  const [user, setUser] = useState<any>(null);
+  const router = useRouter();
+  useEffect(() => {
+    async function fetchUser() {
+      const { data, error } = await supabase.auth.getUser();
 
-    return (
-        <div className="max-w-7xl mx-auto">
-            <div className="flex space-x-4 mb-6 overflow-x-auto">
-                {TABS.map((tab) => (
-                    <button
-                        key={tab}
-                         onClick={() => setActive(tab)} 
-                         className={`px-4 py-2 rounded-lg ${
-                            active === tab
-                                ? 'bg-blue-600 text-white'
-                                : 'bg-gray-200 text-gray-700'
-                        }`} 
-                    >
-                        {tab}
-                    </button>
-                ))}
-            </div>
-            <div>
-                 {active === 'Overview'  && <OverviewTab />}
-                {active === 'Projects'  && <ProjectsTab />}
-                {active === 'Chat' && <ClientChatTab />}
-                { active === 'Products' && <ProductsTab />}
-                {active === 'Posts' && <PostsTab />}
-            </div>
-        </div>
-    ); */
+      if (error || !data.user) {
+        router.push("/login");
+        return;
+      }
+
+      setUser(data.user);
+    }
+
+    fetchUser();
+  }, [router]);
+
+  console.log("User: ", user);
+  return (
+    <div>
+      {/* <p>{session?.user?.name}</p>
+        <Image src={session?.user?.image!} alt={session?.user?.name!} width={72} height={72}/> */}
+      <OverviewTab />
+    </div>
+  );
 }

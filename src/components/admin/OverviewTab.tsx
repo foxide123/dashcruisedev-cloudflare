@@ -1,6 +1,6 @@
 // src/components/admin/OverviewTab.tsx
 "use client"
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import CountUp from 'react-countup';
 import { motion } from 'framer-motion';  //:contentReference[oaicite:0]{index=0}&#8203;:contentReference[oaicite:1]{index=1}
 
@@ -29,7 +29,7 @@ export default function OverviewTab() {
                     >
                         <p className="text-sm text-gray-500">{label}</p>
                         <h2 className="text-4xl font-bold text-indigo-700">
-                            <CountUp end={value} duration={1.5} separator="," />
+                            <CountUp end={value} delay={1.5} />
                         </h2>
                     </motion.div>
                 ))}

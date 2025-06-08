@@ -28,7 +28,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "*",
+        protocol: 'https',
+        hostname: "lh3.googleusercontent.com",
       },
     ],
     loader: "custom",

@@ -12,7 +12,7 @@ export default function ProductsTab() {
     const [filter, setFilter] = useState('');
 
     useEffect(() => {
-        supabase.from<Product>('products').select('*').then(({ data }) => data && setItems(data));
+        supabase.from('products').select('*').then(({ data }) => data && setItems(data));
     }, []);
 
     const add = async () => {

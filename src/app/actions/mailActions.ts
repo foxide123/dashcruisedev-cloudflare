@@ -1,3 +1,5 @@
+"use server";
+
 import { z } from "zod";
 import { SubmitFormApiResponse } from "@/types/api_types";
 

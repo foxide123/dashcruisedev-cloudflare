@@ -17,6 +17,7 @@ type Post = {
 
 export default function ArticlesTab() {
     const editorRef = useRef<HTMLDivElement>(null);
+    //eslint-disable-next-line
     const quillRef  = useRef<any>(null);
     const [title, setTitle] = useState('');
     const [imgUrl, setImgUrl] = useState('');
@@ -39,7 +40,7 @@ export default function ArticlesTab() {
         }
 
         supabase
-            .from<Post>('posts')
+            .from('posts')
             .select('*')
             .order('created_at', { ascending: false })
             .then(({ data, error }) => {
@@ -48,8 +49,7 @@ export default function ArticlesTab() {
                 } else {
                     setPosts(data || []);
                 }
-            })
-            .catch((err) => console.error('Unexpected load error:', err));
+            });
     }, []);
 
     const savePost = async () => {
@@ -65,7 +65,7 @@ export default function ArticlesTab() {
         });
 
         const { data, error } = await supabase
-            .from<Post>('posts')
+            .from('posts')
             .insert([{ title, image_url: imgUrl || null, content: cleanHtml }])
             .select();
 

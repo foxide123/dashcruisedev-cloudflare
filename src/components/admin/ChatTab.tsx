@@ -20,7 +20,7 @@ export default function ChatTab() {
         let channel: ReturnType<typeof supabase.channel>;
         (async () => {
             const { data, error } = await supabase
-                .from<Message>('messages')
+                .from('messages')
                 .select('*')
                 .order('created_at', { ascending: true });
             if (error) console.error(error);

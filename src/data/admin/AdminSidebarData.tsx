@@ -1,25 +1,17 @@
 import {
-    IconBarrierBlock,
     IconBrowserCheck,
-    IconBug,
     IconChecklist,
-    IconError404,
     IconHelp,
     IconLayoutDashboard,
-    IconLock,
-    IconLockAccess,
     IconMessages,
     IconNotification,
     IconPalette,
-    IconServerOff,
     IconSettings,
     IconTool,
     IconUserCog,
-    IconUserOff,
     IconArticle,
     IconBellRinging2,
     IconClipboardCheck,
-    IconBrandHipchat,
     IconBuildingStore
   } from '@tabler/icons-react'
   import { AudioWaveform, Command, GalleryVerticalEnd } from 'lucide-react'

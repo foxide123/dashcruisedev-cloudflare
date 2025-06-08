@@ -1,4 +1,4 @@
-import * as jose from 'jose'
+/* import * as jose from 'jose'
 
 export async function SignJsonWebTokens() {
   const secret = new TextEncoder().encode(process.env.HS256_SECRET);
@@ -13,3 +13,4 @@ export async function SignJsonWebTokens() {
     .setExpirationTime("2h")
     .sign(secret);
 }
+ */

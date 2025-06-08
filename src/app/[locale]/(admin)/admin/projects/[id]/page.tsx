@@ -2,10 +2,14 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '@/lib/supabaseClient';  // :contentReference[oaicite:6]{index=6}&#8203;:contentReference[oaicite:7]{index=7}
+import { useParams } from 'next/navigation';
 
 type Issue = { id: number; text: string };
 
-export default function ProjectDetail({ id }: { id: string}) {
+export default function ProjectDetail() {
+    const params = useParams();
+  const id = params?.id as string;
+  
     const [issues, setIssues] = useState<Issue[]>([]);
     const [newIssue, setNewIssue] = useState('');
     const [info, setInfo] = useState<{ invoice_url: string; github_url: string } | null>(null);
@@ -19,7 +23,7 @@ export default function ProjectDetail({ id }: { id: string}) {
             .then(({ data }) => data && setInfo(data));
 
         supabase
-            .from<Issue>('issues')
+            .from('issues')
             .select('*')
             .eq('project_id', id)
             .then(({ data }) => data && setIssues(data));
@@ -42,7 +46,7 @@ export default function ProjectDetail({ id }: { id: string}) {
             transition={{ duration: 0.4 }}
             className="bg-white p-6 rounded-xl shadow-xl space-y-6"
         >
-            <h3 className="text-2xl font-semibold">{project.name}</h3>
+         {/*    <h3 className="text-2xl font-semibold">{project.name}</h3> */}
 
             {info && (
                 <div className="flex flex-col sm:flex-row gap-4">
