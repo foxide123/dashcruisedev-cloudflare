@@ -9,6 +9,16 @@ const withBundleAnalyzer = (await import('@next/bundle-analyzer')).default({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   productionBrowserSourceMaps: true,
+  experimental: {
+    serverExternalPackages: [
+      "@supabase/supabase-js",
+      "@supabase/ssr",
+      "zod",
+      "next-intl",
+      "lucide-react",
+    ],
+    appDir: true,
+  },
   trailingSlash: false,
 /*   functions: {
     mode: "advanced", // enables worker to generate smaller workers
@@ -18,7 +28,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "*",
+        protocol: 'https',
+        hostname: "lh3.googleusercontent.com",
       },
     ],
     loader: "custom",

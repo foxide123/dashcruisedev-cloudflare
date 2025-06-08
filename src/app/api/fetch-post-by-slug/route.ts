@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
 
     const supabase = await createClient();
     const { data, error } = await supabase
-      .from("PostTranslation")
+      .from("ArticleTranslation")
       .select("*")
       .eq("slug", slug);
 

@@ -96,6 +96,18 @@ export default function NavBar({
             </li>
           );
         })}
+        <li
+            key="admin"
+            className={`${
+                pathname === `/${locale}/admin` ? 'text-carrot-500' : 'text-white'
+            } xl:mb-0 sm:pr-8 first:mt-0 last:pr-0 last:mb-5 xl:mt-0 md:mt-3 mt-5`}
+            onClick={() => {
+              setIsOpened(false);
+              router.push(`/${locale}/admin`);
+            }}
+        >
+          Admin Dashboard
+        </li>
         <li className="xl:block hidden">
           <CountrySelectionModal />
         </li>
