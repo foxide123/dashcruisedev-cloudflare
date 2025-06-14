@@ -16,6 +16,7 @@ const passwordValidation = z
     password: passwordValidation,
   });
 
+//eslint-disable-next-line
 export async function createUserPasswordAction(prevState: any, formData: FormData){
     const supabase = await createClient();
 
@@ -40,6 +41,7 @@ export async function createUserPasswordAction(prevState: any, formData: FormDat
         }
     }
     
+    //eslint-disable-next-line
     const { data: userData, error: userError } = await supabase.auth.updateUser({ password: password });
 
     if(userError){
