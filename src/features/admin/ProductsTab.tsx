@@ -1,4 +1,4 @@
-// src/components/admin/ProductsTab.tsx
+// src/features/admin/ProductsTab.tsx
 'use client';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';

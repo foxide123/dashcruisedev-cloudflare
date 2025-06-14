@@ -25,9 +25,9 @@ import {
     },
     teams: [
       {
-        name: 'Shadcn Admin',
+        name: 'Admin Panel',
         logo: Command,
-        plan: 'Vite + ShadcnUI',
+        plan: '',
       },
       {
         name: 'Acme Inc',

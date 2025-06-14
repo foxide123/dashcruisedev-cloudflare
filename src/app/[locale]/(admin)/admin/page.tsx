@@ -1,6 +1,6 @@
 /* import { useState } from 'react'; */
 "use client";
-import OverviewTab from "@/components/admin/OverviewTab";
+import OverviewTab from "@/features/admin/OverviewTab";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";

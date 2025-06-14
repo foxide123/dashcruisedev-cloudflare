@@ -2,7 +2,7 @@
 
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { SearchProvider } from "@/context/SearchContext";
-import { AdminAppSidebar } from "@/components/admin/layout/AdminAppSidebar";
+import { AdminAppSidebar } from "@/features/admin/layout/AdminAppSidebar";
 import { cn } from "@/lib/utils";
 import Cookies from "js-cookie";
 

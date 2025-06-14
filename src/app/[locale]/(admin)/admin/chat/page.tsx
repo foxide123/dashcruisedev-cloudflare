@@ -1,4 +1,4 @@
-import ClientChatTab from "@/components/admin/ClientChatTab";
+import ClientChatTab from "@/features/admin/ClientChatTab";
 
 export default function ChatPage(){
     return (
