@@ -1,4 +1,4 @@
-import ProjectsTab from '@/components/admin/ProjectsTab';
+import ProjectsTab from '@/features/admin/ProjectsTab';
 
 export default function ProjectsPage(){
     return (

@@ -9,6 +9,7 @@ const schema = z.object({
   }),
 });
 
+
 export async function handleMailSubmition(formData: FormData) {
   const name = formData.get("name") as string;
   const message = formData.get("message") as string;
@@ -27,15 +28,15 @@ export async function handleMailSubmition(formData: FormData) {
     });
 
     const { id } = (await response.json()) as SubmitFormApiResponse;
-    
+
     if (response.status !== 200 || !id) {
       console.error("Error creating session:", id);
       return;
     }
 
-    return {success: true};
+    return { success: true };
   } catch (error) {
     console.error("Submission error:", error);
-    return {error: "Server error", details: error};
+    return { error: "Server error", details: error };
   }
 }

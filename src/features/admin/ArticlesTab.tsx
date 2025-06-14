@@ -1,4 +1,4 @@
-// src/components/admin/PostsTab.tsx
+// src/features/admin/PostsTab.tsx
 'use client';
 
 import { useEffect, useRef, useState } from 'react';

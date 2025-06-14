@@ -8,11 +8,11 @@ import { ReactNode } from "react";
 import "@/app/globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { AdminLayoutClient } from "@/components/admin/layout/AdminLayoutClient";
+import { AdminLayoutClient } from "@/features/admin/layout/AdminLayoutClient";
 import Script from "next/script";
 import BackgroundAnimation from "@/components/bgAnimation/BackgroundAnimation";
 
-import ClientScripts from "@/components/admin/ClientScripts";
+import ClientScripts from "@/features/admin/ClientScripts";
 
 config.autoAddCss = false;
 

@@ -1,4 +1,4 @@
-// src/components/admin/ProjectsTab.tsx
+// src/features/admin/ProjectsTab.tsx
 "use client"
 import { useState } from 'react';
 import { motion } from 'framer-motion';  //:contentReference[oaicite:2]{index=2}&#8203;:contentReference[oaicite:3]{index=3}

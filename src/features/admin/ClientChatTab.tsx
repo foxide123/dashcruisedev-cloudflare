@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic';
 
 const ChatTab = dynamic(
-    () => import('@/components/admin/ChatTab'),
+    () => import('@/features/admin/ChatTab'),
     { ssr: false }
 );
 

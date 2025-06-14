@@ -1,4 +1,4 @@
-// src/components/admin/OverviewTab.tsx
+// src/features/admin/OverviewTab.tsx
 "use client"
 import { useState } from 'react';
 import CountUp from 'react-countup';
