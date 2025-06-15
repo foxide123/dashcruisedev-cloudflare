@@ -5,8 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 
-/* const TABS = ["Overview", "Projects", "Chat", "Products", "Posts"] as const;
-type Tab = (typeof TABS)[number]; */
+export const dynamic = "force-dynamic";
 
 export default function AdminPage() {
   //eslint-disable-next-line
