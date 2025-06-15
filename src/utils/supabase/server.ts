@@ -28,6 +28,24 @@ export async function createClient() {
   )
 } 
 
+export function createAdminClient() {
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return [];
+        },
+        setAll() {
+          // No-op: service client doesn’t need cookies
+        },
+      },
+    }
+  );
+}
+
+
 /* import { createClient } from "../supabase/edge";
 
 export default {

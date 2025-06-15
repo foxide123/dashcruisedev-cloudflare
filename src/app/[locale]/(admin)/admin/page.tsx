@@ -18,10 +18,10 @@ export default function AdminPage() {
     async function fetchUser() {
       const { data, error } = await supabase.auth.getUser();
 
-      if (error || !data.user) {
+     /*  if (error || !data.user) {
         router.push("/");
         return;
-      }
+      } */
 
       setUser(data.user);
       setAuthenticated(true);
