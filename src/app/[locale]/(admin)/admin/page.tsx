@@ -5,13 +5,12 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 
-/* const TABS = ["Overview", "Projects", "Chat", "Products", "Posts"] as const;
-type Tab = (typeof TABS)[number]; */
+export const dynamic = "force-dynamic";
 
 export default function AdminPage() {
   //eslint-disable-next-line
   const [user, setUser] = useState<any>(null);
-  const [authenticated, setAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const router = useRouter();
   useEffect(() => {
@@ -20,22 +19,22 @@ export default function AdminPage() {
       const { data, error } = await supabase.auth.getUser();
 
       if (error || !data.user) {
-/*         router.push("/");
-        return; */
-        console.log("Error:", error);
-        console.log("Data:", data);
+        router.push("/");
+        return; 
       }
      
 
       setUser(data.user);
-      setAuthenticated(true);
+      setLoading(false);
     }
 
     fetchUser();
   }, [router]);
 
-  console.log("User: ", user);
-  return authenticated && (
+  if(loading) {
+    return <div className="p-8 text-center">Loading...</div>
+  }
+  return  (
     <div>
       {/* <p>{session?.user?.name}</p>
         <Image src={session?.user?.image!} alt={session?.user?.name!} width={72} height={72}/> */}
