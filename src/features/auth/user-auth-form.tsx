@@ -153,7 +153,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           const { error } = await supabase.auth.signInWithOAuth({
             provider: "google",
             options: {
-              redirectTo: `${window.location.origin}/auth/callback`,
+              redirectTo: `https://admin.dashcruise.com/en/auth/callback`,
             },
           });
         }}

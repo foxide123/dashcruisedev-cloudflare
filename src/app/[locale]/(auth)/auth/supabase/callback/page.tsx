@@ -25,7 +25,10 @@ export default function SupabaseCallback() {
   useEffect(() => {
     const refreshSession = async () => {
       const refreshToken = searchParams?.get("refresh_token");
-      if (!refreshToken) return;
+      if (!refreshToken) {
+        console.log("refresh Token is null: ", refreshToken);
+        console.log("Search params: ", searchParams);
+      }
       if(refreshToken){
         await supabase.auth.refreshSession({ refresh_token: refreshToken })
       }
@@ -39,8 +42,8 @@ export default function SupabaseCallback() {
         <h2>Hello 👋</h2>
         <p className="mt-4">Finish your set up by creating a password.</p>
         <form action={formAction} className="flex flex-col gap-4 mt-4">
-          <input type="password" placeholder="Create Password" name="password" className="mt-4 border-1 border-black rounded-sm p-4"/>
-          <input type="password" placeholder="Confirm Password" name="confirmPassword" className="border-1 border-black rounded-sm p-4"/>
+          <input type="password" placeholder="Create Password" name="password" className="mt-4 border-1 border-black rounded-sm p-4" required/>
+          <input type="password" placeholder="Confirm Password" name="confirmPassword" className="border-1 border-black rounded-sm p-4" required/>
           <SubmitButton/>
         </form>
 
