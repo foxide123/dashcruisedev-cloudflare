@@ -59,6 +59,7 @@ export default function SupabaseCallback() {
   };
 
   useEffect(() => {
+    console.log("FULL HASH:", window.location.hash);
     const refreshSession = async () => {
       const refreshToken = searchParams?.get("refresh_token");
       if (refreshToken) {
