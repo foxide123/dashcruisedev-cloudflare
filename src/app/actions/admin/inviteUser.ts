@@ -1,6 +1,7 @@
 "use server";
 import { createAdminClient } from "@/utils/supabase/server";
 
+//eslint-disable-next-line
 export async function inviteUserAction(prevState: any, formData: FormData) {
   const supabase = await createAdminClient();
   const email = formData.get("email")?.toString();
@@ -9,6 +10,7 @@ export async function inviteUserAction(prevState: any, formData: FormData) {
 
   if(!email) return { success:false, message: "Please provide email address first"}
 
+  //eslint-disable-next-line
   const { data, error } = await supabase.auth.admin.inviteUserByEmail(
     email!,
     {

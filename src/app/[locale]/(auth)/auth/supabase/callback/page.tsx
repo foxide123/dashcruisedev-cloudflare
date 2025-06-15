@@ -2,7 +2,6 @@
 import { supabase } from "@/lib/supabaseClient";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useFormStatus } from "react-dom";
 import { z } from "zod";
 
 const passwordValidation = z
@@ -76,7 +75,7 @@ export default function SupabaseCallback() {
     };
     refreshSession();
   }, [searchParams]);
-  
+
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center border-2 border-red-500 absolute inset-0">
       <div className="w-[500px] max-w-full">
