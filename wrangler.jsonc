@@ -4,16 +4,6 @@
   "name": "dashcruisedev-cloudflare-opennextjs",
   "compatibility_date": "2025-04-10",
   "compatibility_flags": ["nodejs_compat"],
-  "routes": [
-    {
-      "pattern": "admin.dashcruise.com/*",
-      "zone_name": "admin.dashcruise.com"
-    },
-    {
-      "pattern": "admin.nitrasolutions.com/*",
-      "zone_name": "admin.nitrasolutions.com"
-    }
-  ],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
