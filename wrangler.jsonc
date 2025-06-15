@@ -6,8 +6,12 @@
   "compatibility_flags": ["nodejs_compat"],
   "routes": [
     {
-      "pattern": "dashcruisedev.com/*",
-      "zone_name": "dashcruisedev.com"
+      "pattern": "admin.dashcruise.com/*",
+      "zone_name": "admin.dashcruise.com"
+    },
+    {
+      "pattern": "admin.nitrasolutions.com/*",
+      "zone_name": "admin.nitrasolutions.com"
     }
   ],
   "assets": {
