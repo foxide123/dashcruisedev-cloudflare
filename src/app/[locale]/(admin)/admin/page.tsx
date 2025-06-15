@@ -11,6 +11,8 @@ type Tab = (typeof TABS)[number]; */
 export default function AdminPage() {
   //eslint-disable-next-line
   const [user, setUser] = useState<any>(null);
+  const [authenticated, setAuthenticated] = useState(false);
+
   const router = useRouter();
   useEffect(() => {
     async function fetchUser() {
@@ -22,13 +24,14 @@ export default function AdminPage() {
       }
 
       setUser(data.user);
+      setAuthenticated(true);
     }
 
     fetchUser();
   }, [router]);
 
   console.log("User: ", user);
-  return (
+  return authenticated && (
     <div>
       {/* <p>{session?.user?.name}</p>
         <Image src={session?.user?.image!} alt={session?.user?.name!} width={72} height={72}/> */}
