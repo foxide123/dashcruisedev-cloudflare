@@ -1,6 +1,6 @@
 "use client";
 import { supabase } from "@/lib/supabaseClient";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { z } from "zod";
 
@@ -19,7 +19,6 @@ const passwordSchema = z.object({
 
 export default function SupabaseCallback() {
   const router = useRouter();
-  const searchParams = useSearchParams();
 
   const [error, setError] = useState("");
 
@@ -59,23 +58,28 @@ export default function SupabaseCallback() {
   };
 
   useEffect(() => {
+    const hash = window.location.hash;
     console.log("FULL HASH:", window.location.hash);
-    const refreshSession = async () => {
-      const refreshToken = searchParams?.get("refresh_token");
-      if (refreshToken) {
-        const { error } = await supabase.auth.refreshSession({
+
+    const params = new URLSearchParams(hash.substring(1));
+    const refreshToken = params.get("refresh_token");
+  
+
+    if (refreshToken) {
+      supabase.auth
+        .refreshSession({
           refresh_token: refreshToken,
+        })
+        .then(({ error }) => {
+          if (error) {
+            console.error("Error refreshing session:", error.message);
+            setError("Unable to restore session. Please try again.");
+          }
         });
-        if (error) {
-          console.error("Error refreshing session:", error.message);
-          setError("Unable to restore session. Please try again.");
-        }
-      } else {
-        console.warn("Missing refresh_token in URL");
-      }
-    };
-    refreshSession();
-  }, [searchParams]);
+    } else {
+      console.warn("Missing refresh_token in URL");
+    }
+  }, []);
 
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center border-2 border-red-500 absolute inset-0">
