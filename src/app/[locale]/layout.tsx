@@ -14,6 +14,7 @@ export default async function LocaleLayout({
   const awaitedParams = await params;
   const locale = awaitedParams.locale;
 
+  //eslint-disable-next-line
   if (!locale || !routing.locales.includes(locale as any)) {
     notFound();
   }
