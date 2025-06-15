@@ -16,12 +16,16 @@ export default function AdminPage() {
   const router = useRouter();
   useEffect(() => {
     async function fetchUser() {
+      //eslint-disable-next-line
       const { data, error } = await supabase.auth.getUser();
 
-     /*  if (error || !data.user) {
-        router.push("/");
-        return;
-      } */
+      if (error || !data.user) {
+/*         router.push("/");
+        return; */
+        console.log("Error:", error);
+        console.log("Data:", data);
+      }
+     
 
       setUser(data.user);
       setAuthenticated(true);
