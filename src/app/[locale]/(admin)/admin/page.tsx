@@ -17,7 +17,7 @@ export default function AdminPage() {
       const { data, error } = await supabase.auth.getUser();
 
       if (error || !data.user) {
-        router.push("/login");
+        router.push("/");
         return;
       }
 
