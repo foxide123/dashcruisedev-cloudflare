@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
 
     const supabase = await createClient();
 
-    let query = supabase.from("ArticleTranslation").select(`
+    let query = supabase.from("article_translation").select(`
       slug,
       locale:Locale (
         locale

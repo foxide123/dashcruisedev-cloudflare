@@ -4,8 +4,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import sanitizeHtml from 'sanitize-html';
-import { supabase } from '@/lib/supabaseClient';
 import 'quill/dist/quill.snow.css';
+import { createClient } from '@/utils/supabase/client';
 
 type Post = {
     id: string;
@@ -14,6 +14,8 @@ type Post = {
     content: string;
     created_at: string;
 };
+
+const supabase = createClient();
 
 export default function ArticlesTab() {
     const editorRef = useRef<HTMLDivElement>(null);

@@ -1,11 +1,13 @@
 /* import { useState } from 'react'; */
 "use client";
 import OverviewTab from "@/features/admin/OverviewTab";
+import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
 
 export const dynamic = "force-dynamic";
+
+const supabase = createClient();
 
 export default function AdminPage() {
   //eslint-disable-next-line
@@ -19,7 +21,7 @@ export default function AdminPage() {
       const { data, error } = await supabase.auth.getUser();
 
       if (error || !data.user) {
-        router.push("/");
+        router.replace("/");
         return; 
       }
      
