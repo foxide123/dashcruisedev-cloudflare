@@ -2,9 +2,11 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { supabase } from '@/lib/supabaseClient';  //:contentReference[oaicite:4]{index=4}&#8203;:contentReference[oaicite:5]{index=5}
+import { createClient } from '@/utils/supabase/client';
 
 type Product = { id: number; name: string };
+
+const supabase = createClient();
 
 export default function ProductsTab() {
     const [items, setItems] = useState<Product[]>([]);

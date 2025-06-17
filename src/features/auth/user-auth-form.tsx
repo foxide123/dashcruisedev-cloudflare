@@ -18,35 +18,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { PasswordInput } from "@/features/auth/password-input";
 import { LoaderCircle } from "lucide-react";
-import { supabase } from "@/lib/supabaseClient";
-
-const GoogleIcon = () => (
-  <svg
-    aria-hidden="true"
-    focusable="false"
-    role="img"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 48 48"
-    className="size-5"
-  >
-    <path
-      fill="#fbc02d"
-      d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12 s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20 s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
-    />
-    <path
-      fill="#e53935"
-      d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039 l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
-    />
-    <path
-      fill="#4caf50"
-      d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36 c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
-    />
-    <path
-      fill="#1565c0"
-      d="M43.611,20.083L43.595,20L42,20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571 c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
-    />
-  </svg>
-);
+import { createClient } from "@/utils/supabase/client";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 type UserAuthFormProps = HTMLAttributes<HTMLDivElement>;
 
@@ -65,11 +39,16 @@ const formSchema = z.object({
     }),
 });
 
+const supabase = createClient();
+
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState<boolean>(false);
-/*   const [error, setError] = useState<string | null>(null);
- */
+  const [error, setError] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -78,20 +57,51 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     },
   });
 
-  async function onSubmit(data: z.infer<typeof formSchema>) {
+  const handleSubmit = async (formData: FormData) => {
+    setError("");
     setIsLoading(true);
-    // eslint-disable-next-line no-console
-    console.log(data);
 
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-  }
+    const email = formData.get("email")?.toString();
+    const password = formData.get("password")?.toString();
+
+    if (!email || !password) {
+      setError("Please input email and password first");
+    }
+
+    try {
+      const { data, error: signInError } =
+        await supabase.auth.signInWithPassword({
+          email: email!,
+          password: password!,
+        });
+
+      if (signInError) {
+        setError(`${signInError.message}`);
+        setIsLoading(false);
+      }
+
+      if (data.session) {
+        if (data.weakPassword) {
+          toast("Your password is weak:", {
+            description: `Message: ${data.weakPassword.message}, Reason: ${data.weakPassword.reasons}`,
+          });
+        }
+
+        router.push("/admin");
+      }
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("An unknown error occurred");
+      }
+    }
+  };
 
   return (
     <div className={cn("grid gap-6", className)} {...props}>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
+        <form action={handleSubmit}>
           <div className="grid gap-2">
             <FormField
               control={form.control}
@@ -100,7 +110,11 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
                 <FormItem className="space-y-1">
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="name@example.com" {...field} />
+                    <Input
+                      placeholder="name@example.com"
+                      {...field}
+                      name="email"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -121,18 +135,24 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
                     </Link>
                   </div>
                   <FormControl>
-                    <PasswordInput placeholder="********" {...field} />
+                    <PasswordInput
+                      placeholder="********"
+                      {...field}
+                      name="password"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button className="mt-2" disabled={isLoading}>
-              Login
+            <Button className="mt-2" disabled={isLoading} type="submit">
+              {isLoading ? "Signing in..." : "Sign in"}
             </Button>
           </div>
         </form>
       </Form>
+
+      {error && <p className="text-red-500 text-lg my-4">{error}</p>}
 
       <div className="relative my-2">
         <div className="absolute inset-0 flex items-center">
@@ -162,7 +182,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         {isGoogleLoading ? (
           <LoaderCircle className="animate-spin size-5" />
         ) : (
-          <GoogleIcon />
+          <img src="/google-icon.svg" width={25} height={25} />
         )}
         <span className="ml-2">Login with Google</span>
       </Button>

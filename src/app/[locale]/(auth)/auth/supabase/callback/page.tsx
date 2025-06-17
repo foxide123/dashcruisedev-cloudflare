@@ -1,5 +1,6 @@
 "use client";
-import { supabase } from "@/lib/supabaseClient";
+
+import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { z } from "zod";
@@ -17,12 +18,15 @@ const passwordSchema = z.object({
   password: passwordValidation,
 });
 
+const supabase = createClient();
+
 export default function SupabaseCallback() {
   const router = useRouter();
 
   const [error, setError] = useState("");
 
   const handleSetPassword = async (formData: FormData) => {
+
     const password = formData.get("password")?.toString();
     const confirmPassword = formData.get("confirmPassword")?.toString();
 
@@ -82,7 +86,7 @@ export default function SupabaseCallback() {
   }, []);
 
   return (
-    <div className="w-screen h-screen flex flex-col justify-center items-center border-2 border-red-500 absolute inset-0">
+    <div className="w-screen h-screen flex flex-col justify-center items-center absolute inset-0">
       <div className="w-[500px] max-w-full">
         <h2>Hello 👋</h2>
         <p className="mt-4">Finish your set up by creating a password.</p>

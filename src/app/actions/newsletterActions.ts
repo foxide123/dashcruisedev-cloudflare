@@ -29,7 +29,7 @@ export async function newsletterSignup({
   try {
     const { createClient } = await import("@/utils/supabase/server");
     const supabase = await createClient();
-    const { error } = await supabase.from("Newsletter").insert({ email });
+    const { error } = await supabase.from("newsletter").insert({ email });
 
     if (error) {
       if (error.code === "23505") {

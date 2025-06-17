@@ -1,10 +1,12 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { supabase } from '@/lib/supabaseClient';  // :contentReference[oaicite:6]{index=6}&#8203;:contentReference[oaicite:7]{index=7}
 import { useParams } from 'next/navigation';
+import { createClient } from '@/utils/supabase/client';
 
 type Issue = { id: number; text: string };
+
+const supabase = createClient();
 
 export default function ProjectDetail() {
     const params = useParams();

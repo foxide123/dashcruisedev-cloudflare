@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { supabase } from '@/lib/supabaseClient';  // :contentReference[oaicite:0]{index=0}&#8203;:contentReference[oaicite:1]{index=1}
+import { createClient } from '@/utils/supabase/client';
 
 type Message = {
     id: string;
@@ -10,6 +10,8 @@ type Message = {
     sender: 'admin' | 'client';
     created_at: string;
 };
+
+const supabase = createClient();
 
 export default function ChatTab() {
     const [msgs, setMsgs] = useState<Message[]>([]);
