@@ -1,12 +1,15 @@
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
-import { type NextRequest } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { updateSession } from "@/utils/supabase/middleware";
+import { createClient } from "./utils/supabase/server";
+import { redirect } from "next/navigation";
+import { verifyJwt } from "./utils/jwt/jwt";
 
 const handleI18nRouting = createMiddleware(routing);
 
 export async function middleware(request: NextRequest) {
-/*   const { pathname } = request.nextUrl; */
+  /*   const { pathname } = request.nextUrl; */
   let response = handleI18nRouting(request);
 
   if (response.cookies.get("NEXT_LOCALE")) {
@@ -14,6 +17,47 @@ export async function middleware(request: NextRequest) {
   }
 
   response = await updateSession(request, response);
+
+  const isProtectedRoute = !request.nextUrl.pathname.startsWith("/login");
+  if (isProtectedRoute) {
+    const supabase = await createClient();
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
+    if (!session) {
+      return NextResponse.redirect(new URL("/", request.url));
+    }
+
+    try {
+      const token = session.access_token;
+      //eslint-disable-next-line
+      const payload: any = verifyJwt(token);
+      if (!payload) {
+        return NextResponse.redirect(new URL("/", request.url));
+      } else {
+        const currentPath = request.nextUrl.pathname;
+        if (payload.user_role === "admin") {
+          if (
+            currentPath === "/en" ||
+            currentPath === "/"
+          ) {
+            return NextResponse.redirect(new URL("/en/admin", request.url));
+          }
+        } else {
+          if (
+            currentPath === "/en" ||
+            currentPath === "/"
+          ) {
+            return NextResponse.redirect(new URL("/en/dashboard", request.url));
+          }
+        }
+      }
+    } catch (error) {
+      console.error("Error verifying jwt:", error);
+      return NextResponse.redirect(new URL("/", request.url));
+    }
+  }
 
   response.headers.set(
     "Cache-Control",
