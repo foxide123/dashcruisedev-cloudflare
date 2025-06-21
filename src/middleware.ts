@@ -8,6 +8,9 @@ import { verifyJwt } from "./utils/jwt/jwt";
 const handleI18nRouting = createMiddleware(routing);
 
 export async function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+  const authRoutes = ["", "/"];
+
   /*   const { pathname } = request.nextUrl; */
   let response = handleI18nRouting(request);
 
@@ -17,8 +20,7 @@ export async function middleware(request: NextRequest) {
 
   response = await updateSession(request, response);
 
-  const isProtectedRoute = !request.nextUrl.pathname.startsWith("/login");
-  if (isProtectedRoute) {
+  if (authRoutes.includes(pathname)) {
     const supabase = await createClient();
     const {
       data: { session },
