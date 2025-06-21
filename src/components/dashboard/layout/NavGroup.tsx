@@ -30,6 +30,8 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { NavCollapsible, NavItem, NavLink, NavSubLink, type NavGroup } from '@/types/dashboard_types';
+import { clsx } from 'clsx';
+
 
 export function NavGroup({ title, items }: NavGroup) {
   const { state } = useSidebar()
@@ -44,7 +46,7 @@ export function NavGroup({ title, items }: NavGroup) {
           const key = `${item.title}-${item.url}`
 
           if (!item.items)
-            return <SidebarMenuLink key={key} item={item} href={href} />
+            return <SidebarMenuLink key={key} item={item} href={href}/>
 
           if (state === 'collapsed')
             return (
@@ -63,7 +65,10 @@ const NavBadge = ({ children }: { children: ReactNode }) => (
 )
 
 const SidebarMenuLink = ({ item, href }: { item: NavLink; href: string }) => {
-  const { setOpenMobile } = useSidebar()
+  const { setOpenMobile } = useSidebar();
+  const pathname = usePathname();
+  const pathnameWithoutLocale = pathname?.replace(/^\/en/, '');
+  console.log("Pathname:", pathnameWithoutLocale);
   return (
     <SidebarMenuItem>
       <SidebarMenuButton
@@ -71,7 +76,7 @@ const SidebarMenuLink = ({ item, href }: { item: NavLink; href: string }) => {
         isActive={checkIsActive(href, item)}
         tooltip={item.title}
       >
-        <Link href={item.url} onClick={() => setOpenMobile(false)}>
+        <Link href={item.url} onClick={() => setOpenMobile(false)} className={clsx(pathnameWithoutLocale===item.url && "bg-muted font-semibold")}>
           {item.icon && <item.icon />}
           <span>{item.title}</span>
           {item.badge && <NavBadge>{item.badge}</NavBadge>}

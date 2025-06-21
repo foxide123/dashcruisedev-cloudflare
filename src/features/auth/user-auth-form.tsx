@@ -45,8 +45,8 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+/*   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState(""); */
 
   const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
@@ -173,9 +173,15 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           const { error } = await supabase.auth.signInWithOAuth({
             provider: "google",
             options: {
-              redirectTo: `https://admin.dashcruise.com/en/auth/callback`,
+              queryParams: {
+                access_type: 'offline',
+                prompt: 'consent'
+              },
+              redirectTo: "http://localhost:3000/api/auth/callback"
+              //redirectTo: `https://admin.dashcruise.com/en/auth/callback`,
             },
           });
+          if(error){setIsGoogleLoading(false); setError(error.message)};
         }}
         disabled={isGoogleLoading}
       >

@@ -1,23 +1,18 @@
 import {
-    IconBarrierBlock,
     IconBrowserCheck,
-    IconBug,
     IconChecklist,
-    IconError404,
     IconHelp,
     IconLayoutDashboard,
-    IconLock,
-    IconLockAccess,
     IconMessages,
     IconNotification,
     IconPalette,
-    IconServerOff,
     IconSettings,
     IconTool,
     IconUserCog,
-    IconUserOff,
     IconArticle,
-    IconBellRinging2
+    IconBellRinging2,
+    IconClipboardCheck,
+    IconBuildingStore
   } from '@tabler/icons-react'
   import { AudioWaveform, Command, GalleryVerticalEnd } from 'lucide-react'
   import { type SidebarData } from '@/types/dashboard_types'
@@ -55,20 +50,29 @@ import {
             icon: IconLayoutDashboard,
           },
           {
-            title: 'Articles',
-            url: '/dashboard/articles',
-            icon: IconArticle,
+            title: "Websites",
+            url: "/dashboard/websites",
+            icon: IconClipboardCheck
+          },
+          {
+            title: "Chat",
+            url: "/dashboard/chat",
+            icon: IconMessages
+          },
+          {
+            title: "Products",
+            url: "/dashboard/products",
+            icon: IconBuildingStore
+          },
+          {
+            title: "Articles",
+            url: "/dashboard/articles",
+            icon: IconArticle
           },
           {
             title: 'Tasks',
             url: '/dashboard/tasks',
             icon: IconChecklist,
-          },
-          {
-            title: 'Chats',
-            url: '/dashboard/chats',
-            badge: '3',
-            icon: IconMessages,
           },
           {
             title: "Notifications",
@@ -78,7 +82,7 @@ import {
           }
         ],
       },
-      {
+/*       {
         title: 'Your Pages',
         items: [
           {
@@ -118,7 +122,7 @@ import {
             ],
           },
         ],
-      },
+      }, */
       {
         title: 'Other',
         items: [

@@ -21,10 +21,12 @@ export default function AdminPage() {
       const { data, error } = await supabase.auth.getUser();
 
       if (error || !data.user) {
+        console.error("Get user error:", error);
         router.replace("/");
         return; 
       }
-     
+
+      console.log("Data:", data);
 
       setUser(data.user);
       setLoading(false);

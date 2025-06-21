@@ -8,16 +8,14 @@ import { ReactNode } from "react";
 import "@/app/globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { AdminLayoutClient } from "@/features/admin/layout/AdminLayoutClient";
 import Script from "next/script";
 import BackgroundAnimation from "@/components/bgAnimation/BackgroundAnimation";
 
-import ClientScripts from "@/features/admin/ClientScripts";
-//eslint-disable-next-line
-import PrivateAdminRoute from "@/features/auth/private-admin-route";
+/* import ClientScripts from "@/features/admin/ClientScripts"; */
 import { createClient } from "@/utils/supabase/server";
 
 import jwt from "jsonwebtoken";
+import { ClientLayout } from "@/features/client/layout/ClientLayout";
 
 config.autoAddCss = false;
 
@@ -73,17 +71,13 @@ export default async function RootLayout({
   //eslint-disable-next-line
   let payload: any;
   try {
+    //eslint-disable-next-line
     payload = jwt.verify(token, process.env.SUPABASE_JWT_SECRET!);
   } catch (error) {
     console.error("Error verifying jwt:", error);
     redirect("/");
   }
 
-  console.log("Payload:", payload);
-
-  if (payload.user_role !== "admin") {
-    redirect("/dashboard");
-  }
 
   return (
     <html>
@@ -108,9 +102,7 @@ export default async function RootLayout({
         {/*         <PrivateAdminRoute> */}
         <BackgroundAnimation />
 
-        <ClientScripts />
-
-        <AdminLayoutClient>{children}</AdminLayoutClient>
+        <ClientLayout>{children}</ClientLayout>
         {/*         </PrivateAdminRoute> */}
       </body>
     </html>

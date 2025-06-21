@@ -1,20 +1,22 @@
 'use client'
 
-import { SidebarProvider } from "@/components/ui/sidebar";
+/* import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage } from "@/components/ui/breadcrumb";
+import { Separator } from "@/components/ui/separator"; */
+import { SiteHeader } from "@/components/common/site-header"
+import { SidebarProvider, /* SidebarTrigger */ } from "@/components/ui/sidebar";
 import { SearchProvider } from "@/context/SearchContext";
-import { AppSidebar } from "@/components/dashboard/layout/AppSidebar";
-import SkipToMain from "@/components/dashboard/SkipToMain";
+import { ClientAppSidebar } from "@/features/client/layout/ClientAppSidebar";
 import { cn } from "@/lib/utils";
 import Cookies from "js-cookie";
 
-export function LayoutClient({ children }: { children: React.ReactNode }) {
+export function ClientLayout({ children }: { children: React.ReactNode }) {
   const defaultOpen = Cookies.get("sidebar:state") !== "false";
 
   return (
     <SearchProvider>
-      <SidebarProvider defaultOpen={defaultOpen}>
-        <SkipToMain />
-        <AppSidebar />
+      <SidebarProvider defaultOpen={defaultOpen} className="flex flex-col">
+        <SiteHeader/>
+        <ClientAppSidebar className="w-[250px] pt-12 pl-0"/>
         <div
           id="content"
           className={cn(
