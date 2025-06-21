@@ -3,7 +3,6 @@ import { routing } from "./i18n/routing";
 import { NextResponse, type NextRequest } from "next/server";
 import { updateSession } from "@/utils/supabase/middleware";
 import { createClient } from "./utils/supabase/server";
-import { redirect } from "next/navigation";
 import { verifyJwt } from "./utils/jwt/jwt";
 
 const handleI18nRouting = createMiddleware(routing);

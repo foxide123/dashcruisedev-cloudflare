@@ -1,5 +1,5 @@
 // app/[locale]/layout.tsx
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
@@ -13,11 +13,6 @@ import Script from "next/script";
 import BackgroundAnimation from "@/components/bgAnimation/BackgroundAnimation";
 
 import ClientScripts from "@/features/admin/ClientScripts";
-//eslint-disable-next-line
-import PrivateAdminRoute from "@/features/auth/private-admin-route";
-import { createClient } from "@/utils/supabase/server";
-
-import jwt from "jsonwebtoken";
 
 config.autoAddCss = false;
 
