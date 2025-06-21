@@ -1,3 +1,4 @@
+'use server';
 import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
@@ -28,7 +29,7 @@ export async function createClient() {
   )
 } 
 
-export function createAdminClient() {
+export async function createAdminClient() {
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!,
