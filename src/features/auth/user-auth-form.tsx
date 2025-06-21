@@ -44,6 +44,7 @@ const supabase = createClient();
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = useState(false);
+  //eslint-disable-next-line
   const [isGoogleLoading, setIsGoogleLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   /*   const [email, setEmail] = useState("");
