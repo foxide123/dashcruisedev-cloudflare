@@ -41,6 +41,8 @@ const formSchema = z.object({
 
 const supabase = createClient();
 
+const urlCallback = process.env.NODE_ENV === "development" ? "http://localhost:3000/api/auth/callback" : "https://admin.dashcruise.com/api/auth/callback"
+
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState<boolean>(false);
@@ -177,7 +179,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
                 access_type: 'offline',
                 prompt: 'consent'
               },
-              redirectTo: "http://localhost:3000/api/auth/callback"
+              redirectTo: urlCallback
               //redirectTo: `https://admin.dashcruise.com/en/auth/callback`,
             },
           });
