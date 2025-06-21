@@ -58,33 +58,6 @@ export default async function RootLayout({
     notFound();
   }
 
-  const supabase = await createClient();
-  const { data, error } = await supabase.auth.getSession();
-  if (error) {
-    redirect("/");
-  }
-
-  const token = data?.session?.access_token;
-
-  if (!token) {
-    redirect("/");
-  }
-
-  //eslint-disable-next-line
-  let payload: any;
-  try {
-    payload = jwt.verify(token, process.env.SUPABASE_JWT_SECRET!);
-  } catch (error) {
-    console.error("Error verifying jwt:", error);
-    redirect("/");
-  }
-
-  console.log("Payload:", payload);
-
-  if (payload.user_role !== "admin") {
-    redirect("/dashboard");
-  }
-
   return (
     <html>
       <head>
