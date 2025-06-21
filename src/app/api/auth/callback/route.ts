@@ -22,11 +22,9 @@ export async function GET(request: NextRequest) {
         /* return NextResponse.redirect(`${origin}${next}`); */
         return NextResponse.redirect('http://localhost:3000/admin');
       } else if (forwardedHost) {
-        /* return NextResponse.redirect(`https://${forwardedHost}${next}`); */
-        return NextResponse.redirect('http://localhost:3000/admin');
+        return NextResponse.redirect(`https://${forwardedHost}${next}`); 
       } else {
-        /* return NextResponse.redirect(`${origin}${next}`); */
-        return NextResponse.redirect('http://localhost:3000/admin');
+        return NextResponse.redirect(`${origin}${next}`);
       }
     }
     if(error){
