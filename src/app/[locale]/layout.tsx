@@ -19,5 +19,6 @@ export default async function LocaleLayout({
     notFound();
   }
   setRequestLocale(locale);
+  
   return <>{children}</>; // this renders the nested (admin)/admin/layout.tsx
 }

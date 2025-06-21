@@ -77,7 +77,7 @@ import {
           {
             title: "Notifications",
             url: "/admin/notifications",
-            badge: '2',
+            badge: '0',
             icon: IconBellRinging2
           }
         ],
