@@ -21,6 +21,7 @@ import { LoaderCircle } from "lucide-react";
 import { createClient } from "@/utils/supabase/client";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { signInWithGoogle } from "@/app/actions/oAuthActions";
 
 type UserAuthFormProps = HTMLAttributes<HTMLDivElement>;
 
@@ -41,13 +42,11 @@ const formSchema = z.object({
 
 const supabase = createClient();
 
-const urlCallback = process.env.NODE_ENV === "development" ? "http://localhost:3000/api/auth/callback" : "https://admin.dashcruise.com/api/auth/callback"
-
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-/*   const [email, setEmail] = useState("");
+  /*   const [email, setEmail] = useState("");
   const [password, setPassword] = useState(""); */
 
   const router = useRouter();
@@ -166,34 +165,27 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           </span>
         </div>
       </div>
-      <Button
-        variant="outline"
-        className="w-full"
-        onClick={async () => {
-          setIsGoogleLoading(true);
-          //eslint-disable-next-line
-          const { error } = await supabase.auth.signInWithOAuth({
-            provider: "google",
-            options: {
-              queryParams: {
-                access_type: 'offline',
-                prompt: 'consent'
-              },
-              redirectTo: urlCallback
-              //redirectTo: `https://admin.dashcruise.com/en/auth/callback`,
-            },
-          });
-          if(error){setIsGoogleLoading(false); setError(error.message)};
-        }}
-        disabled={isGoogleLoading}
-      >
-        {isGoogleLoading ? (
-          <LoaderCircle className="animate-spin size-5" />
-        ) : (
-          <img src="/google-icon.svg" width={25} height={25} />
-        )}
-        <span className="ml-2">Login with Google</span>
-      </Button>
+      <form action={signInWithGoogle}>
+        <Button
+          variant="outline"
+          className="w-full"
+          type="submit"
+          /* formAction={signInWithGoogle}
+          onClick={async () => {
+            setIsGoogleLoading(true);
+            signInWithGoogle;
+            setIsGoogleLoading(false);
+          }}
+          disabled={isGoogleLoading} */
+        >
+          {isGoogleLoading ? (
+            <LoaderCircle className="animate-spin size-5" />
+          ) : (
+            <img src="/google-icon.svg" width={25} height={25} />
+          )}
+          <span className="ml-2">Login with Google</span>
+        </Button>
+      </form>
     </div>
   );
 }
