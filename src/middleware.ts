@@ -8,8 +8,8 @@ import { verifyJwt } from "./utils/jwt/jwt";
 const handleI18nRouting = createMiddleware(routing);
 
 export async function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname;
-  const authRoutes = ["", "/"];
+  const pathname = new URL(request.url).pathname;
+  const authRoutes = ["/", "/en"];
 
   /*   const { pathname } = request.nextUrl; */
   let response = handleI18nRouting(request);
@@ -27,7 +27,7 @@ export async function middleware(request: NextRequest) {
     } = await supabase.auth.getSession();
 
     if (!session) {
-      return NextResponse.redirect(new URL("/", request.url));
+      return response;
     }
 
     try {
