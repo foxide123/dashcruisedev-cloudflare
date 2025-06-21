@@ -59,12 +59,14 @@ export default async function RootLayout({
   const supabase = await createClient();
   const { data, error } = await supabase.auth.getSession();
   if (error) {
+    console.error("Error retrieving session:", error);
     redirect("/");
   }
 
   const token = data?.session?.access_token;
 
   if (!token) {
+    console.log("No token found:", token);
     redirect("/");
   }
 
