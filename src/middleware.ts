@@ -18,7 +18,7 @@ function secureRedirect(path: string, request: NextRequest){
 
 export async function middleware(request: NextRequest) {
   const currentPath = request.nextUrl.pathname;
-  const redirectablePaths = ["/", "/en"];
+  const redirectablePaths = ["/"];
   const protectedRoutes = [
     "/admin",
     "/dashboard",
