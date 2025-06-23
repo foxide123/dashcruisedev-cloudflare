@@ -1,5 +1,4 @@
 import { jwtVerify } from "jose";
-import { createClient } from "../supabase/server";
 
 export function verifyJwt(token: string) {
   try {
