@@ -38,19 +38,14 @@ export async function middleware(request: NextRequest) {
     response.cookies.delete("NEXT_LOCALE");
   } */
 
-  response = await updateSession(request, response);
-
-  const supabase = await createClient();
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+  const { response: updatedResponse, session } = await updateSession(request, response);
 
   if (!session) {
     // Allow non-authenticated users to hit public routes, deny protected
     if (isProtectedRoute) {
       return secureRedirect("/", request);
     }
-    return response;
+    return updatedResponse;
   }
 
   try {
@@ -75,12 +70,12 @@ export async function middleware(request: NextRequest) {
       return secureRedirect("/en/admin", request);
     }
 
-    response.headers.set(
+    updatedResponse.headers.set(
       "Cache-Control",
       "public, max-age=3600, s-maxage=300, stale-while-revalidate=2592000"
     );
 
-    return response;
+    return updatedResponse;
   } catch (error) {
     console.error("Error verifying jwt:", error);
     return secureRedirect("/", request);
