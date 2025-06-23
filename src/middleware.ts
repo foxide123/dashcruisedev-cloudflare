@@ -52,40 +52,42 @@ export async function middleware(request: NextRequest) {
     return updatedResponse;
   }
 
-  try {
-    const token = session.access_token;
-    //eslint-disable-next-line
-    const payload: any = await verifyJwt(token);
-    const userRole = payload.payload.user_role;
-    console.log("User role:", userRole);
-/* 
-    if (shouldRedirectFromRoot) {
-      if (userRole === "admin" && !currentPath.includes("/admin")) {
-        return secureRedirect("/en/admin", request);
+  const token = session.access_token;
+
+  if (!token) {
+    if (protectedRoutes) {
+      return secureRedirect("/", request);
+    }
+  }
+  
+    try {
+      //eslint-disable-next-line
+      const payload: any = await verifyJwt(token);
+      if(!payload){
+        return secureRedirect('/', request);
       }
-      if (userRole !== "admin" && !currentPath.includes("/dashboard")) {
+      const userRole = payload.payload.user_role;
+      console.log("User role:", userRole);
+
+      if (userRole !== "admin" && currentPath.includes("/admin")) {
         return secureRedirect("/en/dashboard", request);
       }
-    }
- */
-    if (userRole !== "admin" && currentPath.includes("/admin")) {
-      return secureRedirect("/en/dashboard", request);
+
+      if (userRole === "admin" && currentPath.includes("/dashboard")) {
+        return secureRedirect("/en/admin", request);
+      }
+
+     /*  updatedResponse.headers.set(
+        "Cache-Control",
+        "public, max-age=3600, s-maxage=300, stale-while-revalidate=2592000"
+      ); */
+
+      return updatedResponse;
+    } catch (error) {
+      console.error("Error verifying jwt:", error);
+      return secureRedirect("/", request);
     }
 
-    if (userRole === "admin" && currentPath.includes("/dashboard")) {
-      return secureRedirect("/en/admin", request);
-    }
-
-    updatedResponse.headers.set(
-      "Cache-Control",
-      "public, max-age=3600, s-maxage=300, stale-while-revalidate=2592000"
-    );
-
-    return updatedResponse;
-  } catch (error) {
-    console.error("Error verifying jwt:", error);
-    return secureRedirect("/", request);
-  }
 }
 
 export const config = {
