@@ -31,6 +31,10 @@ export async function middleware(request: NextRequest) {
   /*   const { pathname } = request.nextUrl; */
   let response = handleI18nRouting(request);
 
+  if(!response.ok){
+    return response;
+  }
+
   if (response.cookies.get("NEXT_LOCALE")) {
     response.cookies.delete("NEXT_LOCALE");
   }
