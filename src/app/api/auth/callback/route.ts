@@ -7,10 +7,13 @@ export async function GET(request: NextRequest) {
 
   const code = searchParams.get("code");
 
-  let next = searchParams.get("next") ?? "/en/dashboard";
+/*   let next = searchParams.get("next") ?? "/en/dashboard";
   if (!next.startsWith("/")) {
     next = "/en/dashboard";
   }
+ */
+
+  const next = "/en/dashboard";
 
   if (code) {
     const supabase = await createClient();
@@ -20,7 +23,7 @@ export async function GET(request: NextRequest) {
       const isLocalEnv = process.env.NODE_ENV === "development";
       if (isLocalEnv || origin.includes("localhost")) {
         /* return NextResponse.redirect(`${origin}${next}`); */
-        return NextResponse.redirect('http://localhost:3000/admin');
+        return NextResponse.redirect('http://localhost:3000/dashboard');
       } else if (forwardedHost) {
         return NextResponse.redirect(`https://${forwardedHost}${next}`); 
       } else {
