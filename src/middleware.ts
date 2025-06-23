@@ -24,12 +24,13 @@ export async function middleware(request: NextRequest) {
     "/en/dashboard",
   ];
 /*   const redirectableRoutes = ["/", "/en"]; */
+//eslint-disable-next-line
   const isProtectedRoute = protectedRoutes.includes(currentPath);
   //eslint-disable-next-line
 /*   const shouldRedirectFromRoot = redirectableRoutes.includes(currentPath); */
 
   /*   const { pathname } = request.nextUrl; */
-  let response = handleI18nRouting(request);
+  const response = handleI18nRouting(request);
 
   if (!response.ok) {
     return response;
