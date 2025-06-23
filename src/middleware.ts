@@ -6,7 +6,7 @@ import { verifyJwt } from "./utils/jwt/jwt";
 
 const handleI18nRouting = createMiddleware(routing);
 
-function secureRedirect(path: string, request: NextRequest){
+function secureRedirect(path: string, request: NextRequest) {
   const url = new URL(path, request.url);
   const response = NextResponse.redirect(url);
   response.headers.set("X-Content-Type-Options", "nosniff");
@@ -23,24 +23,28 @@ export async function middleware(request: NextRequest) {
     "/en/admin",
     "/en/dashboard",
   ];
+  const redirectableRoutes = ["/", "/en"];
   const isProtectedRoute = protectedRoutes.includes(currentPath);
-  const shouldRedirectFromRoot = currentPath === "/";
+  const shouldRedirectFromRoot = redirectableRoutes.includes(currentPath);
 
   /*   const { pathname } = request.nextUrl; */
   const response = handleI18nRouting(request);
 
-  if(!response.ok){
+  if (!response.ok) {
     return response;
   }
 
-/*   if (response.cookies.get("NEXT_LOCALE")) {
+  /*   if (response.cookies.get("NEXT_LOCALE")) {
     response.cookies.delete("NEXT_LOCALE");
   } */
 
-  const { response: updatedResponse, session } = await updateSession(request, response);
+  const { response: updatedResponse, session } = await updateSession(
+    request,
+    response
+  );
 
   if (!session) {
-    console.log("NO session")
+    console.log("NO session");
     if (isProtectedRoute) {
       return secureRedirect("/", request);
     }
@@ -55,18 +59,19 @@ export async function middleware(request: NextRequest) {
     console.log("User role:", userRole);
 
     if (shouldRedirectFromRoot) {
-      if (userRole === "admin") {
+      if (userRole === "admin" && !currentPath.includes("/admin")) {
         return secureRedirect("/en/admin", request);
-      } else {
+      }
+      if (userRole !== "admin" && !currentPath.includes("/dashboard")) {
         return secureRedirect("/en/dashboard", request);
       }
     }
-
+    
     if (userRole !== "admin" && currentPath.includes("/admin")) {
       return secureRedirect("/en/dashboard", request);
     }
 
-    if(userRole === "admin" && currentPath.includes("/dashboard")){
+    if (userRole === "admin" && currentPath.includes("/dashboard")) {
       return secureRedirect("/en/admin", request);
     }
 
