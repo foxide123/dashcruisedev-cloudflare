@@ -23,64 +23,47 @@ export async function middleware(request: NextRequest) {
     "/en/admin",
     "/en/dashboard",
   ];
-/*   const redirectableRoutes = ["/", "/en"]; */
-//eslint-disable-next-line
-  const isProtectedRoute = protectedRoutes.includes(currentPath);
-  //eslint-disable-next-line
-/*   const shouldRedirectFromRoot = redirectableRoutes.includes(currentPath); */
+  const isProtected = protectedRoutes.includes(currentPath);
 
-  /*   const { pathname } = request.nextUrl; */
   const response = handleI18nRouting(request);
 
   if (!response.ok) {
     return response;
   }
 
-  /*   if (response.cookies.get("NEXT_LOCALE")) {
-    response.cookies.delete("NEXT_LOCALE");
-  } */
-
-  const { response:updatedResponse, session } = await updateSession(
-    request, response
+  const { response: updatedResponse, session } = await updateSession(
+    request,
+    response
   );
 
-
-  const token = session?.access_token;
-
-  if (!token) {
-    if (protectedRoutes) {
+  if (!session) {
+    if (isProtected) {
       return secureRedirect("/", request);
     }
+    return updatedResponse;
   }
-  
-    try {
-      //eslint-disable-next-line
-      const payload: any = await verifyJwt(token!);
-      if(!payload){
-        return secureRedirect('/', request);
-      }
-      const userRole = payload.payload.user_role;
-      console.log("User role:", userRole);
 
-      if (userRole !== "admin" && currentPath.includes("/admin")) {
-        return secureRedirect("/en/dashboard", request);
-      }
-
-      if (userRole === "admin" && currentPath.includes("/dashboard")) {
-        return secureRedirect("/en/admin", request);
-      }
-
-     /*  updatedResponse.headers.set(
-        "Cache-Control",
-        "public, max-age=3600, s-maxage=300, stale-while-revalidate=2592000"
-      ); */
-
-      return updatedResponse;
-    } catch (error) {
-      console.error("Error verifying jwt:", error);
+  try {
+    //eslint-disable-next-line
+    const payload: any = await verifyJwt(session.access_token);
+    if (!payload) {
       return secureRedirect("/", request);
     }
+    const userRole = payload.payload.user_role;
 
+    if (userRole !== "admin" && currentPath.includes("/admin")) {
+      return secureRedirect("/en/dashboard", request);
+    }
+
+    if (userRole === "admin" && currentPath.includes("/dashboard")) {
+      return secureRedirect("/en/admin", request);
+    }
+
+    return updatedResponse;
+  } catch (error) {
+    console.error("Error verifying jwt:", error);
+    return secureRedirect("/", request);
+  }
 }
 
 export const config = {
