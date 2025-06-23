@@ -18,7 +18,6 @@ function secureRedirect(path: string, request: NextRequest){
 
 export async function middleware(request: NextRequest) {
   const currentPath = request.nextUrl.pathname;
-  const redirectablePaths = ["/en"];
   const protectedRoutes = [
     "/admin",
     "/dashboard",
@@ -26,7 +25,7 @@ export async function middleware(request: NextRequest) {
     "/en/dashboard",
   ];
   const isProtectedRoute = protectedRoutes.includes(currentPath);
-  const shouldRedirectFromRoot = redirectablePaths.includes(currentPath);
+  const shouldRedirectFromRoot = currentPath === "/";
 
   /*   const { pathname } = request.nextUrl; */
   let response = handleI18nRouting(request);
@@ -58,18 +57,22 @@ export async function middleware(request: NextRequest) {
     const token = session.access_token;
     //eslint-disable-next-line
     const payload: any = await verifyJwt(token);
-    console.log("Payload:", payload);
+    const userRole = payload.payload.user_role;
 
     if (shouldRedirectFromRoot) {
-      if (payload.user_role === "admin") {
+      if (userRole === "admin") {
         return secureRedirect("/en/admin", request);
       } else {
         return secureRedirect("/en/dashboard", request);
       }
     }
 
-    if (payload.user_role !== "admin" && currentPath.includes("/admin")) {
+    if (userRole !== "admin" && currentPath.includes("/admin")) {
       return secureRedirect("/en/dashboard", request);
+    }
+
+    if(userRole === "admin" && currentPath.includes("/dashboard")){
+      return secureRedirect("/en/admin", request);
     }
 
     response.headers.set(
