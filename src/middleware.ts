@@ -35,9 +35,9 @@ export async function middleware(request: NextRequest) {
     return response;
   }
 
-  if (response.cookies.get("NEXT_LOCALE")) {
+/*   if (response.cookies.get("NEXT_LOCALE")) {
     response.cookies.delete("NEXT_LOCALE");
-  }
+  } */
 
   response = await updateSession(request, response);
 
