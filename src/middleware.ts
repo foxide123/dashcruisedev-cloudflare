@@ -57,7 +57,7 @@ export async function middleware(request: NextRequest) {
     const payload: any = await verifyJwt(token);
     const userRole = payload.payload.user_role;
     console.log("User role:", userRole);
-
+/* 
     if (shouldRedirectFromRoot) {
       if (userRole === "admin" && !currentPath.includes("/admin")) {
         return secureRedirect("/en/admin", request);
@@ -66,7 +66,7 @@ export async function middleware(request: NextRequest) {
         return secureRedirect("/en/dashboard", request);
       }
     }
-    
+ */
     if (userRole !== "admin" && currentPath.includes("/admin")) {
       return secureRedirect("/en/dashboard", request);
     }
@@ -91,5 +91,5 @@ export const config = {
   /* matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)' */
   //exclude /en/auth/supabase/callback from middleware
   matcher:
-    "/((?!api|_next|static|public|.*\\..*|en/auth/supabase/callback|en/auth/callback).*)",
+    "/((?!api|_next|static|public|.*\\..*|en/auth/supabase/callback|en/auth/callback|api/auth/callback).*)",
 };
