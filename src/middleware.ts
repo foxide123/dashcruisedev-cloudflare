@@ -27,7 +27,7 @@ export async function middleware(request: NextRequest) {
   const shouldRedirectFromRoot = currentPath === "/";
 
   /*   const { pathname } = request.nextUrl; */
-  let response = handleI18nRouting(request);
+  const response = handleI18nRouting(request);
 
   if(!response.ok){
     return response;
