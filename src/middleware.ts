@@ -2,7 +2,6 @@ import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 import { NextResponse, type NextRequest } from "next/server";
 import { updateSession } from "@/utils/supabase/middleware";
-import { createClient } from "./utils/supabase/server";
 import { verifyJwt } from "./utils/jwt/jwt";
 
 const handleI18nRouting = createMiddleware(routing);
@@ -28,7 +27,7 @@ export async function middleware(request: NextRequest) {
   const shouldRedirectFromRoot = currentPath === "/";
 
   /*   const { pathname } = request.nextUrl; */
-  let response = handleI18nRouting(request);
+  const response = handleI18nRouting(request);
 
   if(!response.ok){
     return response;
