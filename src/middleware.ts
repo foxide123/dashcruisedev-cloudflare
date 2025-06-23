@@ -27,7 +27,7 @@ export async function middleware(request: NextRequest) {
   const shouldRedirectFromRoot = currentPath === "/";
 
   /*   const { pathname } = request.nextUrl; */
-  const response = handleI18nRouting(request);
+  let response = handleI18nRouting(request);
 
   if(!response.ok){
     return response;
@@ -40,7 +40,7 @@ export async function middleware(request: NextRequest) {
   const { response: updatedResponse, session } = await updateSession(request, response);
 
   if (!session) {
-    // Allow non-authenticated users to hit public routes, deny protected
+    console.log("NO session")
     if (isProtectedRoute) {
       return secureRedirect("/", request);
     }
@@ -52,6 +52,7 @@ export async function middleware(request: NextRequest) {
     //eslint-disable-next-line
     const payload: any = await verifyJwt(token);
     const userRole = payload.payload.user_role;
+    console.log("User role:", userRole);
 
     if (shouldRedirectFromRoot) {
       if (userRole === "admin") {
