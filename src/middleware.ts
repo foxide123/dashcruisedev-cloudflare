@@ -25,6 +25,7 @@ export async function middleware(request: NextRequest) {
   ];
   const redirectableRoutes = ["/", "/en"];
   const isProtectedRoute = protectedRoutes.includes(currentPath);
+  //eslint-disable-next-line
   const shouldRedirectFromRoot = redirectableRoutes.includes(currentPath);
 
   /*   const { pathname } = request.nextUrl; */
