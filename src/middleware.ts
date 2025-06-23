@@ -29,7 +29,7 @@ export async function middleware(request: NextRequest) {
 /*   const shouldRedirectFromRoot = redirectableRoutes.includes(currentPath); */
 
   /*   const { pathname } = request.nextUrl; */
-  const response = handleI18nRouting(request);
+  let response = handleI18nRouting(request);
 
   if (!response.ok) {
     return response;
@@ -39,20 +39,12 @@ export async function middleware(request: NextRequest) {
     response.cookies.delete("NEXT_LOCALE");
   } */
 
-  const { response: updatedResponse, session } = await updateSession(
-    request,
-    response
+  const { response:updatedResponse, session } = await updateSession(
+    request, response
   );
 
-  if (!session) {
-    console.log("NO session");
-    if (isProtectedRoute) {
-      return secureRedirect("/", request);
-    }
-    return updatedResponse;
-  }
 
-  const token = session.access_token;
+  const token = session?.access_token;
 
   if (!token) {
     if (protectedRoutes) {
@@ -62,7 +54,7 @@ export async function middleware(request: NextRequest) {
   
     try {
       //eslint-disable-next-line
-      const payload: any = await verifyJwt(token);
+      const payload: any = await verifyJwt(token!);
       if(!payload){
         return secureRedirect('/', request);
       }
