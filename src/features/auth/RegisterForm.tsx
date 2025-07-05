@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { PasswordInput } from "@/features/auth/password-input";
+import { PasswordInput } from "@/features/auth/PasswordInput";
 
 type SignUpFormProps = HTMLAttributes<HTMLDivElement>;
 

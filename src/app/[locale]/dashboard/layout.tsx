@@ -1,5 +1,5 @@
 // app/[locale]/layout.tsx
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
@@ -13,6 +13,8 @@ import BackgroundAnimation from "@/components/bgAnimation/BackgroundAnimation";
 
 /* import ClientScripts from "@/features/admin/ClientScripts"; */
 import { ClientLayout } from "@/features/client/layout/ClientLayout";
+import { createClient } from "@/utils/supabase/server";
+import { verifyJwt } from "@/utils/jwt/jwt";
 
 config.autoAddCss = false;
 
@@ -53,6 +55,23 @@ export default async function RootLayout({
     notFound();
   }
 
+  const supabase = await createClient();
+
+    const { data, error } = await supabase.auth.getSession();
+    if (error) redirect("/");
+    const accessToken = data.session?.access_token;
+    if (!accessToken) {
+      redirect("/");
+    }
+    //eslint-disable-next-line
+    const payload: any = await verifyJwt(accessToken);
+    if(!payload) console.log("issue verifying jwt:", payload);
+
+    const userRole = payload.payload.user_role;
+
+    if (userRole === "admin") {
+      redirect("/en/admin");
+    }
 
   return (
     <html>

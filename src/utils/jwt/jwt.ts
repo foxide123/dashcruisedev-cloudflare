@@ -1,6 +1,6 @@
 import { jwtVerify } from "jose";
 
-export function verifyJwt(token: string) {
+export async function verifyJwt(token: string) {
   try {
     return jwtVerify(
       token,

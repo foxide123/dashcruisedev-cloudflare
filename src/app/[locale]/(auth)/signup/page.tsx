@@ -1,4 +1,4 @@
-import { RegisterForm } from "@/features/auth/register-form";
+import { RegisterForm } from "@/features/auth/RegisterForm";
 import { Card } from "@/components/ui/card";
 import { routing } from "@/i18n/routing";
 import { setRequestLocale } from "next-intl/server";

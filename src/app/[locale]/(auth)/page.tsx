@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { UserAuthForm } from "@/features/auth/user-auth-form";
+import { UserAuthForm } from "@/features/auth/UserAuthForm";
 import Link from "next/link";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
